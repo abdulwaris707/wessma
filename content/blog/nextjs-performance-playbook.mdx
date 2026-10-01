@@ -1,0 +1,42 @@
+---
+title: "Our Next.js performance playbook for 95+ Lighthouse scores"
+excerpt: "The exact checklist our engineers use to ship marketing sites and web apps that load in under a second."
+date: "2026-07-22"
+category: "Engineering"
+author: "daniel-okafor"
+cover: "/images/blog/nextjs.webp"
+---
+
+Performance is a feature. A one-second delay in load time can cost up to 7% in conversions, and Core Web Vitals directly affect search rankings. Here is the playbook we apply to every Next.js project.
+
+## Server Components by default
+
+With the App Router, every component is a Server Component unless it needs interactivity. We treat `"use client"` as a budget: each one must justify the JavaScript it sends to the browser.
+
+## Images and fonts
+
+- Use `next/image` with explicit sizes and AVIF/WebP formats
+- Preload the hero image and lazy-load everything below the fold
+- Self-host fonts with `next/font` and `display: swap` to avoid layout shift
+
+## Ship less JavaScript
+
+We audit bundles on every pull request. Heavy libraries — maps, charts, animation — load with dynamic imports only when they scroll into view.
+
+```ts
+const Map = dynamic(() => import("@/components/map"), { ssr: false });
+```
+
+## Animations that do not hurt
+
+Animate only `transform` and `opacity`, respect `prefers-reduced-motion`, and avoid animating layout properties. Smooth motion and fast pages are not in conflict when you animate the right properties.
+
+## Caching strategy
+
+Static generation for marketing pages, incremental revalidation for content that changes, and edge caching for everything that can be cached. Most of our marketing sites serve fully static HTML from the edge.
+
+## Measure in the field
+
+Lab scores are a starting point. We track real-user Core Web Vitals in production and set alerts when a release regresses them.
+
+Want a performance audit of your site? [Get in touch](/contact) — we will send you a prioritised fix list.
