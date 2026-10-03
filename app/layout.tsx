@@ -8,7 +8,6 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { CookieConsent } from "@/components/layout/cookie-consent";
 import { StickyMobileCta } from "@/components/layout/sticky-mobile-cta";
-import { SmoothScroll } from "@/components/providers/smooth-scroll";
 import { MotionProvider, PageTransition } from "@/components/providers/page-transition";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
@@ -60,7 +59,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </a>
           <MotionProvider>
             <TooltipProvider delayDuration={150}>
-              <SmoothScroll />
               <AnnouncementBar />
               <Navbar />
               <InitialRenderReady />
