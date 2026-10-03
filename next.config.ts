@@ -1,20 +1,18 @@
 import type { NextConfig } from "next";
 
 /**
- * STATIC_EXPORT=true produces a fully static build in /out (used for static
- * hosting / previews). On Vercel, leave it unset to get the full Next.js
- * runtime with on-demand image optimization.
+ * The site is deployed as a fully static export in /out. This makes it ready
+ * for Hostinger shared hosting without a Node.js runtime.
  */
-const isStaticExport = process.env.STATIC_EXPORT === "true";
-
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   devIndicators: false,
-  ...(isStaticExport ? { output: "export", trailingSlash: true } : {}),
+  output: "export",
+  trailingSlash: true,
   images: {
     formats: ["image/avif", "image/webp"],
-    unoptimized: isStaticExport,
+    unoptimized: true,
   },
   experimental: {
     optimizePackageImports: ["lucide-react", "motion"],

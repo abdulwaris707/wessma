@@ -10,7 +10,7 @@ export const metadata = { title: "Page not found", robots: { index: false } };
 const links = [
   { label: "Services", href: "/services", text: "What we build and grow" },
   { label: "Work", href: "/work", text: "Case studies and results" },
-  { label: "Blog", href: "/blog", text: "Playbooks and insights" },
+  { label: "Careers", href: "/careers", text: "Opportunities to contribute" },
   { label: "Contact", href: "/contact", text: "Talk to our team" },
 ];
 

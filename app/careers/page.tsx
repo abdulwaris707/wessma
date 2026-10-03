@@ -11,7 +11,7 @@ import { JobBoard } from "@/components/sections/job-board";
 import { ApplicationForm } from "@/components/forms/application-form";
 
 export const metadata = buildMetadata({
-  title: "Careers",
+  title: "Careers & Opportunities",
   description:
     "Join Wessmaa — a senior software and growth studio in Abbottabad. Remote-friendly roles in engineering, design and marketing.",
   path: "/careers",
@@ -21,19 +21,19 @@ export default function CareersPage() {
   return (
     <>
       <PageHero
-        breadcrumbs={[{ label: "Careers", href: "/careers" }]}
-        eyebrow="Careers"
+        breadcrumbs={[{ label: "Careers & Opportunities", href: "/careers" }]}
+        eyebrow="Careers & Opportunities"
         title={
           <>
-            Do the best work of <em>your</em> career.
+            Careers & <em>Opportunities</em>
           </>
         }
         subtitle="Join a senior team shipping products for companies in 18 countries — from the mountains of Abbottabad or anywhere in Pakistan."
       >
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <CTAButton href="#open-roles">See open roles</CTAButton>
+          <CTAButton href="#open-roles">Explore opportunities</CTAButton>
           <CTAButton href="#apply" variant="secondary" arrow={false}>
-            General application
+            Open application
           </CTAButton>
         </div>
       </PageHero>
@@ -137,10 +137,10 @@ export default function CareersPage() {
         <div className="container-page">
           <SectionHeading
             align="left"
-            eyebrow="Open roles"
+            eyebrow="Opportunities"
             title={
               <>
-                Find <em>your</em> seat.
+                Find a way to <em>contribute</em>.
               </>
             }
           />

@@ -1,12 +1,9 @@
 "use client";
 
 import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
-import Image from "next/image";
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from "motion/react";
-import { Star } from "lucide-react";
 import { useRef } from "react";
-import { ctas, hero, siteConfig } from "@/config/site";
-import { testimonials } from "@/content/company";
+import { ctas, hero } from "@/config/site";
 import { AnimatedGradientBadge } from "@/components/magicui/animated-gradient-text";
 import { WordRotate } from "@/components/magicui/word-rotate";
 import { GridPattern } from "@/components/magicui/grid-pattern";
@@ -121,34 +118,10 @@ export function Hero() {
             {...item(4)}
             className="mt-9 flex flex-col items-center gap-3 sm:flex-row sm:gap-4"
           >
-            <div className="flex -space-x-2.5">
-              {testimonials.slice(0, 5).map((t) => (
-                <Image
-                  key={t.name}
-                  src={t.avatar}
-                  alt=""
-                  width={36}
-                  height={36}
-                  className="size-9 rounded-full border-2 border-white object-cover object-top shadow-[var(--shadow-soft)]"
-                />
-              ))}
-            </div>
             <div className="text-body text-sm">
               <span className="text-navy-950 font-semibold">{hero.trust}</span>
               <span className="text-line mx-2">·</span>
-              <span className="inline-flex items-center gap-1">
-                <span className="flex">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star
-                      key={i}
-                      className="size-3.5 fill-orange-500 text-orange-500"
-                      aria-hidden
-                    />
-                  ))}
-                </span>
-                <span className="text-navy-950 font-semibold">{siteConfig.rating.score}/5</span> on{" "}
-                {siteConfig.rating.source}
-              </span>
+              <span>Focused on quality, clarity, and long-term partnerships</span>
             </div>
           </motion.div>
         </div>

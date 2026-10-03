@@ -94,9 +94,9 @@
   --color-surface-subtle: var(--surface-subtle);
 
   /* Typography */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-satoshi), var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-sans: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-satoshi), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: Georgia, ui-serif, serif;
 
   /* Fluid type scale */
   --text-display: clamp(2.75rem, 1.6rem + 4.6vw, 5.5rem);

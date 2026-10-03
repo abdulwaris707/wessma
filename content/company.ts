@@ -295,8 +295,8 @@ export const pricingTiers = [
   {
     name: "Starter",
     description: "For founders and small businesses launching their first product or website.",
-    monthly: 1490,
-    project: 4900,
+    monthly: 10000,
+    project: 25000,
     features: [
       "Marketing website up to 8 pages",
       "Custom UI design",
@@ -309,8 +309,8 @@ export const pricingTiers = [
   {
     name: "Growth",
     description: "For scaling teams who need product and growth moving together.",
-    monthly: 3900,
-    project: 18000,
+    monthly: 20000,
+    project: 90000,
     features: [
       "Web app or mobile MVP",
       "Design system",
@@ -323,10 +323,10 @@ export const pricingTiers = [
     popular: true,
   },
   {
-    name: "Enterprise",
-    description: "For organisations with complex products, compliance and scale.",
-    monthly: null,
-    project: null,
+    name: "Custom",
+    description: "For larger or evolving project requirements.",
+    monthly: 30000,
+    project: 150000,
     features: [
       "Dedicated cross-functional squad",
       "Architecture and security reviews",
@@ -334,7 +334,7 @@ export const pricingTiers = [
       "99.9% uptime SLA",
       "Named delivery lead",
     ],
-    cta: "Talk to sales",
+    cta: "Request a quote",
   },
 ];
 

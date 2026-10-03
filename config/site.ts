@@ -1,7 +1,7 @@
 /**
  * Wessmaa — central site configuration.
  * All global copy, navigation and links live here. Page-level content
- * (services, case studies, blog, team …) lives in /content.
+ * (services, case studies, team …) lives in /content.
  *
  * WESSMAA = Website · Editing · Social · SEO · Marketing · Automation · Ads
  */
@@ -9,10 +9,11 @@
 export const siteConfig = {
   name: "Wessmaa",
   legalName: "Wessmaa Technologies",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://wessmaa.com",
+  // TODO: replace this placeholder with the canonical production domain before launch.
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.example.com",
   tagline: "We engineer software that moves businesses forward.",
   description:
-    "Wessmaa is a software and growth studio. We design and build websites, SaaS products, mobile apps and AI automations — then grow them with SEO, social, content and paid ads.",
+    "Wessmaa is an early-stage digital studio building thoughtful websites, software products and growth systems with clarity and care.",
   keywords: [
     "software development company",
     "web development agency",
@@ -25,13 +26,15 @@ export const siteConfig = {
     "paid ads agency",
   ],
   ogImage: "/og.png",
-  bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "https://cal.com/wessmaa/discovery-call",
+  // TODO: replace with the real booking link, or remove the booking CTA.
+  bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "#contact",
   contact: {
-    email: "hello@wessmaa.com",
-    careersEmail: "careers@wessmaa.com",
-    phone: "+92 300 000 0000",
-    phoneHref: "tel:+923000000000",
-    whatsapp: "https://wa.me/923000000000",
+    // TODO: replace every contact placeholder with verified company details.
+    email: "hello@example.com",
+    careersEmail: "careers@example.com",
+    phone: "+00 000 000 0000",
+    phoneHref: "tel:+00000000000",
+    whatsapp: "#contact",
     address: {
       street: "Mansehra Road",
       city: "Abbottabad",
@@ -51,7 +54,6 @@ export const siteConfig = {
     { label: "Dribbble", href: "https://dribbble.com/wessmaa", icon: "dribbble" },
     { label: "GitHub", href: "https://github.com/wessmaa", icon: "github" },
   ],
-  rating: { score: "4.9", source: "Clutch", reviews: 86 },
 } as const;
 
 export type SiteConfig = typeof siteConfig;
@@ -73,7 +75,7 @@ export const mainNav = [
   { label: "Work", href: "/work" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
-  { label: "Blog", href: "/blog" },
+  { label: "Careers & Opportunities", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ] as const;
 
@@ -105,7 +107,7 @@ export const hero = {
   titleLast: "scale.",
   subtitle:
     "Wessmaa is the product and growth studio for ambitious teams. We design, engineer and launch software — then grow it with SEO, content, social and performance ads.",
-  trust: "Trusted by 120+ companies",
+  trust: "Early-stage digital studio",
 };
 
 export const stats = [
@@ -174,7 +176,7 @@ export const whyWessmaa = {
   benefits: [
     {
       title: "Senior-only squads",
-      text: "Every project is led by engineers and designers with 6+ years of experience. No bait-and-switch.",
+      text: "A focused team with clear ownership and straightforward communication.",
     },
     {
       title: "Build and growth in one team",
@@ -186,7 +188,7 @@ export const whyWessmaa = {
     },
     {
       title: "Fixed timelines you can plan around",
-      text: "92% of our projects ship on or before the agreed date since 2021.",
+      text: "Clear milestones and realistic plans designed around your priorities.",
     },
     {
       title: "You own everything",
@@ -288,7 +290,6 @@ export const industries = [
     title: "Storefronts that load fast and sell harder.",
     text: "Headless commerce, Shopify builds, subscription models and the performance marketing engine that feeds them.",
     points: ["Headless Shopify and Next.js", "CRO and A/B testing", "Meta and Google shopping ads"],
-    metric: { value: "3.4×", label: "average ROAS across retail clients" },
   },
   {
     id: "edtech",
@@ -301,7 +302,6 @@ export const industries = [
       "Live classes and assessments",
       "Gamified progress tracking",
     ],
-    metric: { value: "78%", label: "average course completion rate" },
   },
   {
     id: "logistics",
@@ -310,7 +310,6 @@ export const industries = [
     title: "Operational software that moves real things.",
     text: "Fleet tracking, dispatch, warehouse and last-mile tools that replace spreadsheets with real-time visibility.",
     points: ["Live GPS tracking", "Route optimisation", "Driver and warehouse apps"],
-    metric: { value: "31%", label: "average reduction in delivery cost" },
   },
   {
     id: "real-estate",
@@ -319,7 +318,6 @@ export const industries = [
     title: "Property platforms that turn browsers into buyers.",
     text: "Listing portals, CRM automations and virtual tour experiences for agencies, developers and proptech startups.",
     points: ["Listings and map search", "Lead routing automations", "Virtual tours and 3D media"],
-    metric: { value: "2.6×", label: "more qualified leads per listing" },
   },
 ];
 
@@ -393,7 +391,7 @@ export const footer = {
     {
       title: "Resources",
       links: [
-        { label: "Blog", href: "/blog" },
+        { label: "Careers & Opportunities", href: "/careers" },
         { label: "Pricing", href: "/pricing" },
         { label: "FAQ", href: "/faq" },
         { label: "Get a Quote", href: "/quote" },

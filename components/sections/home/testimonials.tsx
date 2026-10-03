@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { featuredQuote, testimonials } from "@/content/company";
-import { siteConfig } from "@/config/site";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { InfiniteMovingCards } from "@/components/aceternity/infinite-moving-cards";
 import { TestimonialCard } from "@/components/shared/testimonial-card";
@@ -15,13 +14,13 @@ export function Testimonials() {
     <section className="section-y bg-surface-alt relative overflow-hidden">
       <div className="container-page">
         <SectionHeading
-          eyebrow="Client love"
+          eyebrow="How we work"
           title={
             <>
-              Partners who <em>keep</em> coming back.
+              Built for <em>thoughtful</em> collaboration.
             </>
           }
-          subtitle={`${siteConfig.rating.score}/5 average from ${siteConfig.rating.reviews} verified reviews on ${siteConfig.rating.source}. 78% of our revenue comes from returning clients.`}
+          subtitle="We value clear communication, careful execution and long-term partnerships."
         />
 
         <BlurFade delay={0.1} className="relative mx-auto mt-14 max-w-5xl">

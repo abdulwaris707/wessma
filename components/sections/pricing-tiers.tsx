@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 /** Three pricing tiers with a monthly / per-project toggle. */
 export function PricingTiers() {
   const [mode, setMode] = useState<"monthly" | "project">("project");
-  const fmt = (n: number) => `$${n.toLocaleString("en-US")}`;
+  const fmt = (n: number) => `PKR ${n.toLocaleString("en-PK")}`;
   return (
     <div>
       <div className="flex justify-center">
@@ -107,14 +107,14 @@ export function PricingTiers() {
                       t.popular ? "text-white" : "text-navy-950",
                     )}
                   >
-                    {price ? fmt(price) : "Custom"}
+                  {price ? fmt(price) : "Contact us"}
                   </motion.p>
                 </AnimatePresence>
                 {price && (
                   <span
                     className={cn("pb-1 text-sm", t.popular ? "text-white/60" : "text-muted-ink")}
                   >
-                    {mode === "monthly" ? "/ month" : "starting"}
+                    {mode === "monthly" ? "/ month" : "starting from"}
                   </span>
                 )}
               </div>
@@ -157,6 +157,9 @@ export function PricingTiers() {
           );
         })}
       </div>
+      <p className="text-muted-ink mt-6 text-center text-sm">
+        Final scope and quote are tailored to your project requirements.
+      </p>
     </div>
   );
 }

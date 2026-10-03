@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
-import { Inter, Instrument_Serif, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { buildMetadata, organizationJsonLd } from "@/lib/seo";
@@ -20,20 +19,6 @@ const satoshi = localFont({
   src: "../public/fonts/Satoshi-Variable.woff2",
   variable: "--font-satoshi",
   weight: "300 900",
-  display: "swap",
-});
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-jakarta",
-  display: "swap",
-  preload: false,
-});
-const instrument = Instrument_Serif({
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
-  variable: "--font-instrument",
   display: "swap",
 });
 
@@ -63,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${satoshi.variable} ${inter.variable} ${jakarta.variable} ${instrument.variable}`}
+      className={satoshi.variable}
     >
       <body>
         <a
@@ -77,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <SmoothScroll />
             <AnnouncementBar />
             <Navbar />
-            <main id="main" className="-mt-[76px]">
+            <main id="main">
               <PageTransition>{children}</PageTransition>
             </main>
             <Footer />

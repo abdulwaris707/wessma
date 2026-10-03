@@ -10,7 +10,6 @@ import { CTAButton } from "@/components/shared/cta-button";
 import { Icon } from "@/components/shared/icon";
 import { ContainerScroll } from "@/components/aceternity/container-scroll";
 import { HeroDashboard } from "@/components/sections/home/hero-dashboard";
-import { Stats } from "@/components/sections/home/stats";
 import { FinalCta } from "@/components/sections/final-cta";
 import { cn } from "@/lib/utils";
 
@@ -127,7 +126,6 @@ export default function SolutionsPage() {
           </div>
         </div>
       </section>
-      <Stats />
       <FinalCta />
     </>
   );

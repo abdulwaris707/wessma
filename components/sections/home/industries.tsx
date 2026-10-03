@@ -102,12 +102,14 @@ export function Industries() {
                       </li>
                     ))}
                   </ul>
-                  <div className="mt-auto pt-8">
-                    <p className="font-display text-navy-950 text-4xl font-bold tracking-[-0.04em]">
-                      {ind.metric.value}
-                    </p>
-                    <p className="text-muted-ink mt-1 text-sm">{ind.metric.label}</p>
-                  </div>
+                  {ind.metric && (
+                    <div className="mt-auto pt-8">
+                      <p className="font-display text-navy-950 text-4xl font-bold tracking-[-0.04em]">
+                        {ind.metric.value}
+                      </p>
+                      <p className="text-muted-ink mt-1 text-sm">{ind.metric.label}</p>
+                    </div>
+                  )}
                 </div>
                 {study && (
                   <Link

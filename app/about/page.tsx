@@ -18,7 +18,7 @@ import { FinalCta } from "@/components/sections/final-cta";
 export const metadata = buildMetadata({
   title: "About",
   description:
-    "Wessmaa is a senior software and growth studio from Abbottabad, Pakistan, trusted by 120+ companies in 18 countries.",
+    "Wessmaa is an early-stage software and growth studio based in Abbottabad, Pakistan.",
   path: "/about",
 });
 

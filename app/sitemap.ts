@@ -3,7 +3,6 @@ import { siteConfig } from "@/config/site";
 import { services } from "@/content/services";
 import { caseStudies } from "@/content/case-studies";
 import { jobs } from "@/content/company";
-import { getPostMetas } from "@/lib/blog";
 
 export const dynamic = "force-static";
 
@@ -17,7 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/pricing",
     "/about",
     "/careers",
-    "/blog",
     "/contact",
     "/book",
     "/quote",
@@ -47,11 +45,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${siteConfig.url}/careers/${j.slug}`,
       lastModified: now,
       priority: 0.5,
-    })),
-    ...getPostMetas().map((p) => ({
-      url: `${siteConfig.url}/blog/${p.slug}`,
-      lastModified: new Date(p.date),
-      priority: 0.6,
     })),
   ];
 }

@@ -1,44 +1,37 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowRight, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { announcement } from "@/config/site";
 
-/** Dismissible announcement pill above the navbar. Dismissal persists in localStorage. */
+const storageKey = "wessmaa:announcement:site-progress";
+
+/** A compact, dismissible site-status notice above the navbar. */
 export function AnnouncementBar() {
-  const key = `wessmaa:announcement:${announcement.id}`;
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    if (localStorage.getItem(key) === "dismissed") setVisible(false);
-  }, [key]);
+    if (localStorage.getItem(storageKey) === "dismissed") setVisible(false);
+  }, []);
 
   if (!visible) return null;
   return (
-    <div className="border-line bg-surface-alt relative z-50 border-b">
-      <div className="container-page flex h-11 items-center justify-center gap-3">
-        <Link
-          href={announcement.href}
-          className="group text-body hover:text-navy-950 inline-flex min-w-0 items-center gap-2.5 rounded-full py-1 text-[0.8125rem] transition-colors"
-        >
-          <span className="text-navy-950 shrink-0 rounded-full bg-orange-500 px-2 py-0.5 text-[0.6875rem] font-semibold tracking-wider uppercase">
-            {announcement.label}
-          </span>
-          <span className="truncate">{announcement.text}</span>
-          <ArrowRight
-            className="size-3.5 shrink-0 text-orange-700 transition-transform duration-300 group-hover:translate-x-1"
+    <div className="border-line relative z-50 border-b bg-surface-alt motion-safe:animate-[fade-in_300ms_var(--ease-premium)]">
+      <div className="container-page relative flex min-h-11 items-center justify-center px-11">
+        <p className="text-body inline-flex items-center gap-2.5 py-2 text-center text-[0.8125rem] leading-snug">
+          <span
             aria-hidden
+            className="size-2 shrink-0 rounded-full bg-orange-500 shadow-[0_0_0_4px_rgb(249_115_22/0.16)] motion-safe:animate-pulse"
           />
-        </Link>
+          Website currently under progress — we’re refining our digital experience.
+        </p>
         <button
           type="button"
           onClick={() => {
-            localStorage.setItem(key, "dismissed");
+            localStorage.setItem(storageKey, "dismissed");
             setVisible(false);
           }}
           className="text-muted-ink hover:text-ink absolute right-2 grid size-9 place-items-center rounded-full transition-colors hover:bg-white sm:right-4"
-          aria-label="Dismiss announcement"
+          aria-label="Dismiss website status notice"
         >
           <X className="size-4" />
         </button>

@@ -36,7 +36,7 @@ export function buildMetadata({
 
 export const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "SoftwareCompany", "ProfessionalService"],
   name: siteConfig.name,
   legalName: siteConfig.legalName,
   url: siteConfig.url,
@@ -53,11 +53,7 @@ export const organizationJsonLd = {
     addressCountry: "PK",
   },
   sameAs: siteConfig.social.map((s) => s.href),
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: siteConfig.rating.score,
-    reviewCount: siteConfig.rating.reviews,
-  },
+  areaServed: "Worldwide",
 };
 
 export function faqJsonLd(items: { q: string; a: string }[]) {

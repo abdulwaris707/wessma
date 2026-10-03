@@ -1,8 +1,6 @@
 import { buildMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/shared/page-hero";
 import { WorkGrid } from "@/components/sections/work-grid";
-import { LogoCloud } from "@/components/sections/home/logo-cloud";
-import { Testimonials } from "@/components/sections/home/testimonials";
 import { FinalCta } from "@/components/sections/final-cta";
 
 export const metadata = buildMetadata({
@@ -30,8 +28,6 @@ export default function WorkPage() {
           <WorkGrid />
         </div>
       </section>
-      <LogoCloud />
-      <Testimonials />
       <FinalCta />
     </>
   );

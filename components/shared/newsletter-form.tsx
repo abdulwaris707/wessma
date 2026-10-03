@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 const schema = z.object({ email: z.email("Please enter a valid email address") });
 type Values = z.infer<typeof schema>;
 
-/** Newsletter signup (footer + blog). */
+/** Newsletter signup form. */
 export function NewsletterForm({
   tone = "dark",
   className,
