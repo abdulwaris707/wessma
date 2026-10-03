@@ -13,6 +13,7 @@ import { MotionProvider, PageTransition } from "@/components/providers/page-tran
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 import { JsonLd } from "@/components/shared/json-ld";
+import { InitialLoader, InitialLoaderScript } from "@/components/layout/initial-loader";
 
 /* Fonts — self-hosted via next/font (preloaded, zero layout shift) */
 const satoshi = localFont({
@@ -51,26 +52,33 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={satoshi.variable}
     >
       <body>
-        <a
-          href="#main"
-          className="bg-navy-950 fixed top-4 left-4 z-[100] -translate-y-24 rounded-full px-5 py-3 text-sm font-medium text-white transition-transform focus:translate-y-0"
-        >
-          Skip to content
-        </a>
-        <MotionProvider>
-          <TooltipProvider delayDuration={150}>
-            <SmoothScroll />
-            <AnnouncementBar />
-            <Navbar />
-            <main id="main">
-              <PageTransition>{children}</PageTransition>
-            </main>
-            <Footer />
-            <StickyMobileCta />
-            <CookieConsent />
-            <Toaster />
-          </TooltipProvider>
-        </MotionProvider>
+        <InitialLoader />
+        <div id="app-shell">
+          <a
+            href="#main"
+            className="bg-navy-950 fixed top-4 left-4 z-[100] -translate-y-24 rounded-full px-5 py-3 text-sm font-medium text-white transition-transform focus:translate-y-0"
+          >
+            Skip to content
+          </a>
+          <MotionProvider>
+            <TooltipProvider delayDuration={150}>
+              <SmoothScroll />
+              <AnnouncementBar />
+              <Navbar />
+              <main id="main">
+                <PageTransition>{children}</PageTransition>
+              </main>
+              <Footer />
+              <StickyMobileCta />
+              <CookieConsent />
+              <Toaster />
+            </TooltipProvider>
+          </MotionProvider>
+        </div>
+        <InitialLoaderScript />
+        <noscript>
+          <style>{"#initial-loader{display:none!important}#app-shell{opacity:1!important;visibility:visible!important}"}</style>
+        </noscript>
         <JsonLd data={organizationJsonLd} />
       </body>
     </html>

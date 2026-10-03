@@ -12,8 +12,18 @@ import { FinalCta } from "@/components/sections/final-cta";
 import { homeFaqs } from "@/content/company";
 
 // Heavier animated section is code-split
-const TechStack = dynamic(() =>
-  import("@/components/sections/home/tech-stack").then((m) => m.TechStack),
+const TechStack = dynamic(
+  () => import("@/components/sections/home/tech-stack").then((m) => m.TechStack),
+  {
+    loading: () => (
+      <section aria-label="Loading technology section" className="section-y bg-surface-alt">
+        <div className="container-page grid gap-6 lg:grid-cols-2">
+          <div className="h-72 rounded-3xl bg-slate-200/60" />
+          <div className="aspect-square rounded-3xl bg-slate-200/60" />
+        </div>
+      </section>
+    ),
+  },
 );
 
 export default function HomePage() {
