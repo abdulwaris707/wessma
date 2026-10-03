@@ -80,9 +80,9 @@ export default function AboutPage() {
             />
             <div className="text-body mt-6 grid gap-4 leading-relaxed">
               <p>
-                We began building websites for local businesses in Islamabad. Clients kept
-                asking for more — an app, a booking system, then help getting customers to use them.
-                So we built the team to do it all.
+                We began building websites for local businesses in Islamabad. Clients kept asking
+                for more — an app, a booking system, then help getting customers to use them. So we
+                built the team to do it all.
               </p>
               <p>
                 Today, the name says exactly what we do: <strong className="text-ink">W</strong>
@@ -207,48 +207,107 @@ export default function AboutPage() {
       <section className="section-y bg-white">
         <div className="container-page">
           <SectionHeading
-            eyebrow="Leadership"
+            eyebrow="Our team"
             title={
               <>
-                The people <em>behind</em> the work.
+                Built with <em>care</em>, together.
               </>
             }
+            subtitle="A clear, collaborative team structure — from founders to the people shaping every detail of the work."
           />
-          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {team.map((m, i) => (
-              <BlurFade key={m.name} delay={i * 0.05}>
-                <article className="group border-line bg-surface-subtle relative overflow-hidden rounded-[28px] border">
-                  <div className="relative aspect-[4/5]">
-                    <Image
-                      src={m.image}
-                      alt={m.name}
-                      fill
-                      sizes="(min-width:1024px) 400px, (min-width:640px) 50vw, 100vw"
-                      className="object-cover object-top transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
-                    />
-                    <div className="from-navy-950/90 via-navy-950/10 absolute inset-0 bg-gradient-to-t to-transparent" />
-                  </div>
-                  <div className="absolute inset-x-0 bottom-0 p-6 text-white">
-                    <p className="font-display text-xl font-bold">{m.name}</p>
-                    <p className="text-sm text-orange-400">{m.role}</p>
-                    <div className="grid grid-rows-[0fr] transition-[grid-template-rows] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-focus-within:grid-rows-[1fr] group-hover:grid-rows-[1fr]">
-                      <div className="overflow-hidden">
-                        <p className="pt-3 text-sm leading-relaxed text-white/80">{m.bio}</p>
-                        <a
-                          href={m.linkedin}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="mt-3 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-white hover:text-orange-400"
-                        >
-                          <BrandIcon name="linkedin" className="size-4" /> LinkedIn
-                          <span className="sr-only"> profile of {m.name}</span>
-                        </a>
-                      </div>
+          <div className="mt-14 grid gap-12">
+            {[
+              {
+                level: "founders",
+                label: "Founders",
+                description: "Direction and company leadership",
+                cols: "mx-auto max-w-3xl sm:grid-cols-2",
+              },
+              {
+                level: "leadership",
+                label: "Leadership & operations",
+                description: "Delivery and business operations",
+                cols: "sm:grid-cols-2",
+              },
+              {
+                level: "specialists",
+                label: "Senior specialists",
+                description: "Creative and content craft",
+                cols: "sm:grid-cols-2 lg:grid-cols-3",
+              },
+              {
+                level: "team",
+                label: "Team",
+                description: "The people bringing each project to life",
+                cols: "sm:grid-cols-2 lg:grid-cols-4",
+              },
+            ].map((group, groupIndex) => {
+              const members = team.filter((member) => member.level === group.level);
+              return (
+                <div key={group.level}>
+                  <div className="border-line mb-5 flex items-end justify-between gap-4 border-b pb-4">
+                    <div>
+                      <p className="eyebrow">{group.label}</p>
+                      <p className="text-body mt-1 text-sm">{group.description}</p>
                     </div>
+                    <span className="font-display text-navy-800 text-sm font-bold">
+                      {String(groupIndex + 1).padStart(2, "0")}
+                    </span>
                   </div>
-                </article>
-              </BlurFade>
-            ))}
+                  <div className={`grid grid-cols-1 gap-4 ${group.cols}`}>
+                    {members.map((member, index) => {
+                      const initials = member.name
+                        .split(" ")
+                        .map((part) => part[0])
+                        .join("")
+                        .slice(0, 2);
+                      return (
+                        <BlurFade key={member.name} delay={0.04 * index}>
+                          <article className="group border-line flex min-h-48 flex-col rounded-3xl border bg-white p-6 shadow-[var(--shadow-soft)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-orange-500/35 hover:shadow-[var(--shadow-lift)]">
+                            <div className="flex items-start justify-between gap-4">
+                              <div className="bg-navy-950 relative grid size-14 shrink-0 place-items-center overflow-hidden rounded-2xl shadow-[var(--shadow-soft)]">
+                                {member.image ? (
+                                  <Image
+                                    src={member.image}
+                                    alt={member.name}
+                                    fill
+                                    sizes="56px"
+                                    className="object-cover"
+                                  />
+                                ) : (
+                                  <span className="font-display text-lg font-bold text-orange-400">
+                                    {initials}
+                                  </span>
+                                )}
+                              </div>
+                              {member.linkedin && (
+                                <a
+                                  href={member.linkedin}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  aria-label={`LinkedIn profile of ${member.name}`}
+                                  className="border-line text-navy-800 grid size-10 place-items-center rounded-full border transition-colors hover:border-orange-500 hover:text-orange-700"
+                                >
+                                  <BrandIcon name="linkedin" className="size-4" />
+                                </a>
+                              )}
+                            </div>
+                            <div className="mt-auto pt-6">
+                              <h3 className="font-display text-lg font-bold tracking-tight">
+                                {member.name}
+                              </h3>
+                              <p className="mt-1 text-sm font-medium text-orange-700">
+                                {member.role}
+                              </p>
+                            </div>
+                          </article>
+                        </BlurFade>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

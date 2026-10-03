@@ -96,48 +96,78 @@ export const featuredQuote = {
 };
 
 /* -------------------------------- Team ------------------------------- */
-export const team = [
+export type TeamLevel = "founders" | "leadership" | "specialists" | "team";
+
+export type TeamMember = {
+  name: string;
+  role: string;
+  linkedin?: string;
+  level: TeamLevel;
+  image?: string;
+};
+
+/** Photos can be added to `image` as they become available. */
+export const team: TeamMember[] = [
+  {
+    name: "Ahmad Raza",
+    role: "Founder & CEO",
+    linkedin: "https://www.linkedin.com/in/ahmadraza-web",
+    level: "founders",
+  },
+  {
+    name: "Muhammad Fahad",
+    role: "Founder & CMO",
+    linkedin: "https://www.linkedin.com/in/muhammad-fahadkhan",
+    level: "founders",
+  },
+  {
+    name: "Ahsan Mir",
+    role: "Senior Development Manager",
+    linkedin: "https://www.linkedin.com/in/ashan-mir",
+    level: "leadership",
+  },
+  {
+    name: "Aleena Ahmad",
+    role: "Senior Business Administrator",
+    linkedin: "https://www.linkedin.com/in/aleena-ahmad-aabba025b",
+    level: "leadership",
+  },
+  {
+    name: "Areeba Zaib Sati",
+    role: "Senior Graphics Designer",
+    linkedin: "https://www.linkedin.com/in/areeba-zeb-satti-3a9785382/",
+    level: "specialists",
+  },
+  {
+    name: "Mohsin Amjad",
+    role: "Senior Graphics Designer",
+    linkedin: "https://www.linkedin.com/in/mohsinajmad",
+    level: "specialists",
+  },
+  {
+    name: "Afnan Abbasi",
+    role: "Senior Video Editor",
+    linkedin: "https://www.linkedin.com/in/afnan-abbasi-931a99440",
+    level: "specialists",
+  },
+  {
+    name: "Rabbiya Laeeque",
+    role: "Assistant Business Administrator",
+    linkedin: "https://www.linkedin.com/in/rabbiya-laeeque-005bb33b5",
+    level: "team",
+  },
+  {
+    name: "Ahla Sajjad",
+    role: "Social Media Manager",
+    linkedin: "https://www.linkedin.com/in/ahla-sajjad-a60309a5",
+    level: "team",
+  },
+  { name: "Waqar Hussain", role: "Junior Video Editor", level: "team" },
   {
     name: "Abdul Waris",
-    role: "Founder & CEO",
-    image: "/images/team/team-1.webp",
-    bio: "Software builder who started Wessmaa to give ambitious companies a partner that owns outcomes.",
-    linkedin: "https://www.linkedin.com/company/wessmaa",
-  },
-  {
-    name: "Elena Marsh",
-    role: "Head of Product Design",
-    image: "/images/team/team-2.webp",
-    bio: "Ten years designing fintech and health products. Obsessed with making complex things feel simple.",
-    linkedin: "https://www.linkedin.com/company/wessmaa",
-  },
-  {
-    name: "Daniel Okafor",
-    role: "Chief Technology Officer",
-    image: "/images/team/team-3.webp",
-    bio: "Former platform lead at a unicorn marketplace. Architect of every system we ship.",
-    linkedin: "https://www.linkedin.com/company/wessmaa",
-  },
-  {
-    name: "Hira Khan",
-    role: "Director of Growth Marketing",
-    image: "/images/team/team-4.webp",
-    bio: "Has managed $20M+ in ad spend and runs our SEO, social and performance teams.",
-    linkedin: "https://www.linkedin.com/company/wessmaa",
-  },
-  {
-    name: "Bilal Ahmed",
-    role: "Head of Engineering",
-    image: "/images/team/team-5.webp",
-    bio: "Leads our engineering squads and our internal AI and automation lab.",
-    linkedin: "https://www.linkedin.com/company/wessmaa",
-  },
-  {
-    name: "Rachel Moore",
-    role: "Head of Client Success",
-    image: "/images/team/team-6.webp",
-    bio: "Makes sure every client relationship feels like a partnership, not a purchase order.",
-    linkedin: "https://www.linkedin.com/company/wessmaa",
+    role: "Junior Developer",
+    linkedin: "https://www.linkedin.com/in/abdulwaris7",
+    level: "team",
   },
 ];
 
