@@ -26,8 +26,6 @@ export const siteConfig = {
     "paid ads agency",
   ],
   ogImage: "/og.png",
-  // TODO: replace with the real booking link, or remove the booking CTA.
-  bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "#contact",
   contact: {
     // TODO: replace email and phone placeholders with verified company details.
     email: "hello@example.com",
@@ -78,7 +76,6 @@ export const mainNav = [
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Careers & Opportunities", href: "/careers" },
-  { label: "Contact", href: "/contact" },
 ] as const;
 
 export const megaMenuFeature = {
@@ -92,7 +89,7 @@ export const megaMenuFeature = {
 export const ctas = {
   primary: { label: "Start Your Project", href: "/quote" },
   secondary: { label: "View Our Work", href: "/work" },
-  book: { label: "Book a Call", href: "/book" },
+  talk: { label: "Let's Talk", href: "/contact" },
   quote: { label: "Get a Quote", href: "/quote" },
 };
 
@@ -387,7 +384,7 @@ export const footer = {
         { label: "Work", href: "/work" },
         { label: "Solutions", href: "/solutions" },
         { label: "Careers", href: "/careers" },
-        { label: "Contact", href: "/contact" },
+        { label: "Let's Talk", href: "/contact" },
       ],
     },
     {
@@ -397,7 +394,7 @@ export const footer = {
         { label: "Pricing", href: "/pricing" },
         { label: "FAQ", href: "/faq" },
         { label: "Get a Quote", href: "/quote" },
-        { label: "Book a Call", href: "/book" },
+        { label: "Let's Talk", href: "/contact" },
       ],
     },
     {

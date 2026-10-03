@@ -131,8 +131,8 @@ export default function PricingPage() {
               <CTAButton href="/quote" magnetic>
                 Get a custom quote
               </CTAButton>
-              <CTAButton href="/book" variant="secondary" arrow={false}>
-                Talk to sales
+              <CTAButton href="/contact" variant="secondary" arrow={false}>
+                Let&apos;s Talk
               </CTAButton>
             </div>
           </div>

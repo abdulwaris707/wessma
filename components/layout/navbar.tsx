@@ -38,10 +38,7 @@ export function Navbar() {
   const isActive = (href: string) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
 
   return (
-    <motion.header
-      initial={false}
-      className="sticky top-0 z-50 px-3 pt-3 sm:px-4"
-    >
+    <motion.header initial={false} className="sticky top-0 z-50 px-3 pt-3 sm:px-4">
       <div
         className={cn(
           "mx-auto flex h-16 max-w-[1280px] items-center justify-between gap-4 rounded-2xl border px-4 transition-[background-color,border-color,box-shadow] duration-500 sm:px-5",
@@ -109,9 +106,9 @@ export function Navbar() {
           >
             {ctas.quote.label}
           </Link>
-          <Link href={ctas.book.href} className="hidden rounded-full sm:inline-flex">
+          <Link href={ctas.talk.href} className="hidden rounded-full sm:inline-flex">
             <ShimmerButton size="sm" className="px-5">
-              {ctas.book.label}
+              {ctas.talk.label}
             </ShimmerButton>
           </Link>
           <MobileMenu />
@@ -213,7 +210,7 @@ function MobileMenu() {
       <SheetTrigger asChild>
         <button
           type="button"
-          className="text-navy-950 hover:text-orange-700 grid size-11 place-items-center rounded-full transition-colors lg:hidden"
+          className="text-navy-950 grid size-11 place-items-center rounded-full transition-colors hover:text-orange-700 lg:hidden"
           aria-label="Open menu"
         >
           <Menu className="size-5" />
@@ -229,7 +226,7 @@ function MobileMenu() {
             <Logo />
           </span>
           <SheetClose
-            className="text-navy-950 hover:text-orange-700 grid size-11 place-items-center transition-colors"
+            className="text-navy-950 grid size-11 place-items-center transition-colors hover:text-orange-700"
             aria-label="Close menu"
           >
             <X className="size-5" />
@@ -255,8 +252,16 @@ function MobileMenu() {
                         (isActive(item.href) || servicesOpen) && "text-orange-700",
                       )}
                     >
-                      <span className="flex items-center gap-2.5">{item.label}<span className="h-px w-5 bg-orange-500/60" /></span>
-                      <ChevronDown className={cn("size-4 transition-transform duration-300", servicesOpen && "rotate-180")} />
+                      <span className="flex items-center gap-2.5">
+                        {item.label}
+                        <span className="h-px w-5 bg-orange-500/60" />
+                      </span>
+                      <ChevronDown
+                        className={cn(
+                          "size-4 transition-transform duration-300",
+                          servicesOpen && "rotate-180",
+                        )}
+                      />
                     </button>
                     <AnimatePresence initial={false}>
                       {servicesOpen && (
@@ -265,14 +270,14 @@ function MobileMenu() {
                           animate={{ height: "auto", opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.35, ease: EASE }}
-                          className="grid grid-cols-1 gap-0 overflow-hidden border-l border-orange-500/30 pl-4 pb-3 sm:grid-cols-2"
+                          className="grid grid-cols-1 gap-0 overflow-hidden border-l border-orange-500/30 pb-3 pl-4 sm:grid-cols-2"
                         >
                           {services.map((s) => (
                             <li key={s.slug}>
                               <Link
                                 href={`/services/${s.slug}`}
                                 onClick={() => setOpen(false)}
-                                className="text-body hover:text-orange-700 flex min-h-10 items-center gap-3 px-1 py-2 text-sm transition-colors"
+                                className="text-body flex min-h-10 items-center gap-3 px-1 py-2 text-sm transition-colors hover:text-orange-700"
                               >
                                 <Icon name={s.icon} className="size-4 text-orange-700" />
                                 {s.title}
@@ -289,12 +294,13 @@ function MobileMenu() {
                     onClick={() => setOpen(false)}
                     className={cn(
                       "group font-display text-navy-950 relative flex min-h-14 items-center justify-between py-3 text-base font-semibold tracking-tight transition-colors hover:text-orange-700",
-                      isActive(item.href)
-                        ? "text-orange-700"
-                        : "",
+                      isActive(item.href) ? "text-orange-700" : "",
                     )}
                   >
-                    <span className="flex items-center gap-2.5">{item.label}{isActive(item.href) && <span className="h-px w-5 bg-orange-500/60" />}</span>
+                    <span className="flex items-center gap-2.5">
+                      {item.label}
+                      {isActive(item.href) && <span className="h-px w-5 bg-orange-500/60" />}
+                    </span>
                     <ArrowRight className="size-4 text-orange-500 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100" />
                   </Link>
                 )}
@@ -302,9 +308,9 @@ function MobileMenu() {
             ))}
           </ul>
           <div className="mt-6 grid gap-3">
-            <Link href={ctas.book.href} onClick={() => setOpen(false)} className="rounded-full">
+            <Link href={ctas.talk.href} onClick={() => setOpen(false)} className="rounded-full">
               <ShimmerButton size="lg" className="w-full">
-                {ctas.book.label}
+                {ctas.talk.label}
               </ShimmerButton>
             </Link>
             <Link

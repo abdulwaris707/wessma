@@ -26,7 +26,7 @@ const schema = z.object({
   email: z.email("Please enter a valid email address"),
   company: z.string().optional(),
   interests: z.array(z.string()).min(1, "Pick at least one area"),
-  budget: z.string().min(1, "Please choose a budget range"),
+  budget: z.string().optional(),
   timeline: z.string().min(1, "Please choose a timeline"),
   message: z.string().min(20, "Tell us a little more (20+ characters)"),
 });
@@ -43,6 +43,7 @@ export function ContactForm() {
   const [step, setStep] = useState(0);
   const [dir, setDir] = useState(1);
   const [done, setDone] = useState(false);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
   const form = useForm<Values>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -70,11 +71,14 @@ export function ContactForm() {
     setStep((s) => s - 1);
   };
   const onSubmit = async (values: Values) => {
+    setSubmissionError(null);
     try {
       await submitForm("contact", values);
       setDone(true);
     } catch {
-      toast.error("Something went wrong. Please email us directly.");
+      const message = "We could not send your message. Please try again or email us directly.";
+      setSubmissionError(message);
+      toast.error(message);
     }
   };
   const toggle = (i: string) => {
@@ -88,7 +92,7 @@ export function ContactForm() {
     return (
       <SuccessState
         title={`Thanks, ${v.name.split(" ")[0] || "there"}.`}
-        text="Your message is with our team. A senior strategist will reply within one business day — usually much sooner."
+        text="Your message has been received. We will review it and follow up with the right next step."
       >
         <Button
           variant="outline"
@@ -135,6 +139,7 @@ export function ContactForm() {
                   <Input
                     id="c-name"
                     autoComplete="name"
+                    placeholder="Your name"
                     aria-invalid={!!errors.name}
                     {...form.register("name")}
                   />
@@ -144,19 +149,25 @@ export function ContactForm() {
                     id="c-email"
                     type="email"
                     autoComplete="email"
+                    placeholder="you@company.com"
                     aria-invalid={!!errors.email}
                     {...form.register("email")}
                   />
                 </Field>
-                <Field id="c-company" label="Company" optional>
-                  <Input id="c-company" autoComplete="organization" {...form.register("company")} />
+                <Field id="c-company" label="Company / organisation" optional>
+                  <Input
+                    id="c-company"
+                    autoComplete="organization"
+                    placeholder="Company name"
+                    {...form.register("company")}
+                  />
                 </Field>
               </>
             )}
             {step === 1 && (
               <>
                 <fieldset>
-                  <legend className="text-ink text-sm font-medium">What can we help with?</legend>
+                  <legend className="text-ink text-sm font-medium">Service interested in</legend>
                   <div role="group" className="mt-3 flex flex-wrap gap-2">
                     {interests.map((i) => {
                       const on = v.interests.includes(i);
@@ -181,7 +192,9 @@ export function ContactForm() {
                   )}
                 </fieldset>
                 <fieldset>
-                  <legend className="text-ink text-sm font-medium">Budget</legend>
+                  <legend className="text-ink text-sm font-medium">
+                    Estimated budget <span className="text-muted-ink font-normal">(optional)</span>
+                  </legend>
                   <div role="radiogroup" className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-3">
                     {budgets.map((b) => (
                       <ChoiceChip
@@ -193,11 +206,6 @@ export function ContactForm() {
                       </ChoiceChip>
                     ))}
                   </div>
-                  {errors.budget && (
-                    <p role="alert" className="mt-2 text-xs font-medium text-red-600">
-                      {errors.budget.message}
-                    </p>
-                  )}
                 </fieldset>
                 <fieldset>
                   <legend className="text-ink text-sm font-medium">Timeline</legend>
@@ -224,13 +232,14 @@ export function ContactForm() {
               <>
                 <Field
                   id="c-message"
-                  label="Tell us about your project"
+                  label="Project details"
                   hint="Goals, current situation, links — anything that helps."
                   error={errors.message?.message}
                 >
                   <Textarea
                     id="c-message"
                     rows={7}
+                    placeholder="What are you hoping to build, improve, or launch?"
                     aria-invalid={!!errors.message}
                     {...form.register("message")}
                   />
@@ -270,6 +279,11 @@ export function ContactForm() {
           </Button>
         )}
       </div>
+      {submissionError && (
+        <p role="alert" className="mt-4 text-sm font-medium text-red-600">
+          {submissionError}
+        </p>
+      )}
     </form>
   );
 }

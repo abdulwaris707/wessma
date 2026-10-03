@@ -153,7 +153,7 @@ export function FloatingAgentCard() {
         </div>
       </div>
       <div className="bg-surface-alt text-body mt-3 rounded-lg p-2 text-[11px] leading-snug">
-        “Booked a discovery call for Thursday 3pm with Northwind.”
+        “New discovery request from Northwind.”
       </div>
     </div>
   );

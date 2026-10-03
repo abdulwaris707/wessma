@@ -74,8 +74,8 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
           <CTAButton href="/quote" magnetic>
             Start your project
           </CTAButton>
-          <CTAButton href="/book" variant="secondary" arrow={false}>
-            Book a free call
+          <CTAButton href="/contact" variant="secondary" arrow={false}>
+            Let&apos;s Talk
           </CTAButton>
         </div>
       </PageHero>

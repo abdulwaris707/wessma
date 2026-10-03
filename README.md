@@ -33,7 +33,6 @@ npm run dev                  # http://localhost:3000
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `NEXT_PUBLIC_SITE_URL`       | Canonical URL, used in metadata, the sitemap, OG tags and JSON-LD. Example: `https://wessmaa.com`                                                                |
 | `NEXT_PUBLIC_FORMS_ENDPOINT` | Where every form posts JSON (Formspree, Basin, Getform, or your own API route). Unset = **demo mode**: forms validate and show success without sending anything. |
-| `NEXT_PUBLIC_BOOKING_URL`    | Your Cal.com (or Calendly) booking link, embedded on `/book`. Defaults to `https://cal.com/wessmaa/discovery-call`.                                              |
 
 > **CV uploads:** the careers form validates the file (PDF/DOC/DOCX, 5 MB max) and sends its metadata. To store the file itself, point `NEXT_PUBLIC_FORMS_ENDPOINT` at a provider that accepts multipart uploads (for example Formspree or Basin), or add a route handler that uploads to S3 or Vercel Blob. The only file to change is `lib/forms.ts`.
 

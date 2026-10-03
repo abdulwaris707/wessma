@@ -107,7 +107,7 @@ export function PricingTiers() {
                       t.popular ? "text-white" : "text-navy-950",
                     )}
                   >
-                  {price ? fmt(price) : "Contact us"}
+                    {price ? fmt(price) : "Contact us"}
                   </motion.p>
                 </AnimatePresence>
                 {price && (
@@ -120,7 +120,7 @@ export function PricingTiers() {
               </div>
               <div className="mt-8">
                 <CTAButton
-                  href={t.name === "Enterprise" ? "/book" : "/quote"}
+                  href={t.name === "Custom" ? "/contact" : "/quote"}
                   variant={t.popular ? "primary" : "secondary"}
                   size="default"
                   className="w-full [&>span]:w-full"

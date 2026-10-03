@@ -1,4 +1,4 @@
-import { CalendarDays, Clock, ShieldCheck } from "lucide-react";
+import { Clock, MessageCircle, ShieldCheck } from "lucide-react";
 import { ctas, finalCta } from "@/config/site";
 import { CTAButton } from "@/components/shared/cta-button";
 import { BlurFade } from "@/components/magicui/blur-fade";
@@ -48,8 +48,8 @@ export function FinalCta({
             <CTAButton href={ctas.primary.href} magnetic>
               {ctas.primary.label}
             </CTAButton>
-            <CTAButton href={ctas.book.href} variant="inverse-outline" arrow={false}>
-              <CalendarDays className="size-4" aria-hidden /> {ctas.book.label}
+            <CTAButton href={ctas.talk.href} variant="inverse-outline" arrow={false}>
+              <MessageCircle className="size-4" aria-hidden /> {ctas.talk.label}
             </CTAButton>
           </BlurFade>
           <BlurFade

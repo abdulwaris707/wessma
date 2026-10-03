@@ -11,7 +11,7 @@ const links = [
   { label: "Services", href: "/services", text: "What we build and grow" },
   { label: "Work", href: "/work", text: "Case studies and results" },
   { label: "Careers", href: "/careers", text: "Opportunities to contribute" },
-  { label: "Contact", href: "/contact", text: "Talk to our team" },
+  { label: "Let's Talk", href: "/contact", text: "Talk to our team" },
 ];
 
 export default function NotFound() {
