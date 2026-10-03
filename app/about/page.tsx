@@ -269,7 +269,7 @@ export default function AboutPage() {
                         .slice(0, 2);
                       return (
                         <BlurFade key={member.name} delay={0.04 * index}>
-                          <article className="group border-line relative aspect-[3/4] overflow-hidden rounded-2xl border bg-surface-alt shadow-[var(--shadow-soft)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-[var(--shadow-lift)] focus-within:border-orange-500/40 focus-within:shadow-[var(--shadow-lift)]">
+                          <article className="group border-line relative aspect-[3/4] overflow-hidden rounded-2xl border bg-[#fafaf7] shadow-[var(--shadow-soft)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-[var(--shadow-lift)] focus-within:border-orange-500/40 focus-within:shadow-[var(--shadow-lift)]">
                             {member.image ? (
                               <Image
                                 src={member.image}
