@@ -106,19 +106,21 @@ export type TeamMember = {
   image?: string;
 };
 
-/** Photos can be added to `image` as they become available. */
+/** Team portraits use consistent, white-studio close crops where source photos are available. */
 export const team: TeamMember[] = [
   {
     name: "Ahmad Raza",
     role: "Founder & CEO",
     linkedin: "https://www.linkedin.com/in/ahmadraza-web",
     level: "founders",
+    image: "/images/team/ahmad-raza-portrait.png",
   },
   {
     name: "Muhammad Fahad",
     role: "Founder & CMO",
     linkedin: "https://www.linkedin.com/in/muhammad-fahadkhan",
     level: "founders",
+    image: "/images/team/muhammad-fahad-portrait.png",
   },
   {
     name: "Ahsan Mir",
@@ -131,6 +133,7 @@ export const team: TeamMember[] = [
     role: "Senior Business Administrator",
     linkedin: "https://www.linkedin.com/in/aleena-ahmad-aabba025b",
     level: "leadership",
+    image: "/images/team/aleena-ahmad-portrait.png",
   },
   {
     name: "Areeba Zaib Sati",
@@ -143,12 +146,14 @@ export const team: TeamMember[] = [
     role: "Senior Graphics Designer",
     linkedin: "https://www.linkedin.com/in/mohsinajmad",
     level: "specialists",
+    image: "/images/team/mohsin-amjad-portrait.png",
   },
   {
     name: "Afnan Abbasi",
     role: "Senior Video Editor",
     linkedin: "https://www.linkedin.com/in/afnan-abbasi-931a99440",
     level: "specialists",
+    image: "/images/team/afnan-abbasi-portrait.png",
   },
   {
     name: "Rabbiya Laeeque",
@@ -161,6 +166,7 @@ export const team: TeamMember[] = [
     role: "Social Media Manager",
     linkedin: "https://www.linkedin.com/in/ahla-sajjad-a60309a5",
     level: "team",
+    image: "/images/team/ahla-sajjad-portrait.png",
   },
   { name: "Waqar Hussain", role: "Junior Video Editor", level: "team" },
   {
@@ -168,6 +174,7 @@ export const team: TeamMember[] = [
     role: "Junior Developer",
     linkedin: "https://www.linkedin.com/in/abdulwaris7",
     level: "team",
+    image: "/images/team/abdul-waris-portrait.png",
   },
 ];
 

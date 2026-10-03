@@ -263,36 +263,34 @@ export default function AboutPage() {
                         .slice(0, 2);
                       return (
                         <BlurFade key={member.name} delay={0.04 * index}>
-                          <article className="group border-line flex min-h-48 flex-col rounded-3xl border bg-white p-6 shadow-[var(--shadow-soft)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-orange-500/35 hover:shadow-[var(--shadow-lift)]">
-                            <div className="flex items-start justify-between gap-4">
-                              <div className="bg-navy-950 relative grid size-14 shrink-0 place-items-center overflow-hidden rounded-2xl shadow-[var(--shadow-soft)]">
+                          <article className="group border-line overflow-hidden rounded-3xl border bg-white shadow-[var(--shadow-soft)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-orange-500/35 hover:shadow-[var(--shadow-lift)]">
+                            <div className="bg-surface-alt relative aspect-[4/3] overflow-hidden">
                                 {member.image ? (
                                   <Image
                                     src={member.image}
                                     alt={member.name}
                                     fill
-                                    sizes="56px"
-                                    className="object-cover"
+                                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
                                   />
                                 ) : (
-                                  <span className="font-display text-lg font-bold text-orange-400">
+                                  <span className="bg-navy-950 font-display grid size-full place-items-center text-3xl font-bold text-orange-400">
                                     {initials}
                                   </span>
                                 )}
-                              </div>
                               {member.linkedin && (
                                 <a
                                   href={member.linkedin}
                                   target="_blank"
                                   rel="noreferrer"
                                   aria-label={`LinkedIn profile of ${member.name}`}
-                                  className="border-line text-navy-800 grid size-10 place-items-center rounded-full border transition-colors hover:border-orange-500 hover:text-orange-700"
+                                  className="border-line text-navy-800 absolute top-4 right-4 grid size-10 place-items-center rounded-full border bg-white/95 shadow-[var(--shadow-soft)] backdrop-blur transition-colors hover:border-orange-500 hover:text-orange-700"
                                 >
                                   <BrandIcon name="linkedin" className="size-4" />
                                 </a>
                               )}
                             </div>
-                            <div className="mt-auto pt-6">
+                            <div className="p-6">
                               <h3 className="font-display text-lg font-bold tracking-tight">
                                 {member.name}
                               </h3>
