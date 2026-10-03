@@ -3,17 +3,19 @@
 import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
 import { MotionConfig, motion } from "motion/react";
 import { usePathname } from "next/navigation";
-import type { ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import { EASE } from "@/lib/motion";
 
 /** Subtle fade/slide on every route change. */
 export function PageTransition({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const reduce = useSafeReducedMotion();
+  const initialPathname = useRef(pathname);
+  const isFirstPaint = pathname === initialPathname.current;
   return (
     <motion.div
       key={pathname}
-      initial={reduce ? false : { opacity: 0, y: 8 }}
+      initial={reduce || isFirstPaint ? false : { opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: EASE }}
     >

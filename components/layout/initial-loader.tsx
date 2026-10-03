@@ -2,18 +2,14 @@ import Image from "next/image";
 import { siteConfig } from "@/config/site";
 
 const loaderStyles = `
-  #app-shell{visibility:hidden;opacity:0}
-  html[data-app-ready="true"] #app-shell{visibility:visible;opacity:1;transition:opacity 280ms cubic-bezier(.22,1,.36,1)}
-  #initial-loader{position:fixed;z-index:200;inset:0;display:grid;place-items:center;overflow:hidden;background:#f8fafc;color:#0a1f44;transition:opacity 280ms cubic-bezier(.22,1,.36,1),visibility 280ms cubic-bezier(.22,1,.36,1)}
+  #initial-loader{position:fixed;z-index:200;inset:0;display:grid;place-items:center;overflow:hidden;background:#fafaf7;color:#0a1f44;transition:opacity 280ms cubic-bezier(.22,1,.36,1),visibility 280ms cubic-bezier(.22,1,.36,1)}
   #initial-loader.is-exiting{visibility:hidden;opacity:0}
-  .initial-loader__content{display:grid;justify-items:center;gap:1rem;padding:1.5rem;text-align:center}
-  .initial-loader__logo{width:2.5rem;height:auto}
-  .initial-loader__indicator{position:relative;width:2rem;height:2rem;border:2px solid rgb(10 31 68 / .16);border-top-color:#0a1f44;border-right-color:#f97316;border-radius:999px;animation:initial-loader-spin 800ms linear infinite}
-  .initial-loader__indicator span{position:absolute;inset:.5rem;border-radius:inherit;background:#f97316;opacity:.9;animation:initial-loader-pulse 1.2s ease-in-out infinite}
-  .initial-loader__content p{margin:0;color:#64748b;font:600 .8125rem/1.3 system-ui,sans-serif;letter-spacing:.04em}
-  @keyframes initial-loader-spin{to{transform:rotate(360deg)}}
-  @keyframes initial-loader-pulse{50%{transform:scale(.7);opacity:.45}}
-  @media (prefers-reduced-motion:reduce){#app-shell,#initial-loader{transition:none}.initial-loader__indicator,.initial-loader__indicator span{animation:none}}
+  .initial-loader__content{display:grid;justify-items:center;gap:.875rem;padding:1.5rem;text-align:center}
+  .initial-loader__logo{width:3rem;height:auto}
+  .initial-loader__line{width:3.25rem;height:2px;overflow:hidden;border-radius:999px;background:rgb(10 31 68 / .12)}
+  .initial-loader__line span{display:block;width:42%;height:100%;border-radius:inherit;background:#f97316;animation:initial-loader-line 1.1s ease-in-out infinite alternate}
+  @keyframes initial-loader-line{to{transform:translateX(138%)}}
+  @media (prefers-reduced-motion:reduce){#initial-loader{transition:none}.initial-loader__line span{animation:none;transform:translateX(70%)}}
 `;
 
 /** Server-rendered first-load overlay that paints before React hydrates. */
@@ -37,10 +33,9 @@ export function InitialLoader() {
             priority
             className="initial-loader__logo"
           />
-          <div className="initial-loader__indicator" aria-hidden="true">
+          <div className="initial-loader__line" aria-hidden="true">
             <span />
           </div>
-          <p>Preparing your experience</p>
         </div>
       </div>
     </>

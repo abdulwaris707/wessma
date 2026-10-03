@@ -267,16 +267,7 @@
   }
 }
 
-/* First-load handoff: server-rendered and independent of React hydration. */
-#app-shell {
-  visibility: hidden;
-  opacity: 0;
-}
-html[data-app-ready="true"] #app-shell {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 220ms var(--ease-premium);
-}
+/* First-load handoff: the page paints beneath the server-rendered loader overlay. */
 #initial-loader {
   position: fixed;
   z-index: 200;
@@ -284,7 +275,7 @@ html[data-app-ready="true"] #app-shell {
   display: grid;
   place-items: center;
   overflow: hidden;
-  background: var(--surface-alt);
+  background: #fafaf7;
   color: var(--navy-950);
   transition: opacity 220ms var(--ease-premium), visibility 220ms var(--ease-premium);
 }
@@ -295,44 +286,31 @@ html[data-app-ready="true"] #app-shell {
 .initial-loader__content {
   display: grid;
   justify-items: center;
-  gap: 1rem;
+  gap: 0.875rem;
   padding: 1.5rem;
   text-align: center;
 }
 .initial-loader__logo {
-  width: 2.5rem;
+  width: 3rem;
   height: auto;
 }
-.initial-loader__indicator {
-  position: relative;
-  width: 2rem;
-  height: 2rem;
-  border: 2px solid rgb(10 31 68 / 0.16);
-  border-top-color: var(--navy-950);
-  border-right-color: var(--orange-500);
+.initial-loader__line {
+  width: 3.25rem;
+  height: 2px;
+  overflow: hidden;
   border-radius: 999px;
-  animation: initial-loader-spin 800ms linear infinite;
+  background: rgb(10 31 68 / 0.12);
 }
-.initial-loader__indicator span {
-  position: absolute;
-  inset: 0.5rem;
+.initial-loader__line span {
+  display: block;
+  width: 42%;
+  height: 100%;
   border-radius: inherit;
   background: var(--orange-500);
-  opacity: 0.9;
-  animation: initial-loader-pulse 1.2s ease-in-out infinite;
+  animation: initial-loader-line 1.1s ease-in-out infinite alternate;
 }
-.initial-loader__content p {
-  margin: 0;
-  color: var(--muted-ink);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-}
-@keyframes initial-loader-spin {
-  to { transform: rotate(360deg); }
-}
-@keyframes initial-loader-pulse {
-  50% { transform: scale(0.7); opacity: 0.45; }
+@keyframes initial-loader-line {
+  to { transform: translateX(138%); }
 }
 
 /* Lenis smooth scroll */
