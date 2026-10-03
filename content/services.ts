@@ -99,7 +99,7 @@ export const services: Service[] = [
     ],
     tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel", "WordPress"],
     caseStudies: ["luma-commerce", "havenly-estates"],
-    pricingHint: { from: "Starting from PKR 45,000", note: "Final scope and quote are tailored to your project requirements." },
+    pricingHint: { from: "Starting from PKR 10,000", note: "Final scope and quote are tailored to your project requirements." },
     faqs: [
       {
         q: "Can we edit the website ourselves after launch?",
@@ -177,7 +177,7 @@ export const services: Service[] = [
     ],
     tech: ["Next.js", "Node.js", "Python", "PostgreSQL", "AWS", "Docker"],
     caseStudies: ["northwind-pay", "freightly"],
-    pricingHint: { from: "Starting from PKR 90,000", note: "Final scope and quote are tailored to your project requirements." },
+    pricingHint: { from: "Starting from PKR 20,000", note: "Final scope and quote are tailored to your project requirements." },
     faqs: [
       {
         q: "How fast can you ship an MVP?",
@@ -255,7 +255,7 @@ export const services: Service[] = [
     ],
     tech: ["Flutter", "React Native", "Swift", "Kotlin", "Firebase", "Supabase"],
     caseStudies: ["medora-health", "brightpath-academy"],
-    pricingHint: { from: "Starting from PKR 120,000", note: "Final scope and quote are tailored to your project requirements." },
+    pricingHint: { from: "Starting from PKR 25,000", note: "Final scope and quote are tailored to your project requirements." },
     faqs: [
       {
         q: "Flutter or React Native?",
@@ -332,7 +332,7 @@ export const services: Service[] = [
     ],
     tech: ["Figma", "React", "Tailwind CSS"],
     caseStudies: ["medora-health", "northwind-pay"],
-    pricingHint: { from: "Starting from PKR 20,000", note: "Final scope and quote are tailored to your project requirements." },
+    pricingHint: { from: "Starting from PKR 8,000", note: "Final scope and quote are tailored to your project requirements." },
     faqs: [
       {
         q: "Do you only design, or also build?",
@@ -406,7 +406,7 @@ export const services: Service[] = [
     ],
     tech: ["Figma", "YouTube", "TikTok", "Instagram"],
     caseStudies: ["luma-commerce"],
-    pricingHint: { from: "Starting from PKR 15,000 / month", note: "Final scope and quote are tailored to your project requirements." },
+    pricingHint: { from: "Starting from PKR 8,000 / month", note: "Final scope and quote are tailored to your project requirements." },
     faqs: [
       {
         q: "Do you shoot the footage too?",
@@ -477,7 +477,7 @@ export const services: Service[] = [
     ],
     tech: ["Instagram", "LinkedIn", "TikTok", "Meta"],
     caseStudies: ["luma-commerce", "brightpath-academy"],
-    pricingHint: { from: "Starting from PKR 15,000 / month", note: "Final scope and quote are tailored to your project requirements." },
+    pricingHint: { from: "Starting from PKR 8,000 / month", note: "Final scope and quote are tailored to your project requirements." },
     faqs: [
       {
         q: "Which platforms do you manage?",
@@ -617,7 +617,7 @@ export const services: Service[] = [
     ],
     tech: ["HubSpot", "Google Analytics", "Meta", "Google Ads"],
     caseStudies: ["luma-commerce", "havenly-estates"],
-    pricingHint: { from: "Starting from PKR 25,000 / month", note: "Final scope and quote are tailored to your project requirements." },
+    pricingHint: { from: "Starting from PKR 10,000 / month", note: "Final scope and quote are tailored to your project requirements." },
     faqs: [
       {
         q: "We already have a marketer. Can you work alongside them?",
@@ -691,7 +691,7 @@ export const services: Service[] = [
     ],
     tech: ["Python", "Node.js", "n8n", "Zapier", "PostgreSQL", "AWS"],
     caseStudies: ["freightly", "northwind-pay"],
-    pricingHint: { from: "Starting from PKR 50,000", note: "Final scope and quote are tailored to your project requirements." },
+    pricingHint: { from: "Starting from PKR 15,000", note: "Final scope and quote are tailored to your project requirements." },
     faqs: [
       {
         q: "Is our data safe with AI tools?",
@@ -760,7 +760,7 @@ export const services: Service[] = [
     ],
     tech: ["Google Ads", "Meta", "LinkedIn", "TikTok", "Google Analytics"],
     caseStudies: ["luma-commerce", "havenly-estates"],
-    pricingHint: { from: "Starting from PKR 15,000 / month", note: "Final scope and quote are tailored to your project requirements." },
+    pricingHint: { from: "Starting from PKR 8,000 / month", note: "Final scope and quote are tailored to your project requirements." },
     faqs: [
       {
         q: "What is the minimum ad budget?",
@@ -825,7 +825,7 @@ export const services: Service[] = [
     ],
     tech: ["AWS", "Google Cloud", "Docker", "Kubernetes", "Vercel"],
     caseStudies: ["freightly"],
-    pricingHint: { from: "Starting from PKR 25,000", note: "Final scope and quote are tailored to your project requirements." },
+    pricingHint: { from: "Starting from PKR 10,000", note: "Final scope and quote are tailored to your project requirements." },
     faqs: [
       {
         q: "Can you migrate us without downtime?",
@@ -881,7 +881,7 @@ export const services: Service[] = [
     ],
     tech: ["GitHub", "AWS", "Vercel", "Docker"],
     caseStudies: ["brightpath-academy"],
-    pricingHint: { from: "Starting from PKR 10,000 / month", note: "Final scope and quote are tailored to your project requirements." },
+    pricingHint: { from: "Starting from PKR 6,000 / month", note: "Final scope and quote are tailored to your project requirements." },
     faqs: [
       {
         q: "Can you maintain software another team built?",

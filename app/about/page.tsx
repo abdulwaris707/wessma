@@ -18,7 +18,7 @@ import { FinalCta } from "@/components/sections/final-cta";
 export const metadata = buildMetadata({
   title: "About",
   description:
-    "Wessmaa is an early-stage software and growth studio based in Abbottabad, Pakistan.",
+    "Wessmaa is an early-stage software and growth studio based at NUML in Islamabad, Pakistan.",
   path: "/about",
 });
 
@@ -30,10 +30,10 @@ export default function AboutPage() {
         eyebrow="About Wessmaa"
         title={
           <>
-            Built in Abbottabad. <em>Trusted</em> worldwide.
+            Built at NUML Islamabad. <em>Made</em> for growth.
           </>
         }
-        subtitle="We are a team of 60 engineers, designers and marketers who believe great software deserves great growth — and that one team should own both."
+        subtitle="We are a focused team of engineers, designers and marketers who believe great software deserves great growth — and that one team should own both."
       />
 
       {/* Story */}
@@ -76,11 +76,11 @@ export default function AboutPage() {
             <p className="eyebrow">Our story</p>
             <TextGenerateEffect
               className="font-display text-navy-950 mt-5 text-[clamp(1.5rem,1.2rem+1vw,2.125rem)] leading-snug font-semibold tracking-[-0.03em]"
-              words="Wessmaa started in 2018 with three people and one belief: businesses should not have to hire five agencies to build a product and grow it."
+              words="Wessmaa started at NUML Islamabad with one belief: businesses should not have to hire several agencies to build a product and grow it."
             />
             <div className="text-body mt-6 grid gap-4 leading-relaxed">
               <p>
-                We began building websites for local businesses in Khyber Pakhtunkhwa. Clients kept
+                We began building websites for local businesses in Islamabad. Clients kept
                 asking for more — an app, a booking system, then help getting customers to use them.
                 So we built the team to do it all.
               </p>

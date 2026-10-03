@@ -72,7 +72,7 @@ export const privacyPolicy: LegalDoc = {
       id: "contact",
       heading: "Contact",
       body: [
-        "Wessmaa Technologies, Mansehra Road, Abbottabad, Khyber Pakhtunkhwa 22010, Pakistan · privacy@wessmaa.com",
+        "Wessmaa Technologies, National University of Modern Languages (NUML), H-9/4, Islamabad 44000, Pakistan · privacy@wessmaa.com",
       ],
     },
   ],

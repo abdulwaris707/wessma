@@ -29,21 +29,23 @@ export const siteConfig = {
   // TODO: replace with the real booking link, or remove the booking CTA.
   bookingUrl: process.env.NEXT_PUBLIC_BOOKING_URL ?? "#contact",
   contact: {
-    // TODO: replace every contact placeholder with verified company details.
+    // TODO: replace email and phone placeholders with verified company details.
     email: "hello@example.com",
     careersEmail: "careers@example.com",
     phone: "+00 000 000 0000",
     phoneHref: "tel:+00000000000",
     whatsapp: "#contact",
     address: {
-      street: "Mansehra Road",
-      city: "Abbottabad",
-      region: "Khyber Pakhtunkhwa",
+      street: "National University of Modern Languages (NUML), H-9/4",
+      city: "Islamabad",
+      region: "Islamabad Capital Territory",
       country: "Pakistan",
-      postalCode: "22010",
+      postalCode: "44000",
     },
+    mapUrl:
+      "https://www.openstreetmap.org/?mlat=33.666389&mlon=73.047842#map=16/33.666389/73.047842",
     mapEmbed:
-      "https://www.openstreetmap.org/export/embed.html?bbox=73.18%2C34.13%2C73.25%2C34.19&layer=mapnik&marker=34.1688%2C73.2215",
+      "https://www.openstreetmap.org/export/embed.html?bbox=73.037842%2C33.661389%2C73.057842%2C33.671389&layer=mapnik&marker=33.666389%2C73.047842",
     hours: "Mon – Fri, 9:00 – 18:00 PKT",
     responseTime: "We reply to every enquiry within 1 business day.",
   },
@@ -112,14 +114,14 @@ export const hero = {
 
 export const stats = [
   {
-    value: 340,
+    value: 12,
     suffix: "+",
     label: "Projects delivered",
-    detail: "Across web, mobile, SaaS and growth",
+    detail: "Across web, product and growth",
   },
-  { value: 120, suffix: "+", label: "Happy clients", detail: "From seed-stage to enterprise" },
-  { value: 18, suffix: "", label: "Countries", detail: "Serving four continents" },
-  { value: 8, suffix: "+", label: "Years of experience", detail: "Shipping since 2018" },
+  { value: 8, suffix: "+", label: "Happy clients", detail: "Founders and growing teams" },
+  { value: 2, suffix: "", label: "Countries", detail: "Pakistan and beyond" },
+  { value: 2, suffix: "+", label: "Years of experience", detail: "Building since 2024" },
 ];
 
 /** The brand acronym — used in the signature "What WESSMAA means" section. */
@@ -272,7 +274,7 @@ export const industries = [
       "Real-time ledgers and dashboards",
       "PCI-DSS aware infrastructure",
     ],
-    metric: { value: "$1.2B+", label: "processed through platforms we built" },
+    metric: { value: "PKR 5M+", label: "processed through platforms we supported" },
   },
   {
     id: "healthcare",
@@ -281,7 +283,7 @@ export const industries = [
     title: "Patient-first digital health, built for compliance.",
     text: "Telehealth, patient portals and clinical tools designed around HIPAA and GDPR requirements from the first sprint.",
     points: ["HIPAA-ready architecture", "Telehealth and scheduling", "EHR / FHIR integrations"],
-    metric: { value: "600K+", label: "patient sessions supported" },
+    metric: { value: "Growing", label: "health products supported" },
   },
   {
     id: "ecommerce",
@@ -328,7 +330,7 @@ export const engagementModels = [
     bestFor: "Well-defined scopes and MVPs",
     text: "A clear scope, a fixed budget and a fixed timeline. Ideal for MVPs, websites and campaign launches.",
     points: ["Detailed scope and milestones", "Budget certainty", "Milestone-based payments"],
-    from: "From $4,900",
+    from: "From $500",
   },
   {
     name: "Dedicated Team",
@@ -340,7 +342,7 @@ export const engagementModels = [
       "Monthly rolling contract",
       "Scale up or down with 2 weeks notice",
     ],
-    from: "From $7,500 / month",
+    from: "From $900 / month",
     featured: true,
   },
   {
@@ -349,7 +351,7 @@ export const engagementModels = [
     bestFor: "Evolving scopes and R&D",
     text: "Maximum flexibility for products where requirements evolve. Pay for the hours used, tracked transparently.",
     points: ["Weekly timesheets", "Re-prioritise any sprint", "No minimum commitment"],
-    from: "From $38 / hour",
+    from: "From $15 / hour",
   },
 ];
 

@@ -51,8 +51,8 @@ export function FeaturedCaseStudies() {
             <p className="eyebrow">Impact, in aggregate</p>
             <div className="mt-8 grid grid-cols-3 gap-6">
               {[
-                { v: "$1.2B+", l: "processed through platforms we built" },
-                { v: "3.4×", l: "average ROAS across retail clients" },
+                { v: "12+", l: "projects delivered with care" },
+                { v: "2", l: "countries served" },
                 { v: "2.1M", l: "hours saved by our automations" },
               ].map((m) => (
                 <div key={m.v}>

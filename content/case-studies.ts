@@ -39,7 +39,7 @@ export const caseStudies: CaseStudy[] = [
     year: "2025",
     duration: "16 weeks",
     location: "Dubai, UAE",
-    headline: { value: "+240%", label: "increase in monthly processed volume" },
+    headline: { value: "2×", label: "clearer monthly operations" },
     results: [
       { value: 240, prefix: "+", suffix: "%", label: "Processed volume" },
       { value: 68, prefix: "-", suffix: "%", label: "Reconciliation time" },

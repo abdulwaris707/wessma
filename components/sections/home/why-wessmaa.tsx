@@ -92,8 +92,8 @@ export function WhyWessmaa() {
             <p className="text-muted-ink mt-3 text-sm">{whyWessmaa.quote.author}</p>
           </div>
           <div className="glass absolute -top-6 left-[-1rem] hidden rounded-2xl border border-white/80 px-5 py-4 shadow-[var(--shadow-lift)] sm:block">
-            <p className="font-display text-navy-950 text-3xl font-bold tracking-tight">92%</p>
-            <p className="text-muted-ink text-xs">projects shipped on time</p>
+            <p className="font-display text-navy-950 text-3xl font-bold tracking-tight">Weekly</p>
+            <p className="text-muted-ink text-xs">progress you can see</p>
           </div>
         </div>
       </div>

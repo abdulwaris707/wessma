@@ -13,7 +13,7 @@ import { ApplicationForm } from "@/components/forms/application-form";
 export const metadata = buildMetadata({
   title: "Careers & Opportunities",
   description:
-    "Join Wessmaa — a senior software and growth studio in Abbottabad. Remote-friendly roles in engineering, design and marketing.",
+    "Join Wessmaa — an early-stage software and growth studio at NUML Islamabad. Remote-friendly roles in engineering, design and marketing.",
   path: "/careers",
 });
 
@@ -28,7 +28,7 @@ export default function CareersPage() {
             Careers & <em>Opportunities</em>
           </>
         }
-        subtitle="Join a senior team shipping products for companies in 18 countries — from the mountains of Abbottabad or anywhere in Pakistan."
+        subtitle="Join a focused team shipping products for clients in Pakistan and abroad — from NUML Islamabad or anywhere in Pakistan."
       >
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
           <CTAButton href="#open-roles">Explore opportunities</CTAButton>

@@ -24,7 +24,7 @@ export default function ContactPage() {
       icon: MapPin,
       label: "Studio",
       value: `${c.address.street}, ${c.address.city}, ${c.address.region}`,
-      href: "https://www.openstreetmap.org/?mlat=34.1688&mlon=73.2215#map=14/34.1688/73.2215",
+      href: c.mapUrl,
     },
   ];
   return (

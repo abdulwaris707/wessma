@@ -92,7 +92,7 @@ export const featuredQuote = {
   name: "Sara Malik",
   role: "COO, Northwind Pay",
   avatar: "/images/team/team-2.webp",
-  metric: { value: "+240%", label: "processed volume in 12 months" },
+  metric: { value: "2×", label: "more clarity for the operations team" },
 };
 
 /* -------------------------------- Team ------------------------------- */
@@ -177,34 +177,19 @@ export const values = [
 
 export const timeline = [
   {
-    year: "2018",
-    title: "Founded in Abbottabad",
-    text: "Wessmaa starts as a three-person web studio building sites for local businesses.",
-  },
-  {
-    year: "2020",
-    title: "First SaaS product",
-    text: "We ship our first multi-tenant SaaS platform and grow the engineering team to 15.",
-  },
-  {
-    year: "2022",
-    title: "Growth practice launched",
-    text: "SEO, social, editing and paid ads join engineering — the WESSMAA model is born.",
-  },
-  {
     year: "2024",
-    title: "Going global",
-    text: "Clients across 18 countries, with teams serving the UK, Gulf and North America.",
+    title: "Started at NUML Islamabad",
+    text: "Wessmaa begins as a small studio building websites for local businesses.",
   },
   {
     year: "2025",
-    title: "AI & automation lab",
-    text: "A dedicated lab ships AI agents and automations for clients in production.",
+    title: "Expanded our services",
+    text: "Design, development and growth support come together in one focused team.",
   },
   {
     year: "2026",
-    title: "340+ projects",
-    text: "A 60-person senior team trusted by 120+ companies worldwide.",
+    title: "Growing with purpose",
+    text: "We continue building practical digital products for early-stage businesses.",
   },
 ];
 
@@ -233,7 +218,7 @@ export const solutions = [
       "Launch ads campaign",
     ],
     timeline: "10 weeks",
-    from: "$18,000",
+    from: "$1,200",
     accent: "orange",
   },
   {
@@ -250,7 +235,7 @@ export const solutions = [
       "Google and Meta ads management",
     ],
     timeline: "Monthly",
-    from: "$3,900 / month",
+    from: "$350 / month",
     accent: "blue",
     featured: true,
   },
@@ -268,7 +253,7 @@ export const solutions = [
       "Team training",
     ],
     timeline: "30 days",
-    from: "$6,500",
+    from: "$600",
     accent: "orange",
   },
   {
@@ -295,8 +280,8 @@ export const pricingTiers = [
   {
     name: "Starter",
     description: "For founders and small businesses launching their first product or website.",
-    monthly: 10000,
-    project: 25000,
+    monthly: 5000,
+    project: 12000,
     features: [
       "Marketing website up to 8 pages",
       "Custom UI design",
@@ -309,8 +294,8 @@ export const pricingTiers = [
   {
     name: "Growth",
     description: "For scaling teams who need product and growth moving together.",
-    monthly: 20000,
-    project: 90000,
+    monthly: 12000,
+    project: 35000,
     features: [
       "Web app or mobile MVP",
       "Design system",
@@ -325,13 +310,13 @@ export const pricingTiers = [
   {
     name: "Custom",
     description: "For larger or evolving project requirements.",
-    monthly: 30000,
-    project: 150000,
+    monthly: 20000,
+    project: 60000,
     features: [
       "Dedicated cross-functional squad",
       "Architecture and security reviews",
       "SSO, audit logs and compliance",
-      "99.9% uptime SLA",
+      "Reliable support and monitoring",
       "Named delivery lead",
     ],
     cta: "Request a quote",
@@ -383,7 +368,7 @@ export const homeFaqs: FaqItem[] = [
   },
   {
     q: "How much does a project cost?",
-    a: "Marketing websites start at $4,900, MVPs at $18,000 and growth retainers at $950/month. After a free discovery call, you get a fixed proposal with a clear scope — no surprises.",
+    a: "Marketing websites start at $500, MVPs at $1,200 and growth retainers at $350/month. After a free discovery call, you get a fixed proposal with a clear scope — no surprises.",
   },
   {
     q: "How long does it take to build an MVP?",
@@ -407,7 +392,7 @@ export const homeFaqs: FaqItem[] = [
   },
   {
     q: "How do you keep projects on time?",
-    a: "Two-week sprints, weekly demos, a live roadmap and a delivery lead who flags risks early. 92% of our projects since 2021 shipped on or before the agreed date.",
+    a: "Short sprints, weekly demos, a live roadmap and a delivery lead who flags risks early keep every project moving.",
   },
 ];
 
@@ -423,7 +408,7 @@ export const faqCategories: { id: string; label: string; items: FaqItem[] }[] = 
       },
       {
         q: "Where is Wessmaa based?",
-        a: "Our headquarters is in Abbottabad, Pakistan, with a distributed team serving clients in 18 countries.",
+        a: "We are based at the National University of Modern Languages (NUML) in H-9/4, Islamabad, Pakistan, and work with clients in Pakistan and abroad.",
       },
       homeFaqs[5],
     ],
@@ -502,7 +487,7 @@ export const benefits = [
   {
     icon: "laptop",
     title: "Remote-friendly",
-    text: "Work from our Abbottabad studio or remotely across Pakistan.",
+    text: "Work from our NUML Islamabad studio or remotely across Pakistan.",
   },
   {
     icon: "trending-up",
@@ -550,7 +535,7 @@ export const jobs: Job[] = [
     slug: "senior-full-stack-engineer",
     title: "Senior Full-Stack Engineer",
     department: "Engineering",
-    location: "Abbottabad / Remote (PK)",
+    location: "Islamabad / Remote (PK)",
     type: "Full-time",
     experience: "5+ years",
     salary: "PKR 450K – 650K / month",
@@ -597,7 +582,7 @@ export const jobs: Job[] = [
     slug: "ai-automation-engineer",
     title: "AI & Automation Engineer",
     department: "Engineering",
-    location: "Abbottabad / Remote (PK)",
+    location: "Islamabad / Remote (PK)",
     type: "Full-time",
     experience: "3+ years",
     salary: "PKR 350K – 550K / month",
@@ -644,7 +629,7 @@ export const jobs: Job[] = [
     slug: "performance-marketing-manager",
     title: "Performance Marketing Manager",
     department: "Marketing",
-    location: "Abbottabad / Remote (PK)",
+    location: "Islamabad / Remote (PK)",
     type: "Full-time",
     experience: "4+ years",
     salary: "PKR 300K – 450K / month",
@@ -667,7 +652,7 @@ export const jobs: Job[] = [
     slug: "video-editor",
     title: "Video Editor & Motion Designer",
     department: "Marketing",
-    location: "Abbottabad",
+    location: "Islamabad",
     type: "Full-time",
     experience: "2+ years",
     salary: "PKR 150K – 250K / month",

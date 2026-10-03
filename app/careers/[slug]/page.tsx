@@ -66,7 +66,7 @@ export default async function JobPage({ params }: { params: Promise<{ slug: stri
             "@type": "Place",
             address: {
               "@type": "PostalAddress",
-              addressLocality: "Abbottabad",
+              addressLocality: "Islamabad",
               addressCountry: "PK",
             },
           },
