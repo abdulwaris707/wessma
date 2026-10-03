@@ -21,7 +21,6 @@ export function Hero() {
 
   // Parallax on scroll
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const dashY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 120]);
   const cardAY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, -60]);
   const cardBY = useTransform(scrollYProgress, [0, 1], reduce ? [0, 0] : [0, 40]);
 
@@ -134,19 +133,14 @@ export function Hero() {
         </div>
 
         {/* Dashboard mockup */}
-        <motion.div
-          initial={reduce ? false : { opacity: 0, y: 60, scale: 0.97 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1, delay: 0.45, ease: EASE }}
-          className="relative mx-auto mt-16 max-w-5xl lg:mt-20"
-        >
+        <div className="relative mx-auto mt-16 max-w-5xl lg:mt-20">
           <div
             aria-hidden
             className="bg-gradient-brand absolute inset-x-10 top-10 -bottom-10 -z-10 rounded-[40px] opacity-20 blur-3xl"
           />
-          <motion.div style={{ y: dashY }}>
+          <div>
             <HeroDashboard />
-          </motion.div>
+          </div>
           <motion.div
             style={{ y: cardAY }}
             className="absolute top-24 -left-6 hidden lg:block xl:-left-16"
@@ -163,7 +157,7 @@ export function Hero() {
               <FloatingMetricCard />
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
