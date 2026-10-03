@@ -96,13 +96,18 @@ export const featuredQuote = {
 };
 
 /* -------------------------------- Team ------------------------------- */
-export type TeamLevel = "founders" | "leadership" | "specialists" | "team";
+export type TeamDepartment =
+  | "founders"
+  | "business"
+  | "development"
+  | "creative"
+  | "marketing";
 
 export type TeamMember = {
   name: string;
   role: string;
   linkedin?: string;
-  level: TeamLevel;
+  department: TeamDepartment;
   image?: string;
 };
 
@@ -112,76 +117,76 @@ export const team: TeamMember[] = [
     name: "Ahmad Raza",
     role: "Founder & CEO",
     linkedin: "https://www.linkedin.com/in/ahmadraza-web",
-    level: "founders",
+    department: "founders",
     image: "/images/team/ahmad-raza-portrait.png",
   },
   {
     name: "Muhammad Fahad",
     role: "Founder & CMO",
     linkedin: "https://www.linkedin.com/in/muhammad-fahadkhan",
-    level: "founders",
+    department: "founders",
     image: "/images/team/muhammad-fahad-portrait.png",
   },
   {
     name: "Ahsan Mir",
     role: "Senior Development Manager",
     linkedin: "https://www.linkedin.com/in/ashan-mir",
-    level: "leadership",
+    department: "development",
     image: "/images/team/ahsan-mir-portrait.png",
   },
   {
     name: "Aleena Ahmad",
     role: "Senior Business Administrator",
     linkedin: "https://www.linkedin.com/in/aleena-ahmad-aabba025b",
-    level: "leadership",
+    department: "business",
     image: "/images/team/aleena-ahmad-portrait.png",
   },
   {
     name: "Areeba Zaib Sati",
     role: "Senior Graphics Designer",
     linkedin: "https://www.linkedin.com/in/areeba-zeb-satti-3a9785382/",
-    level: "specialists",
+    department: "creative",
     image: "/images/team/areeba-zaib-sati-portrait.png",
   },
   {
     name: "Mohsin Amjad",
     role: "Senior Graphics Designer",
     linkedin: "https://www.linkedin.com/in/mohsinajmad",
-    level: "specialists",
+    department: "creative",
     image: "/images/team/mohsin-amjad-portrait.png",
   },
   {
     name: "Afnan Abbasi",
     role: "Senior Video Editor",
     linkedin: "https://www.linkedin.com/in/afnan-abbasi-931a99440",
-    level: "specialists",
+    department: "creative",
     image: "/images/team/afnan-abbasi-portrait.png",
   },
   {
     name: "Rabbiya Laeeque",
     role: "Assistant Business Administrator",
     linkedin: "https://www.linkedin.com/in/rabbiya-laeeque-005bb33b5",
-    level: "team",
+    department: "business",
     image: "/images/team/rabbiya-laeeque-portrait.png",
   },
   {
     name: "Ahla Sajjad",
     role: "Social Media Manager",
     linkedin: "https://www.linkedin.com/in/ahla-sajjad-a60309a5",
-    level: "team",
+    department: "marketing",
     image: "/images/team/ahla-sajjad-portrait.png",
   },
   {
     name: "Waqar Hussain",
     role: "Junior Video Editor",
-    level: "team",
+    department: "creative",
     image: "/images/team/waqar-hussain-portrait.png",
   },
   {
     name: "Abdul Waris",
     role: "Junior Developer",
     linkedin: "https://www.linkedin.com/in/abdulwaris7",
-    level: "team",
+    department: "development",
     image: "/images/team/abdul-waris-portrait.png",
   },
 ];

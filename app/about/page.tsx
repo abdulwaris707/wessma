@@ -213,38 +213,44 @@ export default function AboutPage() {
                 Built with <em>care</em>, together.
               </>
             }
-            subtitle="A clear, collaborative team structure — from founders to the people shaping every detail of the work."
+            subtitle="A multidisciplinary team, organised around the work we do for every client."
           />
           <div className="mt-14 grid gap-12">
             {[
               {
-                level: "founders",
+                department: "founders",
                 label: "Founders",
-                description: "Direction and company leadership",
-                cols: "mx-auto max-w-3xl sm:grid-cols-2",
-              },
-              {
-                level: "leadership",
-                label: "Leadership & operations",
-                description: "Delivery and business operations",
-                cols: "sm:grid-cols-2",
-              },
-              {
-                level: "specialists",
-                label: "Senior specialists",
-                description: "Creative and content craft",
+                description: "Company direction, product and growth",
                 cols: "sm:grid-cols-2 lg:grid-cols-3",
               },
               {
-                level: "team",
-                label: "Team",
-                description: "The people bringing each project to life",
+                department: "business",
+                label: "Business & operations",
+                description: "Client coordination and smooth delivery",
+                cols: "sm:grid-cols-2 lg:grid-cols-3",
+              },
+              {
+                department: "development",
+                label: "Development team",
+                description: "Engineering and technical delivery",
+                cols: "sm:grid-cols-2 lg:grid-cols-3",
+              },
+              {
+                department: "creative",
+                label: "Creative & media",
+                description: "Design, video and visual storytelling",
                 cols: "sm:grid-cols-2 lg:grid-cols-4",
               },
+              {
+                department: "marketing",
+                label: "Marketing",
+                description: "Social presence and audience growth",
+                cols: "sm:grid-cols-2 lg:grid-cols-3",
+              },
             ].map((group, groupIndex) => {
-              const members = team.filter((member) => member.level === group.level);
+              const members = team.filter((member) => member.department === group.department);
               return (
-                <div key={group.level}>
+                <div key={group.department}>
                   <div className="border-line mb-5 flex items-end justify-between gap-4 border-b pb-4">
                     <div>
                       <p className="eyebrow">{group.label}</p>
@@ -263,40 +269,38 @@ export default function AboutPage() {
                         .slice(0, 2);
                       return (
                         <BlurFade key={member.name} delay={0.04 * index}>
-                          <article className="group border-line overflow-hidden rounded-3xl border bg-white shadow-[var(--shadow-soft)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-orange-500/35 hover:shadow-[var(--shadow-lift)]">
-                            <div className="bg-surface-alt relative aspect-[4/3] overflow-hidden">
-                                {member.image ? (
-                                  <Image
-                                    src={member.image}
-                                    alt={member.name}
-                                    fill
-                                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-                                    className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
-                                  />
-                                ) : (
-                                  <span className="bg-navy-950 font-display grid size-full place-items-center text-3xl font-bold text-orange-400">
-                                    {initials}
-                                  </span>
-                                )}
+                          <article className="group border-line relative aspect-[4/5] overflow-hidden rounded-3xl border bg-surface-alt shadow-[var(--shadow-soft)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-[var(--shadow-lift)] focus-within:border-orange-500/40 focus-within:shadow-[var(--shadow-lift)]">
+                            {member.image ? (
+                              <Image
+                                src={member.image}
+                                alt={member.name}
+                                fill
+                                sizes="(min-width: 1280px) 20vw, (min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                                className="object-contain object-center transition-transform duration-700 group-hover:scale-[1.02]"
+                              />
+                            ) : (
+                              <span className="bg-navy-950 font-display grid size-full place-items-center text-3xl font-bold text-orange-400">
+                                {initials}
+                              </span>
+                            )}
+                            <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-navy-950 via-navy-950/85 to-transparent" />
+                            <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                              <h3 className="font-display text-lg font-bold tracking-tight">
+                                {member.name}
+                              </h3>
+                              <p className="mt-1 text-sm font-medium text-orange-300">{member.role}</p>
                               {member.linkedin && (
                                 <a
                                   href={member.linkedin}
                                   target="_blank"
                                   rel="noreferrer"
                                   aria-label={`LinkedIn profile of ${member.name}`}
-                                  className="border-line text-navy-800 absolute top-4 right-4 grid size-10 place-items-center rounded-full border bg-white/95 shadow-[var(--shadow-soft)] backdrop-blur transition-colors hover:border-orange-500 hover:text-orange-700"
+                                  className="mt-4 inline-flex translate-y-2 items-center gap-2 text-sm font-semibold text-white opacity-0 transition-[transform,opacity,color] duration-300 hover:text-orange-300 focus-visible:translate-y-0 focus-visible:opacity-100 group-hover:translate-y-0 group-hover:opacity-100"
                                 >
                                   <BrandIcon name="linkedin" className="size-4" />
+                                  View LinkedIn
                                 </a>
                               )}
-                            </div>
-                            <div className="p-6">
-                              <h3 className="font-display text-lg font-bold tracking-tight">
-                                {member.name}
-                              </h3>
-                              <p className="mt-1 text-sm font-medium text-orange-700">
-                                {member.role}
-                              </p>
                             </div>
                           </article>
                         </BlurFade>
