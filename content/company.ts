@@ -127,6 +127,7 @@ export const team: TeamMember[] = [
     role: "Senior Development Manager",
     linkedin: "https://www.linkedin.com/in/ashan-mir",
     level: "leadership",
+    image: "/images/team/ahsan-mir-portrait.png",
   },
   {
     name: "Aleena Ahmad",
@@ -140,6 +141,7 @@ export const team: TeamMember[] = [
     role: "Senior Graphics Designer",
     linkedin: "https://www.linkedin.com/in/areeba-zeb-satti-3a9785382/",
     level: "specialists",
+    image: "/images/team/areeba-zaib-sati-portrait.png",
   },
   {
     name: "Mohsin Amjad",
@@ -160,6 +162,7 @@ export const team: TeamMember[] = [
     role: "Assistant Business Administrator",
     linkedin: "https://www.linkedin.com/in/rabbiya-laeeque-005bb33b5",
     level: "team",
+    image: "/images/team/rabbiya-laeeque-portrait.png",
   },
   {
     name: "Ahla Sajjad",
@@ -168,7 +171,12 @@ export const team: TeamMember[] = [
     level: "team",
     image: "/images/team/ahla-sajjad-portrait.png",
   },
-  { name: "Waqar Hussain", role: "Junior Video Editor", level: "team" },
+  {
+    name: "Waqar Hussain",
+    role: "Junior Video Editor",
+    level: "team",
+    image: "/images/team/waqar-hussain-portrait.png",
+  },
   {
     name: "Abdul Waris",
     role: "Junior Developer",
