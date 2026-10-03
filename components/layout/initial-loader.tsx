@@ -48,8 +48,14 @@ export function InitialLoaderScript() {
     const loader = document.getElementById("initial-loader"), shell = document.getElementById("app-shell"), logo = document.getElementById("initial-loader-logo");
     if (!loader || !shell) return;
     const home = location.pathname === "/" || location.pathname === "";
-    let appMounted = false, heroMounted = !home, fontsReady = false, logoReady = !logo, finished = false;
-    const finish = () => { if (finished) return; finished = true; clearTimeout(fallback); document.documentElement.dataset.appReady = "true"; loader.classList.add("is-exiting"); setTimeout(() => loader.remove(), 320); };
+    const startedAt = performance.now(), minimumDuration = home ? 5000 : 0;
+    let appMounted = false, heroMounted = !home, fontsReady = false, logoReady = !logo, finished = false, finishQueued = false;
+    const finish = () => {
+      if (finished || finishQueued) return;
+      const remaining = minimumDuration - (performance.now() - startedAt);
+      if (remaining > 0) { finishQueued = true; setTimeout(() => { finishQueued = false; finish(); }, remaining); return; }
+      finished = true; clearTimeout(fallback); document.documentElement.dataset.appReady = "true"; loader.classList.add("is-exiting"); setTimeout(() => loader.remove(), 320);
+    };
     const paint = () => requestAnimationFrame(() => requestAnimationFrame(finish));
     const ready = () => { if (appMounted && heroMounted && fontsReady && logoReady) paint(); };
     const fontDeadline = setTimeout(() => { fontsReady = true; ready(); }, 3500);
