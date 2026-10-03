@@ -221,31 +221,31 @@ export default function AboutPage() {
                 department: "founders",
                 label: "Founders",
                 description: "Company direction, product and growth",
-                cols: "sm:grid-cols-2 lg:grid-cols-3",
+                cols: "sm:grid-cols-3 lg:grid-cols-4",
               },
               {
                 department: "business",
                 label: "Business & operations",
                 description: "Client coordination and smooth delivery",
-                cols: "sm:grid-cols-2 lg:grid-cols-3",
+                cols: "sm:grid-cols-3 lg:grid-cols-4",
               },
               {
                 department: "development",
                 label: "Development team",
                 description: "Engineering and technical delivery",
-                cols: "sm:grid-cols-2 lg:grid-cols-3",
+                cols: "sm:grid-cols-3 lg:grid-cols-4",
               },
               {
                 department: "creative",
                 label: "Creative & media",
                 description: "Design, video and visual storytelling",
-                cols: "sm:grid-cols-2 lg:grid-cols-4",
+                cols: "sm:grid-cols-3 lg:grid-cols-4",
               },
               {
                 department: "marketing",
                 label: "Marketing",
                 description: "Social presence and audience growth",
-                cols: "sm:grid-cols-2 lg:grid-cols-3",
+                cols: "sm:grid-cols-3 lg:grid-cols-4",
               },
             ].map((group, groupIndex) => {
               const members = team.filter((member) => member.department === group.department);
@@ -260,7 +260,7 @@ export default function AboutPage() {
                       {String(groupIndex + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <div className={`grid grid-cols-1 gap-4 ${group.cols}`}>
+                  <div className={`grid grid-cols-2 gap-3 sm:gap-4 ${group.cols}`}>
                     {members.map((member, index) => {
                       const initials = member.name
                         .split(" ")
@@ -269,7 +269,7 @@ export default function AboutPage() {
                         .slice(0, 2);
                       return (
                         <BlurFade key={member.name} delay={0.04 * index}>
-                          <article className="group border-line relative aspect-[4/5] overflow-hidden rounded-3xl border bg-surface-alt shadow-[var(--shadow-soft)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-[var(--shadow-lift)] focus-within:border-orange-500/40 focus-within:shadow-[var(--shadow-lift)]">
+                          <article className="group border-line relative aspect-[3/4] overflow-hidden rounded-2xl border bg-surface-alt shadow-[var(--shadow-soft)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-[var(--shadow-lift)] focus-within:border-orange-500/40 focus-within:shadow-[var(--shadow-lift)]">
                             {member.image ? (
                               <Image
                                 src={member.image}
@@ -283,19 +283,19 @@ export default function AboutPage() {
                                 {initials}
                               </span>
                             )}
-                            <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-navy-950 via-navy-950/85 to-transparent" />
-                            <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                              <h3 className="font-display text-lg font-bold tracking-tight">
+                            <div className="absolute inset-x-0 bottom-0 h-[43%] bg-gradient-to-t from-navy-950 via-navy-950/90 to-transparent" />
+                            <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                              <h3 className="font-display !text-white text-base font-bold tracking-tight drop-shadow-sm sm:text-lg">
                                 {member.name}
                               </h3>
-                              <p className="mt-1 text-sm font-medium text-orange-300">{member.role}</p>
+                              <p className="mt-1 text-xs font-semibold text-orange-200 sm:text-sm">{member.role}</p>
                               {member.linkedin && (
                                 <a
                                   href={member.linkedin}
                                   target="_blank"
                                   rel="noreferrer"
                                   aria-label={`LinkedIn profile of ${member.name}`}
-                                  className="mt-4 inline-flex translate-y-2 items-center gap-2 text-sm font-semibold text-white opacity-0 transition-[transform,opacity,color] duration-300 hover:text-orange-300 focus-visible:translate-y-0 focus-visible:opacity-100 group-hover:translate-y-0 group-hover:opacity-100"
+                                  className="mt-3 inline-flex translate-y-2 items-center gap-2 text-xs font-semibold text-white opacity-0 transition-[transform,opacity,color] duration-300 hover:text-orange-300 focus-visible:translate-y-0 focus-visible:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 sm:text-sm"
                                 >
                                   <BrandIcon name="linkedin" className="size-4" />
                                   View LinkedIn
