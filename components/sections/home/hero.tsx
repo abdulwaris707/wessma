@@ -2,7 +2,7 @@
 
 import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from "motion/react";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ctas, hero } from "@/config/site";
 import { AnimatedGradientBadge } from "@/components/magicui/animated-gradient-text";
 import { WordRotate } from "@/components/magicui/word-rotate";
@@ -35,9 +35,16 @@ export function Hero() {
     transition: { duration: 0.7, delay: 0.1 + i * 0.08, ease: EASE },
   });
 
+  useEffect(() => {
+    // The dashboard is DOM-rendered, so this confirms its React commit. The
+    // root loader waits for two additional browser paint frames before reveal.
+    window.dispatchEvent(new Event("wessmaa:hero-mounted"));
+  }, []);
+
   return (
     <section
       ref={ref}
+      data-initial-hero
       onPointerMove={(e) => {
         if (!fine) return;
         const r = e.currentTarget.getBoundingClientRect();

@@ -14,6 +14,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 import { JsonLd } from "@/components/shared/json-ld";
 import { InitialLoader, InitialLoaderScript } from "@/components/layout/initial-loader";
+import { InitialRenderReady } from "@/components/layout/initial-render-ready";
 
 /* Fonts — self-hosted via next/font (preloaded, zero layout shift) */
 const satoshi = localFont({
@@ -47,10 +48,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={satoshi.variable}
-    >
+    <html lang="en" className={satoshi.variable}>
       <body>
         <InitialLoader />
         <div id="app-shell">
@@ -65,6 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <SmoothScroll />
               <AnnouncementBar />
               <Navbar />
+              <InitialRenderReady />
               <main id="main">
                 <PageTransition>{children}</PageTransition>
               </main>
@@ -77,7 +76,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
         <InitialLoaderScript />
         <noscript>
-          <style>{"#initial-loader{display:none!important}#app-shell{opacity:1!important;visibility:visible!important}"}</style>
+          <style>
+            {
+              "#initial-loader{display:none!important}#app-shell{opacity:1!important;visibility:visible!important}"
+            }
+          </style>
         </noscript>
         <JsonLd data={organizationJsonLd} />
       </body>
