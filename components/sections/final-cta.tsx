@@ -1,10 +1,9 @@
 import { CalendarDays, Clock, ShieldCheck } from "lucide-react";
 import { ctas, finalCta } from "@/config/site";
-import { BackgroundBeams } from "@/components/aceternity/background-beams";
 import { CTAButton } from "@/components/shared/cta-button";
 import { BlurFade } from "@/components/magicui/blur-fade";
 
-/** Deep navy final CTA band with background beams. */
+/** Deep navy final CTA band with a calm, static background. */
 export function FinalCta({
   title = finalCta.title,
   text = finalCta.text,
@@ -19,7 +18,6 @@ export function FinalCta({
       className={`px-3 pb-3 sm:px-4 sm:pb-4 ${tone === "alt" ? "bg-surface-alt" : "bg-white"}`}
     >
       <div className="bg-navy-950 relative isolate overflow-hidden rounded-[32px] px-6 py-24 text-center sm:py-28 lg:py-32">
-        <BackgroundBeams tone="dark" />
         <div
           aria-hidden
           className="absolute top-0 left-1/2 -z-10 h-72 w-[48rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/25 blur-[120px]"
