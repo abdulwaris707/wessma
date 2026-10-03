@@ -6,14 +6,19 @@ import { useEffect, useRef } from "react";
 
 /**
  * Lenis smooth scroll for the whole site.
- * Disabled for users who prefer reduced motion. Resets on route change.
+ * Enabled for desktop pointer devices. Native touch scrolling remains more
+ * reliable during initial mobile hydration and preserves the document height.
  */
 export function SmoothScroll() {
   const lenisRef = useRef<Lenis | null>(null);
   const pathname = usePathname();
 
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !window.matchMedia("(hover: hover) and (pointer: fine)").matches
+    )
+      return;
     const lenis = new Lenis({
       duration: 1.1,
       easing: (t) => 1 - Math.pow(1 - t, 4),
@@ -31,6 +36,7 @@ export function SmoothScroll() {
       cancelAnimationFrame(raf);
       lenis.destroy();
       lenisRef.current = null;
+      delete (window as unknown as { __lenis?: Lenis }).__lenis;
     };
   }, []);
 

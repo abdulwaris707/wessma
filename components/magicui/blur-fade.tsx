@@ -2,7 +2,7 @@
 
 import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
 import { motion, useInView, type Variants } from "motion/react";
-import { useRef, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { EASE } from "@/lib/motion";
 
 /**
@@ -33,6 +33,14 @@ export function BlurFade({
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: inViewMargin });
   const reduce = useSafeReducedMotion();
+  const [observerFallback, setObserverFallback] = useState(false);
+
+  // An unavailable or delayed IntersectionObserver must never leave a section
+  // permanently invisible on an initial mobile visit.
+  useEffect(() => {
+    const id = window.setTimeout(() => setObserverFallback(true), 1500);
+    return () => window.clearTimeout(id);
+  }, []);
   const variants: Variants = reduce
     ? {
         hidden: { opacity: 1, y: 0, filter: "blur(0px)" },
@@ -47,7 +55,7 @@ export function BlurFade({
     <MotionTag
       ref={ref}
       initial="hidden"
-      animate={inView ? "visible" : "hidden"}
+      animate={inView || observerFallback ? "visible" : "hidden"}
       variants={variants}
       transition={{ delay: 0.04 + delay, duration, ease: EASE }}
       className={className}
