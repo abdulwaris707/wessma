@@ -87,11 +87,11 @@ export function Hero() {
 
       <div
         aria-hidden
-        className="absolute -top-24 right-[-10%] -z-10 size-[20rem] sm:size-[36rem] rounded-full bg-orange-500/[0.08] sm:bg-orange-500/[0.12] blur-[80px] sm:blur-[120px]"
+        className="hidden sm:block absolute -top-24 right-[-10%] -z-10 size-[36rem] rounded-full bg-orange-500/[0.12] blur-[120px]"
       />
       <div
         aria-hidden
-        className="bg-navy-600/[0.06] sm:bg-navy-600/[0.10] absolute top-40 left-[-12%] -z-10 size-[18rem] sm:size-[30rem] rounded-full blur-[80px] sm:blur-[120px]"
+        className="hidden sm:block bg-navy-600/[0.10] absolute top-40 left-[-12%] -z-10 size-[30rem] rounded-full blur-[120px]"
       />
 
       {fine && !isMobile && (
@@ -157,7 +157,7 @@ export function Hero() {
         <div className="relative mx-auto mt-12 max-w-5xl sm:mt-16 lg:mt-20">
           <div
             aria-hidden
-            className="bg-gradient-brand absolute inset-x-6 sm:inset-x-10 top-8 sm:top-10 -bottom-8 sm:-bottom-10 -z-10 rounded-[30px] sm:rounded-[40px] opacity-15 sm:opacity-20 blur-2xl sm:blur-3xl"
+            className="hidden sm:block bg-gradient-brand absolute inset-x-6 sm:inset-x-10 top-8 sm:top-10 -bottom-8 sm:-bottom-10 -z-10 rounded-[30px] sm:rounded-[40px] opacity-15 sm:opacity-20 blur-2xl sm:blur-3xl"
           />
           <div>
             <HeroDashboard />

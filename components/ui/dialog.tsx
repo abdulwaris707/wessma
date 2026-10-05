@@ -14,7 +14,7 @@ export const DialogContent = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
   <DialogPrimitive.Portal>
-    <DialogPrimitive.Overlay className="bg-navy-950/40 fixed inset-0 z-[80] backdrop-blur-sm data-[state=open]:animate-[fade-in_200ms_ease-out]" />
+    <DialogPrimitive.Overlay className="bg-navy-950/40 fixed inset-0 z-[80] data-[state=open]:animate-[fade-in_200ms_ease-out]" />
     <DialogPrimitive.Content
       ref={ref}
       className={cn(

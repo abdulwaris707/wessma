@@ -1,6 +1,7 @@
 "use client";
 
 import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
+import { useIsMobile } from "@/hooks/use-media";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { EASE } from "@/lib/motion";
@@ -8,7 +9,8 @@ import { cn } from "@/lib/utils";
 
 /**
  * Magic UI — Word Rotate (with Aceternity Flip Words-style blur).
- * Cycles through words with a vertical blur transition.
+ * Cycles through words with a vertical blur transition on desktop,
+ * and clean sharp opacity/slide on mobile.
  */
 export function WordRotate({
   words,
@@ -21,6 +23,7 @@ export function WordRotate({
 }) {
   const [index, setIndex] = useState(0);
   const reduce = useSafeReducedMotion();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const id = setInterval(() => setIndex((i) => (i + 1) % words.length), duration);
@@ -42,10 +45,26 @@ export function WordRotate({
         <motion.span
           key={words[index]}
           className={cn("col-start-1 row-start-1 whitespace-nowrap", className)}
-          initial={reduce ? { opacity: 0 } : { opacity: 0, y: "55%", filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          exit={reduce ? { opacity: 0 } : { opacity: 0, y: "-55%", filter: "blur(8px)" }}
-          transition={{ duration: 0.5, ease: EASE }}
+          initial={
+            reduce
+              ? { opacity: 0 }
+              : isMobile
+                ? { opacity: 0, y: "40%" }
+                : { opacity: 0, y: "55%", filter: "blur(8px)" }
+          }
+          animate={
+            isMobile
+              ? { opacity: 1, y: 0 }
+              : { opacity: 1, y: 0, filter: "blur(0px)" }
+          }
+          exit={
+            reduce
+              ? { opacity: 0 }
+              : isMobile
+                ? { opacity: 0, y: "-40%" }
+                : { opacity: 0, y: "-55%", filter: "blur(8px)" }
+          }
+          transition={{ duration: isMobile ? 0.3 : 0.5, ease: EASE }}
         >
           {words[index]}
         </motion.span>

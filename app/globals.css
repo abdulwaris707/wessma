@@ -282,6 +282,7 @@
 #initial-loader.is-exiting {
   visibility: hidden;
   opacity: 0;
+  pointer-events: none;
 }
 .initial-loader__content {
   display: grid;
@@ -509,7 +510,7 @@ html.lenis body {
 
 /* Mobile performance rules (screen width < 768px):
  * Disables continuous heavy animations, infinite floaters, and extreme blur backdrops
- * to ensure maximum touch responsiveness, high framerates and battery conservation. */
+ * to ensure maximum touch responsiveness, high framerates and razor-sharp text rendering. */
 @media (max-width: 767px) {
   .animate-float {
     animation: none !important;
@@ -517,9 +518,13 @@ html.lenis body {
   .animate-spin-around {
     animation-duration: 10s !important;
   }
-  /* Replace CPU-heavy backdrop blur with clean solid opacity on mobile */
-  .glass {
+  /* Neutralize CPU-heavy backdrop blur on mobile to prevent GPU compositing text blurring */
+  .glass,
+  [class*="backdrop-blur"] {
+    -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
+  }
+  .glass {
     background-color: #ffffff !important;
   }
 }

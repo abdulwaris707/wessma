@@ -21,7 +21,7 @@ export default function NotFound() {
       <Spotlight className="-top-40 left-0 md:left-60" fill="#F97316" />
       <div
         aria-hidden
-        className="absolute top-1/3 left-1/2 -z-10 size-[36rem] -translate-x-1/2 rounded-full bg-orange-500/[0.08] blur-[120px]"
+        className="hidden sm:block absolute top-1/3 left-1/2 -z-10 size-[36rem] -translate-x-1/2 rounded-full bg-orange-500/[0.08] blur-[120px]"
       />
       <div className="container-page flex flex-col items-center text-center">
         <div className="relative">

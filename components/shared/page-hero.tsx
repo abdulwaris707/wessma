@@ -48,11 +48,11 @@ export function PageHero({
       <GridPattern className="[mask-image:radial-gradient(ellipse_60%_70%_at_50%_0%,black,transparent)]" />
       <div
         aria-hidden
-        className="absolute -top-32 right-[-8%] -z-10 size-[32rem] rounded-full bg-orange-500/[0.10] blur-[120px]"
+        className="hidden sm:block absolute -top-32 right-[-8%] -z-10 size-[32rem] rounded-full bg-orange-500/[0.10] blur-[120px]"
       />
       <div
         aria-hidden
-        className="bg-navy-600/[0.09] absolute top-20 -left-[10%] -z-10 size-[28rem] rounded-full blur-[120px]"
+        className="hidden sm:block bg-navy-600/[0.09] absolute top-20 -left-[10%] -z-10 size-[28rem] rounded-full blur-[120px]"
       />
       <div
         className={cn(

@@ -14,7 +14,7 @@ export function Footer() {
     <footer className="bg-navy-950 relative overflow-hidden text-white">
       <div
         aria-hidden
-        className="bg-navy-600/20 absolute -top-40 left-1/2 h-80 w-[60rem] -translate-x-1/2 rounded-full blur-[120px]"
+        className="hidden sm:block bg-navy-600/20 absolute -top-40 left-1/2 h-80 w-[60rem] -translate-x-1/2 rounded-full blur-[120px]"
       />
       <div className="container-page relative">
         {/* Top row */}

@@ -20,11 +20,11 @@ export function FinalCta({
       <div className="bg-navy-950 relative isolate overflow-hidden rounded-[32px] px-6 py-24 text-center sm:py-28 lg:py-32">
         <div
           aria-hidden
-          className="absolute top-0 left-1/2 -z-10 h-72 w-[48rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/25 blur-[120px]"
+          className="hidden sm:block absolute top-0 left-1/2 -z-10 h-72 w-[48rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-500/25 blur-[120px]"
         />
         <div
           aria-hidden
-          className="bg-navy-600/40 absolute bottom-0 left-1/2 -z-10 h-72 w-[40rem] -translate-x-1/2 translate-y-1/2 rounded-full blur-[120px]"
+          className="hidden sm:block bg-navy-600/40 absolute bottom-0 left-1/2 -z-10 h-72 w-[40rem] -translate-x-1/2 translate-y-1/2 rounded-full blur-[120px]"
         />
         <div className="relative mx-auto max-w-4xl">
           <BlurFade>

@@ -20,7 +20,7 @@ export function MissionPillars() {
       {/* Decorative gradient glow */}
       <div
         aria-hidden
-        className="bg-navy-600/10 pointer-events-none absolute -top-40 left-1/2 h-96 w-[50rem] -translate-x-1/2 rounded-full blur-[120px]"
+        className="hidden sm:block bg-navy-600/10 pointer-events-none absolute -top-40 left-1/2 h-96 w-[50rem] -translate-x-1/2 rounded-full blur-[120px]"
       />
 
       <div className="container-page relative">

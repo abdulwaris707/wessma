@@ -3,13 +3,13 @@ import { siteConfig } from "@/config/site";
 
 const loaderStyles = `
   #initial-loader{position:fixed;z-index:200;inset:0;display:grid;place-items:center;overflow:hidden;background:#fafaf7;color:#0a1f44;transition:opacity 280ms cubic-bezier(.22,1,.36,1),visibility 280ms cubic-bezier(.22,1,.36,1)}
-  #initial-loader.is-exiting{visibility:hidden;opacity:0}
+  #initial-loader.is-exiting{visibility:hidden;opacity:0;pointer-events:none}
   .initial-loader__content{display:grid;justify-items:center;gap:.875rem;padding:1.5rem;text-align:center}
   .initial-loader__logo{width:3rem;height:auto}
   .initial-loader__line{width:3.25rem;height:2px;overflow:hidden;border-radius:999px;background:rgb(10 31 68 / .12)}
   .initial-loader__line span{display:block;width:42%;height:100%;border-radius:inherit;background:#f97316;animation:initial-loader-line 1.1s ease-in-out infinite alternate}
   @keyframes initial-loader-line{to{transform:translateX(138%)}}
-  @media (prefers-reduced-motion:reduce){#initial-loader{transition:none}.initial-loader__line span{animation:none;transform:translateX(70%)}}
+  @media (prefers-reduced-motion:reduce){#initial-loader{transition:none;pointer-events:none}.initial-loader__line span{animation:none;transform:translateX(70%)}}
 `;
 
 /** Server-rendered first-load overlay that paints before React hydrates. */
