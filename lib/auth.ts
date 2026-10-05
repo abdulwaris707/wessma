@@ -7,6 +7,16 @@ const COOKIE = "wessmaa_admin";
 const MAX_AGE = 60 * 60 * 8;
 type Session = { email: string; exp: number };
 
+/** Lets the login flow fail clearly when deployment secrets were not configured. */
+export function adminAuthConfigured() {
+  return Boolean(
+    process.env.ADMIN_EMAIL &&
+      process.env.ADMIN_PASSWORD_HASH?.startsWith("scrypt:") &&
+      process.env.SESSION_SECRET &&
+      process.env.SESSION_SECRET.length >= 32,
+  );
+}
+
 function secret() {
   const value = process.env.SESSION_SECRET;
   if (!value || value.length < 32) throw new Error("Admin authentication is not configured");
@@ -37,7 +47,7 @@ export function verifyPassword(password: string, stored?: string) {
   return actual.length === expected.length && timingSafeEqual(Buffer.from(actual), Buffer.from(expected));
 }
 export function validAdminCredentials(email: string, password: string) {
-  return email.toLowerCase() === process.env.ADMIN_EMAIL?.toLowerCase() && verifyPassword(password, process.env.ADMIN_PASSWORD_HASH);
+  return adminAuthConfigured() && email.toLowerCase() === process.env.ADMIN_EMAIL?.toLowerCase() && verifyPassword(password, process.env.ADMIN_PASSWORD_HASH);
 }
 export async function getAdminSession() { return decode((await cookies()).get(COOKIE)?.value); }
 export async function requireAdmin() { if (!(await getAdminSession())) redirect("/admin/login"); }
