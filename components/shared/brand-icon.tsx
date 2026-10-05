@@ -44,6 +44,7 @@ const aliases: Record<string, BrandIconName> = {
   linkedin: "linkedin",
   instagram: "instagram",
   x: "x",
+  tiktok: "tiktok",
   dribbble: "dribbble",
   github: "github",
 };

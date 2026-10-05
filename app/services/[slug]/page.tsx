@@ -80,6 +80,53 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         </div>
       </PageHero>
 
+      {/* Purpose & Capabilities Overview */}
+      {(service.purpose || service.capabilitiesExplained) && (
+        <section className="bg-white pt-12 pb-2">
+          <div className="container-page">
+            <div className="border-line bg-surface-alt relative overflow-hidden rounded-[28px] border p-8 sm:p-10 shadow-[var(--shadow-soft)]">
+              <div
+                aria-hidden
+                className="bg-navy-600/5 pointer-events-none absolute -top-24 -right-24 size-72 rounded-full blur-3xl"
+              />
+              <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center">
+                <div className="lg:col-span-6">
+                  <span className="bg-surface-subtle text-muted-ink inline-flex rounded-full px-3 py-1 text-xs font-semibold tracking-wider uppercase">
+                    Core Purpose
+                  </span>
+                  <p className="font-display text-navy-950 mt-4 text-xl font-bold leading-snug sm:text-2xl">
+                    {service.purpose ?? service.heroText}
+                  </p>
+                  {service.tagline && (
+                    <p className="mt-2 text-sm font-semibold text-orange-600">
+                      {service.tagline}
+                    </p>
+                  )}
+                </div>
+                {service.capabilitiesExplained && (
+                  <div className="border-line rounded-2xl border bg-white p-6 lg:col-span-6">
+                    <p className="text-muted-ink mb-3 text-xs font-semibold tracking-wider uppercase">
+                      Capabilities & Scope
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {service.capabilitiesExplained.map((cap) => (
+                        <span
+                          key={cap}
+                          className="border-line text-navy-900 inline-flex items-center gap-1.5 rounded-full border bg-surface-alt px-3 py-1 text-xs font-medium"
+                        >
+                          <Check className="size-3.5 text-orange-600" aria-hidden />
+                          {cap}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Problem → Solution */}
       <section className="section-y bg-surface-alt">
         <div className="container-page">

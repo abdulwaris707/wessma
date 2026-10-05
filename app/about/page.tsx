@@ -27,13 +27,13 @@ export default function AboutPage() {
     <>
       <PageHero
         breadcrumbs={[{ label: "About", href: "/about" }]}
-        eyebrow="About Wessmaa"
+        eyebrow="About WESSMAA"
         title={
           <>
-            Built at NUML Islamabad. <em>Made</em> for growth.
+            Drive Traffic. Build Trust. <em>Increase Conversions.</em>
           </>
         }
-        subtitle="We are a focused team of engineers, designers and marketers who believe great software deserves great growth — and that one team should own both."
+        subtitle="WESSMAA is a digital growth company that helps businesses build a stronger, more credible and more effective presence online through connected growth systems."
       />
 
       {/* Story */}
@@ -73,24 +73,21 @@ export default function AboutPage() {
             </div>
           </BlurFade>
           <div className="lg:col-span-6">
-            <p className="eyebrow">Our story</p>
+            <p className="eyebrow">About WESSMAA</p>
             <TextGenerateEffect
               className="font-display text-navy-950 mt-5 text-[clamp(1.5rem,1.2rem+1vw,2.125rem)] leading-snug font-semibold tracking-[-0.03em]"
-              words="Wessmaa started at NUML Islamabad with one belief: businesses should not have to hire several agencies to build a product and grow it."
+              words="WESSMAA is a digital growth company that helps businesses build a stronger, more credible and more effective presence online."
             />
             <div className="text-body mt-6 grid gap-4 leading-relaxed">
               <p>
-                We began building websites for local businesses in Islamabad. Clients kept asking
-                for more — an app, a booking system, then help getting customers to use them. So we
-                built the team to do it all.
+                We combine technology, creative content, social media, SEO, marketing, advertising and
+                automation to create a connected digital journey for a business.
               </p>
               <p>
-                Today, the name says exactly what we do: <strong className="text-ink">W</strong>
-                ebsite, <strong className="text-ink">E</strong>diting,{" "}
-                <strong className="text-ink">S</strong>ocial,{" "}
-                <strong className="text-ink">S</strong>EO, <strong className="text-ink">M</strong>
-                arketing, <strong className="text-ink">A</strong>utomation and{" "}
-                <strong className="text-ink">A</strong>ds — engineered and run by one senior team.
+                WESSMAA is not presented as a company that simply provides individual marketing
+                services. Every service has a clear purpose within the bigger business journey:
+                getting discovered, earning trust, creating engagement and converting attention into
+                real business results.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-2">
@@ -108,28 +105,35 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Mission & vision */}
+      {/* Mission & How WESSMAA Thinks */}
       <section className="section-y bg-surface-alt">
         <div className="container-page grid grid-cols-1 gap-5 md:grid-cols-2">
           {[
             {
-              k: "Mission",
-              t: "To give every ambitious company a senior product and growth team that owns outcomes — not just deliverables.",
+              k: "Core Mission",
+              t: "Drive Traffic → Build Trust → Increase Conversions",
+              sub: "Every capability works together so your business gets discovered, earns credibility, and turns attention into revenue.",
             },
             {
-              k: "Vision",
-              t: "To be the most trusted software and growth partner to come out of Pakistan, known for craft, candour and results.",
+              k: "How WESSMAA Thinks",
+              t: "We don't just create digital activity.",
+              sub: "We build the digital foundation and growth system that helps a business get found, get trusted and get chosen.",
             },
           ].map((m, i) => (
             <BlurFade key={m.k} delay={i * 0.08}>
               <div
-                className={`h-full rounded-[28px] p-10 ${i === 0 ? "bg-navy-950 text-white" : "border-line border bg-white"}`}
+                className={`h-full rounded-[28px] p-10 flex flex-col justify-between ${i === 0 ? "bg-navy-950 text-white" : "border-line border bg-white"}`}
               >
-                <p className={`eyebrow ${i === 0 ? "!text-orange-400" : ""}`}>{m.k}</p>
-                <p
-                  className={`mt-5 font-serif text-[clamp(1.5rem,1.2rem+1vw,2.25rem)] leading-snug ${i === 0 ? "text-white" : "text-navy-950"}`}
-                >
-                  {m.t}
+                <div>
+                  <p className={`eyebrow ${i === 0 ? "!text-orange-400" : ""}`}>{m.k}</p>
+                  <p
+                    className={`mt-5 font-serif text-[clamp(1.5rem,1.2rem+1vw,2.25rem)] leading-snug font-medium ${i === 0 ? "text-white" : "text-navy-950"}`}
+                  >
+                    {m.t}
+                  </p>
+                </div>
+                <p className={`mt-6 text-sm leading-relaxed ${i === 0 ? "text-white/80" : "text-slate-600"}`}>
+                  {m.sub}
                 </p>
               </div>
             </BlurFade>

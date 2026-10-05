@@ -29,6 +29,7 @@ const schema = z.object({
   budget: z.string().optional(),
   timeline: z.string().min(1, "Please choose a timeline"),
   message: z.string().min(20, "Tell us a little more (20+ characters)"),
+  website: z.string().optional(),
 });
 type Values = z.infer<typeof schema>;
 
@@ -54,6 +55,7 @@ export function ContactForm() {
       budget: "",
       timeline: "",
       message: "",
+      website: "",
     },
   });
   const { errors } = form.formState;
@@ -109,6 +111,11 @@ export function ContactForm() {
 
   return (
     <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
+      {/* Honeypot field */}
+      <div className="hidden" aria-hidden="true">
+        <input type="text" tabIndex={-1} autoComplete="off" {...form.register("website")} />
+      </div>
+
       <div className="flex items-center justify-between text-sm">
         <p className="text-ink font-semibold">
           Step {step + 1} of {steps.length}{" "}

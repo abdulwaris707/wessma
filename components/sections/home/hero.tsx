@@ -127,7 +127,7 @@ export function Hero() {
             <div className="text-body text-sm">
               <span className="text-navy-950 font-semibold">{hero.trust}</span>
               <span className="text-line mx-2">·</span>
-              <span>Focused on quality, clarity, and long-term partnerships</span>
+              <span>Helping businesses get found, get trusted and get chosen</span>
             </div>
           </motion.div>
         </div>

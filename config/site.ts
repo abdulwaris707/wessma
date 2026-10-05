@@ -7,32 +7,30 @@
  */
 
 export const siteConfig = {
-  name: "Wessmaa",
-  legalName: "Wessmaa Technologies",
-  // TODO: replace this placeholder with the canonical production domain before launch.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.example.com",
-  tagline: "We engineer software that moves businesses forward.",
+  name: "WESSMAA",
+  legalName: "WESSMAA Digital Growth Company",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.wessmaa.com",
+  tagline: "Drive Traffic → Build Trust → Increase Conversions",
   description:
-    "Wessmaa is an early-stage digital studio building thoughtful websites, software products and growth systems with clarity and care.",
+    "WESSMAA is a digital growth company that helps businesses build a stronger, more credible and more effective presence online. We combine technology, creative content, social media, SEO, marketing, advertising and automation to create a connected digital journey for a business.",
   keywords: [
-    "software development company",
+    "digital growth company",
     "web development agency",
-    "SaaS development",
-    "mobile app development",
-    "UI/UX design",
+    "creative content editing",
+    "social media management",
     "SEO agency",
-    "social media marketing",
-    "AI automation",
-    "paid ads agency",
+    "digital marketing strategy",
+    "business automation",
+    "paid advertising agency",
+    "conversion rate optimization",
   ],
   ogImage: "/og.png",
   contact: {
-    // TODO: replace email and phone placeholders with verified company details.
-    email: "hello@example.com",
-    careersEmail: "careers@example.com",
-    phone: "+00 000 000 0000",
-    phoneHref: "tel:+00000000000",
-    whatsapp: "#contact",
+    email: "info@wessmaa.com",
+    careersEmail: "info@wessmaa.com",
+    phone: "+1(645) 250-7849",
+    phoneHref: "tel:+16452507849",
+    whatsapp: "https://wa.me/16452507849",
     address: {
       street: "National University of Modern Languages (NUML), H-9/4",
       city: "Islamabad",
@@ -48,11 +46,9 @@ export const siteConfig = {
     responseTime: "We reply to every enquiry within 1 business day.",
   },
   social: [
-    { label: "LinkedIn", href: "https://www.linkedin.com/company/wessmaa", icon: "linkedin" },
-    { label: "Instagram", href: "https://www.instagram.com/wessmaa", icon: "instagram" },
-    { label: "X (Twitter)", href: "https://x.com/wessmaa", icon: "x" },
-    { label: "Dribbble", href: "https://dribbble.com/wessmaa", icon: "dribbble" },
-    { label: "GitHub", href: "https://github.com/wessmaa", icon: "github" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/wessmaa_official/", icon: "linkedin" },
+    { label: "Instagram", href: "https://www.instagram.com/wessmaa_official", icon: "instagram" },
+    { label: "TikTok", href: "https://www.tiktok.com/@wessmaa2", icon: "tiktok" },
   ],
 } as const;
 
@@ -86,26 +82,26 @@ export const megaMenuFeature = {
 };
 
 export const ctas = {
-  primary: { label: "Start Your Project", href: "/quote" },
-  secondary: { label: "View Our Work", href: "/work" },
+  primary: { label: "Start a Project", href: "/quote" },
+  secondary: { label: "Explore Our Services", href: "/services" },
   talk: { label: "Let's Talk", href: "/contact" },
-  quote: { label: "Get a Quote", href: "/quote" },
+  quote: { label: "Start a Project", href: "/quote" },
 };
 
 /* ------------------------------------------------------------------ */
-/* Home page copy                                                      */
+/* Home page copy & Mission Pillars                                    */
 /* ------------------------------------------------------------------ */
 
 export const hero = {
-  badge: "Software + growth, under one roof",
-  titleStart: "We build",
-  rotatingWords: ["SaaS platforms", "web apps", "mobile apps", "AI tools", "growth engines"],
-  titleEnd: "that",
-  titleAccent: "actually",
-  titleLast: "scale.",
+  badge: "Drive Traffic → Build Trust → Increase Conversions",
+  titleStart: "Drive Traffic.",
+  rotatingWords: ["Build Trust.", "Increase Conversions.", "Accelerate Growth.", "Deliver Results."],
+  titleEnd: "Grow",
+  titleAccent: "exponentially",
+  titleLast: "with WESSMAA.",
   subtitle:
-    "Wessmaa is the product and growth studio for ambitious teams. We design, engineer and launch software — then grow it with SEO, content, social and performance ads.",
-  trust: "Early-stage digital studio",
+    "WESSMAA builds digital experiences and growth systems that help businesses become more visible, more credible and more effective online.",
+  trust: "Digital Growth Company",
 };
 
 export const stats = [
@@ -113,134 +109,187 @@ export const stats = [
     value: 12,
     suffix: "+",
     label: "Projects delivered",
-    detail: "Across web, product and growth",
+    detail: "Across web, brand and growth",
   },
   { value: 8, suffix: "+", label: "Happy clients", detail: "Founders and growing teams" },
   { value: 2, suffix: "", label: "Countries", detail: "Pakistan and beyond" },
   { value: 2, suffix: "+", label: "Years of experience", detail: "Building since 2024" },
 ];
 
-/** The brand acronym — used in the signature "What WESSMAA means" section. */
+/** The three core mission pillars: What WESSMAA does and expected outcome. */
+export const missionPillars = [
+  {
+    pillar: "Drive Traffic",
+    whatWessmaaDoes:
+      "Use websites, SEO, social content, campaigns and ads to bring the right audience to the business.",
+    expectedOutcome: "More relevant visitors and discovery.",
+    badge: "Discovery & Reach",
+    icon: "trending-up",
+    capabilities: ["Websites", "SEO", "Social Content", "Campaigns & Ads"],
+  },
+  {
+    pillar: "Build Trust",
+    whatWessmaaDoes:
+      "Create professional digital experiences, consistent branding, useful content and genuine proof of capability.",
+    expectedOutcome: "More credibility and less customer hesitation.",
+    badge: "Credibility & Authority",
+    icon: "shield-check",
+    capabilities: ["UX/UI Design", "Consistent Branding", "Visual Storytelling", "Proof of Capability"],
+  },
+  {
+    pillar: "Increase Conversions",
+    whatWessmaaDoes:
+      "Use research-based design, clear messaging, strong CTAs and reduced friction to guide visitors toward action.",
+    expectedOutcome: "More enquiries, leads, bookings or sales.",
+    badge: "Results & Revenue",
+    icon: "target",
+    capabilities: ["Research-Based Design", "Clear Messaging", "Strong CTAs", "Frictionless UX"],
+  },
+] as const;
+
+/** The brand acronym — representing connected capabilities that work together as one growth system. */
 export const acronym = [
   {
     letter: "W",
     word: "Website",
-    text: "Conversion-first websites and web apps engineered on modern stacks.",
+    tagline: "Modern websites. Stronger brands.",
+    purpose:
+      "The website is the digital home of the business. It gives visitors a place to understand the brand, build confidence and take action.",
+    text: "Responsive development, UX/UI, landing pages, business websites, conversion-focused layouts, technical SEO foundations and performance.",
     href: "/services/website-development",
   },
   {
     letter: "E",
     word: "Editing",
-    text: "Video, motion and content editing that makes your brand impossible to scroll past.",
+    tagline: "Turn ideas into visual stories.",
+    purpose:
+      "Creative editing helps the brand communicate quickly and consistently across digital platforms.",
+    text: "Reels, short-form videos, promotional edits, social creatives, campaign videos and visual storytelling.",
     href: "/services/content-editing",
   },
   {
     letter: "S",
     word: "Social",
-    text: "Always-on social strategy, content calendars and community management.",
+    tagline: "Build communities. Boost engagement.",
+    purpose:
+      "Social media keeps the brand active, visible and connected with its audience.",
+    text: "Content strategy, posts, reels, stories, community content, platform management and reporting.",
     href: "/services/social-media",
   },
   {
     letter: "S",
     word: "SEO",
-    text: "Technical SEO, content and authority building that compounds every month.",
+    tagline: "Higher visibility. More growth.",
+    purpose:
+      "SEO helps people discover the business when they are actively searching for relevant products, services or information.",
+    text: "Technical SEO, on-page SEO, content strategy, keyword research, internal linking, local SEO and measurement.",
     href: "/services/seo",
   },
   {
     letter: "M",
     word: "Marketing",
-    text: "Full-funnel strategy, analytics and CRO tied to revenue — not vanity metrics.",
+    tagline: "Smart strategies. Bigger impact.",
+    purpose:
+      "Marketing connects business objectives with audience needs, messaging, content and campaigns.",
+    text: "Strategy, positioning, campaigns, customer journeys, content planning, audience targeting and measurement.",
     href: "/services/digital-marketing",
   },
   {
     letter: "A",
     word: "Automation",
-    text: "AI agents, integrations and workflows that give your team hours back.",
+    tagline: "Work smarter. Not harder.",
+    purpose:
+      "Automation reduces repetitive tasks and helps businesses respond faster and operate more consistently.",
+    text: "Lead workflows, notifications, CRM processes, email sequences, reporting and repetitive business-process automation.",
     href: "/services/ai-automation",
   },
   {
     letter: "A",
     word: "Ads",
-    text: "Performance campaigns across Google, Meta, LinkedIn and TikTok.",
+    tagline: "Reach the right people. Get real results.",
+    purpose:
+      "Paid advertising can accelerate reach when targeting, creative, landing pages and measurement work together.",
+    text: "Campaign setup, audience targeting, creative testing, landing-page alignment, conversion tracking and optimization.",
     href: "/services/paid-ads",
   },
 ];
 
 export const whyWessmaa = {
-  eyebrow: "Why Wessmaa",
-  title: "A senior team that owns outcomes, not just tickets.",
+  eyebrow: "Why WESSMAA is different",
+  title: "We don't just create digital activity. We build connected growth systems.",
   subtitle:
-    "Most agencies hand you a deliverable. We hand you a working business asset — and stay accountable for how it performs after launch.",
+    "WESSMAA is not only just a marketing agency. We connect technology, creative content, social media, SEO, marketing, advertising and automation so they work together as one growth system that helps a business get found, get trusted and get chosen.",
   benefits: [
     {
-      title: "Senior-only squads",
-      text: "A focused team with clear ownership and straightforward communication.",
+      title: "Not only just a marketing agency",
+      text: "We connect every capability into one growth system so your digital foundation and campaigns work together seamlessly.",
     },
     {
-      title: "Build and growth in one team",
-      text: "The people who build your product also rank it, market it and automate it.",
+      title: "Drive Traffic",
+      text: "Use websites, SEO, social content, campaigns and ads to bring the right audience to your business for discovery.",
     },
     {
-      title: "Weekly demos, zero surprises",
-      text: "You see working software every Friday, with a live roadmap and transparent budget burn.",
+      title: "Build Trust",
+      text: "Create professional digital experiences, consistent branding, useful content and genuine proof of capability that eliminate hesitation.",
     },
     {
-      title: "Fixed timelines you can plan around",
-      text: "Clear milestones and realistic plans designed around your priorities.",
+      title: "Increase Conversions",
+      text: "Use research-based design, clear messaging, strong CTAs and reduced friction to guide visitors toward enquiries, leads and sales.",
     },
     {
-      title: "You own everything",
-      text: "Code, designs, accounts and data are yours from day one. No lock-in, ever.",
+      title: "A connected digital journey",
+      text: "Every service has a purpose within the bigger business journey: getting discovered, earning trust and converting attention into real business results.",
     },
   ],
   quote: {
-    text: "They felt like an in-house team from week one.",
-    author: "Sara Malik, COO at Northwind Pay",
+    text: "We don't just create digital activity. We build the digital foundation and growth system that helps a business get found, get trusted and get chosen.",
+    author: "How WESSMAA Thinks",
   },
 };
 
+/** 3. THE WESSMAA DIGITAL GROWTH JOURNEY */
 export const processSteps = [
   {
     step: "01",
     title: "Discover",
-    duration: "Week 1",
-    text: "Workshops, stakeholder interviews and a technical audit. We define success metrics, scope and risks before a line of code is written.",
-    outputs: ["Product brief", "Success metrics", "Technical audit"],
+    duration: "Stage 01",
+    text: "Understand the business, audience, market, competitors and existing digital footprint.",
+    outputs: ["Audience research", "Competitor analysis", "Digital footprint audit"],
   },
   {
     step: "02",
-    title: "Design",
-    duration: "Weeks 2–3",
-    text: "Information architecture, wireframes and a high-fidelity design system, validated with real users through clickable prototypes.",
-    outputs: ["UX flows", "Design system", "Clickable prototype"],
+    title: "Build",
+    duration: "Stage 02",
+    text: "Create or improve the website, content, brand assets and digital foundations.",
+    outputs: ["High-impact website", "Brand assets", "Digital foundation"],
   },
   {
     step: "03",
-    title: "Develop",
-    duration: "Weeks 3–10",
-    text: "Two-week sprints with weekly demos. Typed, tested, reviewed code deployed to a staging environment you can use every day.",
-    outputs: ["Sprint demos", "Staging environment", "Code reviews"],
+    title: "Attract",
+    duration: "Stage 03",
+    text: "Use SEO, social, content and advertising to bring relevant people in.",
+    outputs: ["Search visibility", "Targeted traffic", "Engaging content"],
   },
   {
     step: "04",
-    title: "Test",
-    duration: "Continuous",
-    text: "Automated test suites, manual QA across devices, accessibility audits and load testing before anything reaches production.",
-    outputs: ["Automated tests", "QA reports", "Performance budget"],
+    title: "Trust",
+    duration: "Stage 04",
+    text: "Present the business consistently and provide useful information and genuine proof.",
+    outputs: ["Consistent branding", "Social proof", "Trust signals"],
   },
   {
     step: "05",
-    title: "Launch",
-    duration: "Launch week",
-    text: "Zero-downtime deployment, analytics, SEO foundations and a launch campaign — so day one has real traffic, not crickets.",
-    outputs: ["Production release", "Analytics", "Launch campaign"],
+    title: "Convert",
+    duration: "Stage 05",
+    text: "Make it easy for visitors to enquire, book, buy, call or take the intended action.",
+    outputs: ["Frictionless UX", "Clear CTAs", "Conversion flows"],
   },
   {
     step: "06",
-    title: "Scale",
-    duration: "Ongoing",
-    text: "Growth sprints across SEO, ads, social and automation, plus SLAs for maintenance, monitoring and new features.",
-    outputs: ["Growth roadmap", "SLA support", "Monthly reporting"],
+    title: "Improve",
+    duration: "Stage 06",
+    text: "Use analytics, feedback and ongoing optimization to improve performance.",
+    outputs: ["Analytics tracking", "Continuous optimization", "Compounding ROI"],
   },
 ];
 
@@ -363,7 +412,7 @@ export const finalCta = {
 
 export const footer = {
   mission:
-    "A software and growth studio helping startups, SMEs and enterprises build products people love — and grow them.",
+    "WESSMAA is a digital growth company that helps businesses build a stronger, more credible and more effective presence online through connected digital growth systems.",
   columns: [
     {
       title: "Services",

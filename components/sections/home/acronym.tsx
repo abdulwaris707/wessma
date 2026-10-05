@@ -80,6 +80,11 @@ export function Acronym() {
                   >
                     {a.word}
                   </p>
+                  {isActive && 'tagline' in a && a.tagline && (
+                    <p className="mt-0.5 text-xs font-semibold text-orange-400">
+                      {a.tagline}
+                    </p>
+                  )}
                   <AnimatePresence mode="wait">
                     {isActive && (
                       <motion.div
@@ -90,10 +95,10 @@ export function Acronym() {
                         transition={{ duration: 0.4, delay: 0.15, ease: EASE }}
                         className="w-[min(340px,100%)]"
                       >
-                        <p className="mt-2 text-sm leading-relaxed text-white/75">{a.text}</p>
+                        <p className="mt-2 text-sm leading-relaxed text-white/80">{a.purpose ?? a.text}</p>
                         <Link
                           href={a.href}
-                          className="mt-5 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-orange-400 hover:text-orange-300"
+                          className="mt-4 inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-orange-400 hover:text-orange-300"
                         >
                           Explore {a.word}
                           <ArrowUpRight className="size-4" aria-hidden />
@@ -126,7 +131,12 @@ export function Acronym() {
                       aria-hidden
                     />
                   </span>
-                  <span className="text-body mt-1 block text-sm leading-relaxed">{a.text}</span>
+                  {'tagline' in a && a.tagline && (
+                    <span className="block text-xs font-semibold text-orange-600 mt-0.5">
+                      {a.tagline}
+                    </span>
+                  )}
+                  <span className="text-body mt-1 block text-sm leading-relaxed">{a.purpose ?? a.text}</span>
                 </span>
               </Link>
             </BlurFade>

@@ -1,9 +1,10 @@
-import { CheckCircle2, Mail, MapPin } from "lucide-react";
+import { CheckCircle2, Mail, MapPin, Phone } from "lucide-react";
 import { siteConfig } from "@/config/site";
 import { buildMetadata } from "@/lib/seo";
 import { PageHero } from "@/components/shared/page-hero";
 import { ContactForm } from "@/components/forms/contact-form";
 import { BlurFade } from "@/components/magicui/blur-fade";
+import { BrandIcon } from "@/components/shared/brand-icon";
 
 export const metadata = buildMetadata({
   title: "Let's Talk",
@@ -60,6 +61,12 @@ export default function ContactPage() {
                   <Mail className="size-4 text-orange-600" aria-hidden /> {contact.email}
                 </a>
                 <a
+                  href={contact.phoneHref}
+                  className="text-body inline-flex items-center gap-3 transition-colors hover:text-orange-700"
+                >
+                  <Phone className="size-4 text-orange-600" aria-hidden /> {contact.phone}
+                </a>
+                <a
                   href={contact.mapUrl}
                   target="_blank"
                   rel="noreferrer"
@@ -70,6 +77,21 @@ export default function ContactPage() {
                     {contact.address.street}, {contact.address.city}
                   </span>
                 </a>
+                <div className="mt-4 pt-4 border-t border-slate-100 flex items-center gap-2">
+                  <span className="text-xs text-muted-ink mr-1">Socials:</span>
+                  {siteConfig.social.map((s) => (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={s.label}
+                      className="grid size-8 place-items-center rounded-full bg-surface-alt text-navy-800 transition-colors hover:bg-orange-50 hover:text-orange-600"
+                    >
+                      <BrandIcon name={s.icon} className="size-4" />
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </BlurFade>

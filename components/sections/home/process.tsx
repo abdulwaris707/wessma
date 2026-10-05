@@ -19,10 +19,10 @@ export function Process({
           eyebrow={eyebrow}
           title={
             <>
-              From first call to <em>compounding</em> growth.
+              The WESSMAA <em>Digital Growth</em> Journey.
             </>
           }
-          subtitle="A proven six-stage process that keeps quality high, surprises low and momentum constant."
+          subtitle="A connected six-stage system: Discover, Build, Attract, Trust, Convert, and Improve — turning digital attention into compounding business results."
         />
         <TracingBeam className={cn("mx-auto mt-16 max-w-5xl", compact && "mt-12")}>
           <ol className="grid gap-10 md:gap-4">

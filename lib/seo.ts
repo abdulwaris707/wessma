@@ -17,7 +17,7 @@ export function buildMetadata({
 }): Metadata {
   const fullTitle = title
     ? `${title} — ${siteConfig.name}`
-    : `${siteConfig.name} — Software & Growth Studio`;
+    : `${siteConfig.name} — Digital Growth Company`;
   return {
     title: fullTitle,
     description,

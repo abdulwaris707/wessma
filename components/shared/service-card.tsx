@@ -19,7 +19,10 @@ export function ServiceCard({ service, className }: { service: Service; classNam
           </span>
         </div>
         <h3 className="text-h3 mt-8 font-bold">{service.title}</h3>
-        <p className="text-body mt-3 flex-1 leading-relaxed">{service.short}</p>
+        {service.tagline && (
+          <p className="mt-1 text-sm font-semibold text-orange-600">{service.tagline}</p>
+        )}
+        <p className="text-body mt-2 flex-1 leading-relaxed">{service.short}</p>
         <span className="text-navy-800 mt-6 inline-flex items-center gap-1.5 text-sm font-semibold transition-colors group-hover:text-orange-700">
           Learn more
           <ArrowRight

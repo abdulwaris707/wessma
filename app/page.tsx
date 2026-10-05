@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/home/hero";
+import { MissionPillars } from "@/components/sections/home/mission-pillars";
 import { Acronym } from "@/components/sections/home/acronym";
 import { ServicesBento } from "@/components/sections/home/services-bento";
 import { WhyWessmaa } from "@/components/sections/home/why-wessmaa";
@@ -30,10 +31,11 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <MissionPillars />
       <ServicesBento />
       <Acronym />
       <WhyWessmaa />
-      <Process />
+      <Process eyebrow="The WESSMAA Digital Growth Journey" />
       <FeaturedCaseStudies />
       <TechStack />
       <Industries />

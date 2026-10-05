@@ -414,7 +414,15 @@ export type FaqItem = { q: string; a: string };
 export const homeFaqs: FaqItem[] = [
   {
     q: "What does WESSMAA stand for?",
-    a: "Website, Editing, Social, SEO, Marketing, Automation and Ads — the seven disciplines we bring together so your product and your growth are built by one accountable team.",
+    a: "Website, Editing, Social, SEO, Marketing, Automation and Ads — the seven disciplines we connect into one unified digital growth system.",
+  },
+  {
+    q: "What are the three pillars of WESSMAA's core mission?",
+    a: "Drive Traffic (bring the right audience via websites, SEO, social, and ads), Build Trust (professional digital experiences, consistent branding, and genuine capability proof), and Increase Conversions (research-based design, clear messaging, strong CTAs and reduced friction).",
+  },
+  {
+    q: "Why is WESSMAA different from typical marketing agencies?",
+    a: "WESSMAA is not only just a marketing agency. We build the digital foundation and growth system where every service connects to help a business get found, get trusted and get chosen.",
   },
   {
     q: "How much does a project cost?",

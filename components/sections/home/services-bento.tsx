@@ -47,13 +47,13 @@ export function ServicesBento() {
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
           <SectionHeading
             align="left"
-            eyebrow="What we do"
+            eyebrow="Connected capabilities"
             title={
               <>
                 Everything you need to build, launch and <em>grow</em>.
               </>
             }
-            subtitle="Engineering, design and growth disciplines working as one squad — so your product and your pipeline move together."
+            subtitle="The services are presented as connected capabilities, not unrelated service cards — working together as one unified digital growth system."
           />
           <BlurFade delay={0.15} className="shrink-0">
             <CTAButton href="/services" variant="secondary" size="default">
@@ -107,6 +107,11 @@ export function ServicesBento() {
                           >
                             {s.title}
                           </h3>
+                          {s.tagline && (
+                            <p className="mt-0.5 text-xs font-semibold text-orange-600">
+                              {s.tagline}
+                            </p>
+                          )}
                           <p className="text-body mt-1.5 text-[0.9375rem] leading-relaxed">
                             {s.short}
                           </p>

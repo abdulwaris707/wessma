@@ -165,7 +165,10 @@ export default async function CareersPage() {
             />
           </div>
           <div className="border-line rounded-[28px] border bg-white p-6 shadow-[var(--shadow-lift)] sm:p-10 lg:col-span-8">
-            <ApplicationForm />
+            <ApplicationForm
+              defaultRole=""
+              availableJobs={jobs.map((j) => ({ id: j.id, title: j.title, slug: j.slug }))}
+            />
           </div>
         </div>
       </section>

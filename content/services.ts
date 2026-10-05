@@ -24,6 +24,9 @@ export type Service = {
   icon: ServiceIcon;
   group: "Build" | "Grow";
   letter?: string;
+  tagline?: string;
+  purpose?: string;
+  capabilitiesExplained?: string[];
   heroTitle: string;
   heroText: string;
   problem: { title: string; points: string[] };
@@ -39,14 +42,25 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "website-development",
-    title: "Website Development",
-    short: "High-performance marketing sites and web apps built on Next.js, engineered to convert.",
+    title: "Website",
+    short: "The digital home of your business. Modern websites and stronger brands engineered to convert.",
     icon: "globe",
     group: "Build",
     letter: "W",
-    heroTitle: "Websites that load in a blink and sell while you sleep.",
+    tagline: "Modern websites. Stronger brands.",
+    purpose:
+      "The website is the digital home of the business. It gives visitors a place to understand the brand, build confidence and take action.",
+    capabilitiesExplained: [
+      "Responsive development",
+      "UX/UI",
+      "Landing pages",
+      "Business websites",
+      "Conversion-focused layouts",
+      "Technical SEO foundations and performance",
+    ],
+    heroTitle: "Modern websites. Stronger brands.",
     heroText:
-      "From launch sites to 500-page content platforms, we design and build websites that score 95+ on Lighthouse, rank on Google and turn visitors into pipeline.",
+      "The website is the digital home of the business. It gives visitors a place to understand the brand, build confidence and take action.",
     problem: {
       title: "Your website should be your best salesperson.",
       points: [
@@ -346,14 +360,25 @@ export const services: Service[] = [
   },
   {
     slug: "content-editing",
-    title: "Video & Content Editing",
-    short: "Short-form video, motion graphics and content production that stops the scroll.",
+    title: "Editing",
+    short: "Creative editing helps the brand communicate quickly and consistently across digital platforms.",
     icon: "clapperboard",
     group: "Grow",
     letter: "E",
-    heroTitle: "Content your audience actually watches to the end.",
+    tagline: "Turn ideas into visual stories.",
+    purpose:
+      "Creative editing helps the brand communicate quickly and consistently across digital platforms.",
+    capabilitiesExplained: [
+      "Reels",
+      "Short-form videos",
+      "Promotional edits",
+      "Social creatives",
+      "Campaign videos",
+      "Visual storytelling",
+    ],
+    heroTitle: "Turn ideas into visual stories.",
     heroText:
-      "Reels, shorts, YouTube, product videos and motion graphics — edited for retention, captioned for silent autoplay and cut for every platform.",
+      "Creative editing helps the brand communicate quickly and consistently across digital platforms.",
     problem: {
       title: "Attention is the most expensive thing on the internet.",
       points: [
@@ -420,15 +445,25 @@ export const services: Service[] = [
   },
   {
     slug: "social-media",
-    title: "Social Media Management",
-    short:
-      "Strategy, content calendars and community management across every platform that matters.",
+    title: "Social",
+    short: "Social media keeps the brand active, visible and connected with its audience.",
     icon: "share",
     group: "Grow",
     letter: "S",
-    heroTitle: "Social that builds a brand, not just a posting schedule.",
+    tagline: "Build communities. Boost engagement.",
+    purpose:
+      "Social media keeps the brand active, visible and connected with its audience.",
+    capabilitiesExplained: [
+      "Content strategy",
+      "Posts",
+      "Reels",
+      "Stories",
+      "Community content",
+      "Platform management and reporting",
+    ],
+    heroTitle: "Build communities. Boost engagement.",
     heroText:
-      "Platform strategy, content creation, community management and reporting for Instagram, LinkedIn, TikTok, X and Facebook.",
+      "Social media keeps the brand active, visible and connected with its audience.",
     problem: {
       title: "Posting consistently is hard. Posting well is harder.",
       points: [
@@ -492,14 +527,25 @@ export const services: Service[] = [
   {
     slug: "seo",
     title: "SEO",
-    short:
-      "Technical SEO, content and authority building that compounds into your cheapest channel.",
+    short: "SEO helps people discover the business when they are actively searching for relevant products, services or information.",
     icon: "search",
     group: "Grow",
     letter: "S",
-    heroTitle: "Rank for the searches that turn into revenue.",
+    tagline: "Higher visibility. More growth.",
+    purpose:
+      "SEO helps people discover the business when they are actively searching for relevant products, services or information.",
+    capabilitiesExplained: [
+      "Technical SEO",
+      "On-page SEO",
+      "Content strategy",
+      "Keyword research",
+      "Internal linking",
+      "Local SEO where applicable",
+      "Measurement",
+    ],
+    heroTitle: "Higher visibility. More growth.",
     heroText:
-      "Technical SEO, content strategy, on-page optimisation and digital PR — built to grow organic traffic that converts, month after month.",
+      "SEO helps people discover the business when they are actively searching for relevant products, services or information.",
     problem: {
       title: "Invisible on Google means invisible to buyers.",
       points: [
@@ -566,14 +612,25 @@ export const services: Service[] = [
   },
   {
     slug: "digital-marketing",
-    title: "Digital Marketing & CRO",
-    short: "Full-funnel strategy, analytics and conversion optimisation tied to revenue.",
+    title: "Marketing",
+    short: "Marketing connects business objectives with audience needs, messaging, content and campaigns.",
     icon: "trending-up",
     group: "Grow",
     letter: "M",
-    heroTitle: "Marketing that answers to revenue, not vanity metrics.",
+    tagline: "Smart strategies. Bigger impact.",
+    purpose:
+      "Marketing connects business objectives with audience needs, messaging, content and campaigns.",
+    capabilitiesExplained: [
+      "Strategy",
+      "Positioning",
+      "Campaigns",
+      "Customer journeys",
+      "Content planning",
+      "Audience targeting and measurement",
+    ],
+    heroTitle: "Smart strategies. Bigger impact.",
     heroText:
-      "Go-to-market strategy, funnel design, email and lifecycle marketing, analytics and conversion-rate optimisation for growth-stage companies.",
+      "Marketing connects business objectives with audience needs, messaging, content and campaigns.",
     problem: {
       title: "Spending on marketing without knowing what works.",
       points: [
@@ -631,14 +688,25 @@ export const services: Service[] = [
   },
   {
     slug: "ai-automation",
-    title: "AI & Automation",
-    short: "AI agents, chatbots and workflow automation that give your team hours back every week.",
+    title: "Automation",
+    short: "Automation reduces repetitive tasks and helps businesses respond faster and operate more consistently.",
     icon: "sparkles",
     group: "Build",
     letter: "A",
-    heroTitle: "Put your busywork on autopilot with AI that actually ships.",
+    tagline: "Work smarter. Not harder.",
+    purpose:
+      "Automation reduces repetitive tasks and helps businesses respond faster and operate more consistently.",
+    capabilitiesExplained: [
+      "Lead workflows",
+      "Notifications",
+      "CRM processes",
+      "Email sequences",
+      "Reporting",
+      "Repetitive business-process automation",
+    ],
+    heroTitle: "Work smarter. Not harder.",
     heroText:
-      "Custom AI agents, RAG knowledge assistants, lead-qualification bots and end-to-end workflow automations — deployed in weeks, measured in hours saved.",
+      "Automation reduces repetitive tasks and helps businesses respond faster and operate more consistently.",
     problem: {
       title: "Your team is drowning in repetitive work.",
       points: [
@@ -709,14 +777,24 @@ export const services: Service[] = [
   },
   {
     slug: "paid-ads",
-    title: "Paid Ads",
-    short: "Performance campaigns across Google, Meta, LinkedIn and TikTok, optimised for ROAS.",
+    title: "Ads",
+    short: "Paid advertising can accelerate reach when targeting, creative, landing pages and measurement work together.",
     icon: "target",
     group: "Grow",
     letter: "A",
-    heroTitle: "Ads that pay for themselves — and then some.",
+    tagline: "Reach the right people. Get real results.",
+    purpose:
+      "Paid advertising can accelerate reach when targeting, creative, landing pages and measurement work together.",
+    capabilitiesExplained: [
+      "Campaign setup",
+      "Audience targeting",
+      "Creative testing",
+      "Landing-page alignment",
+      "Conversion tracking and optimization",
+    ],
+    heroTitle: "Reach the right people. Get real results.",
     heroText:
-      "Search, social, shopping and video campaigns managed by performance specialists, with creative testing and tracking built for profitable scale.",
+      "Paid advertising can accelerate reach when targeting, creative, landing pages and measurement work together.",
     problem: {
       title: "Ad budgets disappear. Results do not show up.",
       points: [

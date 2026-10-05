@@ -51,7 +51,7 @@ export default function ServicesPage() {
             Build it. Launch it. <em>Grow</em> it.
           </>
         }
-        subtitle="Twelve senior disciplines under one roof — so the team that builds your product is the same team that ranks it, markets it and automates it."
+        subtitle="Connected capabilities that work together as one digital growth system — so every service has a purpose within getting discovered, earning trust and converting attention into real business results."
       >
         <div className="flex flex-wrap justify-center gap-2">
           {acronym.map((a, i) => (
@@ -100,7 +100,7 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
-      <Process />
+      <Process eyebrow="The WESSMAA Digital Growth Journey" />
       <FinalCta />
     </>
   );
