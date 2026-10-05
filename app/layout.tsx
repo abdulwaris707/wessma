@@ -3,11 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { buildMetadata, organizationJsonLd } from "@/lib/seo";
-import { AnnouncementBar } from "@/components/layout/announcement-bar";
-import { Navbar } from "@/components/layout/navbar";
-import { Footer } from "@/components/layout/footer";
-import { CookieConsent } from "@/components/layout/cookie-consent";
-import { StickyMobileCta } from "@/components/layout/sticky-mobile-cta";
+import { PublicChrome, PublicFooter } from "@/components/layout/public-chrome";
 import { MotionProvider, PageTransition } from "@/components/providers/page-transition";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
@@ -59,15 +55,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </a>
           <MotionProvider>
             <TooltipProvider delayDuration={150}>
-              <AnnouncementBar />
-              <Navbar />
+              <PublicChrome />
               <InitialRenderReady />
               <main id="main">
                 <PageTransition>{children}</PageTransition>
               </main>
-              <Footer />
-              <StickyMobileCta />
-              <CookieConsent />
+              <PublicFooter />
               <Toaster />
             </TooltipProvider>
           </MotionProvider>

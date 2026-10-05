@@ -9,6 +9,7 @@ import { Icon } from "@/components/shared/icon";
 import { CTAButton } from "@/components/shared/cta-button";
 import { JobBoard } from "@/components/sections/job-board";
 import { ApplicationForm } from "@/components/forms/application-form";
+import { getPublishedJobs } from "@/lib/db";
 
 export const metadata = buildMetadata({
   title: "Careers & Opportunities",
@@ -17,7 +18,9 @@ export const metadata = buildMetadata({
   path: "/careers",
 });
 
-export default function CareersPage() {
+export const dynamic = "force-dynamic";
+export default async function CareersPage() {
+  const jobs = await getPublishedJobs();
   return (
     <>
       <PageHero
@@ -145,7 +148,7 @@ export default function CareersPage() {
             }
           />
           <div className="mt-10">
-            <JobBoard />
+            <JobBoard jobs={jobs} />
           </div>
         </div>
       </section>

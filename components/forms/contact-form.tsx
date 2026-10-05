@@ -92,7 +92,7 @@ export function ContactForm() {
     return (
       <SuccessState
         title={`Thanks, ${v.name.split(" ")[0] || "there"}.`}
-        text="Your message has been received. We will review it and follow up with the right next step."
+        text="Thank you — your message has been received. Our team will get back to you soon."
       >
         <Button
           variant="outline"
