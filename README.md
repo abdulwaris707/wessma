@@ -20,7 +20,7 @@ npm run dev                  # http://localhost:3000
 | `npm run dev`          | Dev server with Turbopack                             |
 | `npm run build`        | Production build (SSG for every route)                |
 | `npm run start`        | Serve the production build                            |
-| `npm run build:static` | Fully static export to `/out` (any static host / CDN) |
+| `npm run build` | Production build for Vercel or another Node.js-capable host |
 | `npm run lint`         | ESLint (next/core-web-vitals + TypeScript)            |
 | `npm run typecheck`    | `tsc --noEmit`                                        |
 | `npm run format`       | Prettier (with the Tailwind class-sorting plugin)     |
