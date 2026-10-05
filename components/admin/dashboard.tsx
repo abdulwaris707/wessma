@@ -960,7 +960,7 @@ function JobEditor({
   }
 
   return (
-    <div className="fixed inset-0 z-[80] overflow-y-auto bg-navy-950/50 backdrop-blur-xs p-3 sm:p-8">
+    <div className="fixed inset-0 z-[80] overflow-y-auto bg-navy-950/60 p-3 sm:p-8">
       <form
         onSubmit={submit}
         className="mx-auto max-w-4xl rounded-3xl bg-white p-6 shadow-2xl sm:p-8"
@@ -1148,7 +1148,7 @@ function ApplicationPanel({
   }
 
   return (
-    <div className="fixed inset-0 z-[80] bg-navy-950/50 backdrop-blur-xs p-3 sm:p-8">
+    <div className="fixed inset-0 z-[80] bg-navy-950/60 p-3 sm:p-8">
       <section className="ml-auto h-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl sm:p-8 flex flex-col justify-between">
         <div>
           <div className="flex items-center justify-between border-b border-line pb-4">
@@ -1328,7 +1328,7 @@ function EnquiryPanel({
   }
 
   return (
-    <div className="fixed inset-0 z-[80] bg-navy-950/50 backdrop-blur-xs p-3 sm:p-8">
+    <div className="fixed inset-0 z-[80] bg-navy-950/60 p-3 sm:p-8">
       <section className="ml-auto h-full max-w-xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl sm:p-8 flex flex-col justify-between">
         <div>
           <div className="flex items-center justify-between border-b border-line pb-4">
@@ -1486,7 +1486,7 @@ function ReplyModal({
   }
 
   return (
-    <div className="fixed inset-0 z-[90] bg-navy-950/60 backdrop-blur-xs p-3 sm:p-8 flex items-center justify-center">
+    <div className="fixed inset-0 z-[90] bg-navy-950/60 p-3 sm:p-8 flex items-center justify-center">
       <form
         onSubmit={handleSend}
         className="w-full max-w-2xl rounded-3xl bg-white p-6 shadow-2xl sm:p-8"
