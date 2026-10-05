@@ -19,3 +19,13 @@ export function useMediaQuery(query: string) {
 export function useFinePointer() {
   return useMediaQuery("(hover: hover) and (pointer: fine)");
 }
+
+/** True on mobile screens (viewport < 768px). */
+export function useIsMobile() {
+  return useMediaQuery("(max-width: 767px)");
+}
+
+/** True on tablet & smaller screens (viewport < 1024px). */
+export function useIsSmallScreen() {
+  return useMediaQuery("(max-width: 1023px)");
+}

@@ -627,7 +627,44 @@ function JobsSection({
         </div>
       </div>
 
-      <div className="overflow-x-auto">
+      {/* Mobile Stacked Card View */}
+      <div className="grid divide-y divide-line sm:hidden">
+        {filtered.map((j) => (
+          <div key={j.id} className="p-4 space-y-3">
+            <div className="flex items-start justify-between gap-2">
+              <div>
+                <p className="font-semibold text-ink text-base">{j.title}</p>
+                <p className="text-xs text-muted-ink font-mono">{j.slug}</p>
+              </div>
+              <Badge value={j.status} />
+            </div>
+            <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-ink">
+              <span>{j.department}</span>
+              <span>•</span>
+              <span>{j.location}</span>
+              <span>•</span>
+              <span>{j.employmentType}</span>
+            </div>
+            <div className="flex items-center justify-end gap-2 border-t border-line/60 pt-2">
+              <Button size="sm" variant="outline" onClick={() => onEdit(j)} className="h-8 text-xs">
+                <Pencil className="size-3.5" /> Edit
+              </Button>
+              <Button
+                size="sm"
+                variant="ghost"
+                onClick={() => onDelete(j.id)}
+                className="h-8 text-xs text-red-600 hover:bg-red-50 hover:text-red-700"
+              >
+                <Trash2 className="size-3.5" /> Delete
+              </Button>
+            </div>
+          </div>
+        ))}
+        {!filtered.length && <Empty text="No jobs match your search or filter criteria." />}
+      </div>
+
+      {/* Desktop & Tablet Table View */}
+      <div className="hidden sm:block overflow-x-auto">
         <table className="w-full text-left text-sm">
           <thead className="bg-surface-alt text-muted-ink">
             <tr>
@@ -1240,12 +1277,12 @@ function ApplicationPanel({
         </div>
 
         {/* Footer actions */}
-        <div className="mt-8 flex items-center justify-between border-t border-line pt-4">
+        <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between border-t border-line pt-4">
           <Button
             type="button"
             variant="ghost"
             onClick={() => onDelete(application.id)}
-            className="text-red-600 hover:bg-red-50"
+            className="text-red-600 hover:bg-red-50 w-full sm:w-auto"
           >
             <Trash2 className="size-4" /> Delete
           </Button>
@@ -1254,6 +1291,7 @@ function ApplicationPanel({
             type="button"
             variant="accent"
             onClick={() => onReply(application)}
+            className="w-full sm:w-auto"
           >
             <Mail className="size-4" /> Reply via Official Email
           </Button>
@@ -1368,12 +1406,12 @@ function EnquiryPanel({
         </div>
 
         {/* Actions */}
-        <div className="mt-8 flex items-center justify-between border-t border-line pt-4">
+        <div className="mt-8 flex flex-col-reverse gap-3 sm:flex-row sm:items-center sm:justify-between border-t border-line pt-4">
           <Button
             type="button"
             variant="ghost"
             onClick={() => onDelete(enquiry.id)}
-            className="text-red-600 hover:bg-red-50"
+            className="text-red-600 hover:bg-red-50 w-full sm:w-auto"
           >
             <Trash2 className="size-4" /> Delete
           </Button>
@@ -1382,6 +1420,7 @@ function EnquiryPanel({
             type="button"
             variant="accent"
             onClick={() => onReply(enquiry)}
+            className="w-full sm:w-auto"
           >
             <Mail className="size-4" /> Reply via Official Email
           </Button>

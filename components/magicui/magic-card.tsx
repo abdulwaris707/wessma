@@ -2,11 +2,13 @@
 
 import { motion, useMotionTemplate, useMotionValue } from "motion/react";
 import { useCallback, type ReactNode } from "react";
+import { useFinePointer } from "@/hooks/use-media";
 import { cn } from "@/lib/utils";
 
 /**
  * Magic UI — Magic Card.
- * A cursor-following spotlight glow (orange/blue) on the card surface and border.
+ * On desktop (pointer: fine): renders cursor-following spotlight glow.
+ * On mobile/touch: disabled cursor calculations entirely to save GPU/CPU cycles.
  */
 type MagicCardProps = {
   children: ReactNode;
@@ -25,45 +27,58 @@ export function MagicCard({
   borderFrom = "#f97316",
   borderTo = "#1e3a8a",
 }: MagicCardProps) {
+  const fine = useFinePointer();
   const x = useMotionValue(-gradientSize);
   const y = useMotionValue(-gradientSize);
 
   const onMove = useCallback(
     (e: React.PointerEvent<HTMLDivElement>) => {
+      if (!fine) return;
       const r = e.currentTarget.getBoundingClientRect();
       x.set(e.clientX - r.left);
       y.set(e.clientY - r.top);
     },
-    [x, y],
+    [fine, x, y],
   );
+
   const onLeave = useCallback(() => {
+    if (!fine) return;
     x.set(-gradientSize);
     y.set(-gradientSize);
-  }, [x, y, gradientSize]);
+  }, [fine, x, y, gradientSize]);
 
   const border = useMotionTemplate`radial-gradient(${gradientSize}px circle at ${x}px ${y}px, ${borderFrom}, ${borderTo}66 40%, #e2e8f0 100%)`;
   const glow = useMotionTemplate`radial-gradient(${gradientSize}px circle at ${x}px ${y}px, ${gradientColor}, transparent 100%)`;
 
   return (
     <div
-      onPointerMove={onMove}
-      onPointerLeave={onLeave}
+      onPointerMove={fine ? onMove : undefined}
+      onPointerLeave={fine ? onLeave : undefined}
       className={cn("group/magic relative isolate rounded-[inherit]", className)}
     >
-      <motion.div
-        aria-hidden
-        className="bg-line pointer-events-none absolute inset-0 -z-10 rounded-[inherit]"
-        style={{ background: border }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-px -z-10 rounded-[inherit] bg-white"
-      />
-      <motion.div
-        aria-hidden
-        className="pointer-events-none absolute inset-px -z-10 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover/magic:opacity-100"
-        style={{ background: glow }}
-      />
+      {fine ? (
+        <>
+          <motion.div
+            aria-hidden
+            className="bg-line pointer-events-none absolute inset-0 -z-10 rounded-[inherit]"
+            style={{ background: border }}
+          />
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-px -z-10 rounded-[inherit] bg-white"
+          />
+          <motion.div
+            aria-hidden
+            className="pointer-events-none absolute inset-px -z-10 rounded-[inherit] opacity-0 transition-opacity duration-300 group-hover/magic:opacity-100"
+            style={{ background: glow }}
+          />
+        </>
+      ) : (
+        <div
+          aria-hidden
+          className="border-line pointer-events-none absolute inset-0 -z-10 rounded-[inherit] border bg-white"
+        />
+      )}
       {children}
     </div>
   );
