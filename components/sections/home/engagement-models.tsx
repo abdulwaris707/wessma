@@ -113,10 +113,10 @@ export function EngagementModels() {
           <p className="text-body">
             Need a detailed breakdown?{" "}
             <a
-              href="/pricing"
+              href="/quote"
               className="text-navy-800 font-semibold underline decoration-orange-500/50 underline-offset-4 hover:text-orange-700"
             >
-              See full pricing
+              Request a tailored quote
             </a>
           </p>
         </BlurFade>

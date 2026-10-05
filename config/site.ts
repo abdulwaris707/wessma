@@ -73,7 +73,6 @@ export const mainNav = [
   { label: "Services", href: "/services", mega: true },
   { label: "Solutions", href: "/solutions" },
   { label: "Work", href: "/work" },
-  { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
   { label: "Careers & Opportunities", href: "/careers" },
 ] as const;
@@ -391,7 +390,6 @@ export const footer = {
       title: "Resources",
       links: [
         { label: "Careers & Opportunities", href: "/careers" },
-        { label: "Pricing", href: "/pricing" },
         { label: "FAQ", href: "/faq" },
         { label: "Get a Quote", href: "/quote" },
         { label: "Let's Talk", href: "/contact" },

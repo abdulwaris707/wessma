@@ -50,7 +50,7 @@ export function Hero() {
         gx.set(e.clientX - r.left);
         gy.set(e.clientY - r.top);
       }}
-      className="relative isolate overflow-hidden pt-36 pb-20 sm:pt-40 lg:pt-44 lg:pb-28"
+      className="relative isolate overflow-hidden pt-20 pb-20 sm:pt-24 lg:pt-24 lg:pb-28"
     >
       {/* Backgrounds */}
       <GridPattern

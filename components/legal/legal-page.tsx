@@ -8,7 +8,6 @@ export function LegalPage({ doc, path }: { doc: LegalDoc; path: string }) {
   return (
     <>
       <PageHero
-        align="left"
         breadcrumbs={[{ label: doc.title, href: path }]}
         eyebrow="Legal"
         title={doc.title}

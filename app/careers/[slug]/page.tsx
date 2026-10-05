@@ -74,7 +74,6 @@ export default async function JobPage({ params }: { params: Promise<{ slug: stri
         }}
       />
       <PageHero
-        align="left"
         breadcrumbs={[
           { label: "Careers", href: "/careers" },
           { label: job.title, href: `/careers/${job.slug}` },
@@ -83,7 +82,7 @@ export default async function JobPage({ params }: { params: Promise<{ slug: stri
         title={job.title}
         subtitle={job.summary}
       >
-        <div className="flex flex-wrap gap-3">
+        <div className="flex flex-wrap justify-center gap-3">
           <CTAButton href="#apply">Apply now</CTAButton>
           <Link
             href="/careers#open-roles"
