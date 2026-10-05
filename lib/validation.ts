@@ -30,4 +30,15 @@ export const contactSchema = z.object({
   message: z.string().trim().min(10).max(10000),
 });
 
+/** Public job applications are stored in the protected admin enquiries inbox. */
+export const applicationSchema = z.object({
+  name: z.string().trim().min(2).max(120),
+  email: z.email().max(254),
+  phone: z.string().trim().min(7).max(50),
+  role: z.string().trim().min(1).max(140),
+  portfolio: z.string().trim().max(500).optional().default(""),
+  message: z.string().trim().min(20).max(10000),
+  cv: z.object({ name: z.string().trim().min(1).max(255), size: z.number().nonnegative(), type: z.string().max(120) }),
+});
+
 export const enquiryStatusSchema = z.object({ status: z.enum(["new", "read", "replied", "archived"]) });

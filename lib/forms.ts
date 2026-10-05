@@ -4,7 +4,7 @@
  * a serverless function, etc.). Without an endpoint, it runs in demo mode.
  */
 export async function submitForm(form: string, data: Record<string, unknown>) {
-  if (form === "contact") {
+  if (form === "contact" || form === "job-application") {
     const res = await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
     if (!res.ok) throw new Error("Submission failed");
     return { ok: true, demo: false } as const;

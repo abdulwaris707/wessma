@@ -67,6 +67,7 @@ export function ApplicationForm({ defaultRole = "" }: { defaultRole?: string }) 
     }
     try {
       await submitForm("job-application", {
+        kind: "job-application",
         ...values,
         cv: { name: file.name, size: file.size, type: file.type },
       });
