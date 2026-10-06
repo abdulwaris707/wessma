@@ -189,6 +189,19 @@ export const team: TeamMember[] = [
     department: "development",
     image: "/images/team/abdul-waris-portrait.png",
   },
+  {
+    name: "Yumna Ahmed",
+    role: "Junior Graphic Designer",
+    linkedin: "https://www.linkedin.com/in/yumna-ahmed-5217ab433",
+    department: "creative",
+    image: "/images/team/yumna-ahmed-portrait.jpeg",
+  },
+  {
+    name: "Manahil Mir",
+    role: "Social Media Manager",
+    department: "marketing",
+    image: "/images/team/manahil-mir-portrait.jpg",
+  },
 ];
 
 /* ------------------------------- About ------------------------------- */
