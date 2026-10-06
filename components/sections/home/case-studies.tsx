@@ -1,22 +1,12 @@
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { caseStudies } from "@/content/case-studies";
 import { SectionHeading } from "@/components/shared/section-heading";
+import { CaseStudyCard } from "@/components/shared/case-study-card";
 import { CTAButton } from "@/components/shared/cta-button";
 import { BlurFade } from "@/components/magicui/blur-fade";
 
-/**
- * Selected work: three focused project cards (visual, category, problem → solution, CTA).
- * Change which projects appear by editing the slugs below.
- */
-const featuredSlugs = ["northwind-pay", "luma-commerce", "medora-health"];
-
+/** Three featured case studies: one large + two stacked. */
 export function FeaturedCaseStudies() {
-  const projects = featuredSlugs
-    .map((slug) => caseStudies.find((c) => c.slug === slug))
-    .filter((c): c is (typeof caseStudies)[number] => Boolean(c));
-
+  const [a, b, c] = [caseStudies[0], caseStudies[2], caseStudies[4]];
   return (
     <section className="section-y relative bg-white">
       <div className="container-page">
@@ -26,71 +16,58 @@ export function FeaturedCaseStudies() {
             eyebrow="Selected work"
             title={
               <>
-                Projects built with <em>intent</em>.
+                Results our clients <em>brag</em> about.
               </>
             }
-            subtitle="A closer look at how we pair strategy, design and engineering to solve real business problems."
+            subtitle="A few recent projects where product and growth moved the numbers that matter."
           />
           <BlurFade delay={0.15} className="shrink-0">
             <CTAButton href="/work" variant="secondary" size="default">
-              View all work
+              View all case studies
             </CTAButton>
           </BlurFade>
         </div>
-
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p, i) => (
-            <BlurFade
-              key={p.slug}
-              delay={0.06 * i}
-              className={i === 2 ? "md:col-span-2 lg:col-span-1" : undefined}
-            >
-              <article className="group border-line flex h-full flex-col overflow-hidden rounded-[28px] border bg-white p-2 shadow-[var(--shadow-soft)] transition-shadow duration-500 hover:shadow-[var(--shadow-float)]">
-                <div className="bg-surface-subtle relative aspect-[4/3] overflow-hidden rounded-[22px]">
-                  <Image
-                    src={p.image}
-                    alt={`${p.client} project preview`}
-                    fill
-                    sizes="(min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-                    className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04]"
-                  />
-                  <span className="text-navy-950 absolute top-4 left-4 rounded-full border border-white/70 bg-white/95 px-3 py-1 text-xs font-semibold shadow-[var(--shadow-soft)]">
-                    {p.services[0]}
-                  </span>
-                </div>
-
-                <div className="flex flex-1 flex-col p-5 sm:p-6">
-                  <p className="text-muted-ink text-sm font-medium">
-                    {p.client} · {p.industry}
-                  </p>
-                  <dl className="mt-4 grid gap-3 text-[0.9375rem] leading-relaxed">
-                    <div>
-                      <dt className="text-xs font-semibold tracking-wide text-orange-700 uppercase">
-                        Problem
-                      </dt>
-                      <dd className="text-body mt-0.5">{p.challengePoints[0]}</dd>
-                    </div>
-                    <div>
-                      <dt className="text-navy-800 text-xs font-semibold tracking-wide uppercase">
-                        Solution
-                      </dt>
-                      <dd className="text-navy-950 mt-0.5 font-medium">{p.solutionPoints[0]}</dd>
-                    </div>
-                  </dl>
-                  <Link
-                    href={`/work/${p.slug}`}
-                    className="text-navy-950 border-line mt-6 inline-flex min-h-11 w-fit items-center gap-1.5 rounded-full border px-4 text-sm font-semibold transition-colors hover:border-orange-500/40 hover:text-orange-700"
-                  >
-                    View Project
-                    <ArrowUpRight
-                      className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                      aria-hidden
-                    />
-                  </Link>
-                </div>
-              </article>
+        <div className="mt-14 grid grid-cols-1 gap-5 lg:grid-cols-12">
+          <BlurFade className="lg:col-span-7">
+            <CaseStudyCard study={a} size="large" />
+          </BlurFade>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1">
+            <BlurFade delay={0.08}>
+              <CaseStudyCard study={b} />
             </BlurFade>
-          ))}
+            <BlurFade delay={0.16} className="lg:hidden">
+              <CaseStudyCard study={c} />
+            </BlurFade>
+          </div>
+        </div>
+        <div className="mt-5 hidden gap-5 lg:grid lg:grid-cols-12">
+          <BlurFade className="lg:col-span-5">
+            <CaseStudyCard study={c} />
+          </BlurFade>
+          <BlurFade
+            delay={0.08}
+            className="border-line flex flex-col justify-between rounded-[28px] border bg-white p-10 shadow-[var(--shadow-soft)] lg:col-span-7"
+          >
+            <p className="eyebrow">Impact, in aggregate</p>
+            <div className="mt-8 grid grid-cols-3 gap-6">
+              {[
+                { v: "12+", l: "projects delivered with care" },
+                { v: "2", l: "countries served" },
+                { v: "2.1M", l: "hours saved by our automations" },
+              ].map((m) => (
+                <div key={m.v}>
+                  <p className="font-display text-navy-950 text-4xl font-bold tracking-[-0.04em]">
+                    {m.v}
+                  </p>
+                  <p className="text-muted-ink mt-2 text-sm leading-relaxed">{m.l}</p>
+                </div>
+              ))}
+            </div>
+            <p className="text-navy-950 mt-10 max-w-lg font-serif text-2xl leading-snug">
+              “We measure our work by what it does for your business — not by how many tickets we
+              closed.”
+            </p>
+          </BlurFade>
         </div>
       </div>
     </section>

@@ -29,7 +29,7 @@ export function BlurFade({
   delay = 0,
   duration = 0.5,
   yOffset = 12,
-  // `blur` prop is accepted for API compatibility but intentionally ignored (keeps text sharp).
+  blur: _blur = "4px",
   inViewMargin = "-40px",
   as = "div",
 }: BlurFadeProps) {
