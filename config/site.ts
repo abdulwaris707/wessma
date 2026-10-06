@@ -94,15 +94,15 @@ export const ctas = {
 /* ------------------------------------------------------------------ */
 
 export const hero = {
-  badge: "Strategic Digital Engineering & Growth",
-  titleStart: "We Build Digital Systems That",
-  rotatingWords: ["Turn Attention Into Growth.", "Accelerate Revenue.", "Scale Category Leaders.", "Engineers Real Impact."],
-  titleEnd: "Turn Attention Into",
-  titleAccent: "Growth.",
-  titleLast: "",
+  badge: "Drive Traffic → Build Trust → Increase Conversions",
+  titleStart: "Drive Traffic.",
+  rotatingWords: ["Build Trust.", "Increase Conversions.", "Accelerate Growth.", "Deliver Results."],
+  titleEnd: "Grow",
+  titleAccent: "exponentially",
+  titleLast: "with WESSMAA.",
   subtitle:
-    "Wessma helps ambitious businesses scale through high-performance web development, brand strategy, creative content, paid advertising, and conversion-engineered digital systems.",
-  trust: "Engineering & Growth Partner",
+    "WESSMAA builds digital experiences and growth systems that help businesses become more visible, more credible and more effective online.",
+  trust: "Digital Growth Company",
 };
 
 export const stats = [
