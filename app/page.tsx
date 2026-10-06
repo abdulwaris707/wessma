@@ -2,6 +2,7 @@ import dynamic from "next/dynamic";
 import { Hero } from "@/components/sections/home/hero";
 import { MissionPillars } from "@/components/sections/home/mission-pillars";
 import { ServicesBento } from "@/components/sections/home/services-bento";
+import { GrowthEngine } from "@/components/sections/home/growth-engine";
 import { WhyWessmaa } from "@/components/sections/home/why-wessmaa";
 import { Process } from "@/components/sections/home/process";
 import { FeaturedCaseStudies } from "@/components/sections/home/case-studies";
@@ -31,6 +32,7 @@ export default function HomePage() {
       <Hero />
       <MissionPillars />
       <ServicesBento />
+      <GrowthEngine />
       <FeaturedCaseStudies />
       <Process eyebrow="The WESSMAA Digital Growth Journey" />
       <WhyWessmaa />

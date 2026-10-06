@@ -1,7 +1,7 @@
 "use client";
 
 import { useSafeReducedMotion } from "@/hooks/use-safe-reduced-motion";
-import { motion, useMotionValue, useScroll, useSpring, useTransform } from "motion/react";
+import { motion, useMotionValue, useSpring } from "motion/react";
 import { useEffect, useRef } from "react";
 import { ctas, hero } from "@/config/site";
 import { AnimatedGradientBadge } from "@/components/magicui/animated-gradient-text";
@@ -11,27 +11,13 @@ import { Spotlight } from "@/components/aceternity/spotlight";
 import { CTAButton } from "@/components/shared/cta-button";
 import { useFinePointer, useIsMobile } from "@/hooks/use-media";
 import { EASE } from "@/lib/motion";
-import { FloatingAgentCard, FloatingMetricCard, HeroDashboard } from "./hero-dashboard";
 
-/** Home hero: rotating headline, CTAs, trust line and clean performance dashboard. */
+/** Home hero: rotating headline, CTAs and trust line. */
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reduce = useSafeReducedMotion();
   const fine = useFinePointer();
   const isMobile = useIsMobile();
-
-  // Parallax on scroll (only when on desktop with fine pointer and motion enabled)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const cardAY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    reduce || isMobile ? [0, 0] : [0, -60],
-  );
-  const cardBY = useTransform(
-    scrollYProgress,
-    [0, 1],
-    reduce || isMobile ? [0, 0] : [0, 40],
-  );
 
   // Cursor-follow glow (desktop only with fine pointer)
   const gx = useSpring(useMotionValue(-600), { stiffness: 120, damping: 24 });
@@ -147,33 +133,6 @@ export function Hero() {
               <span className="text-navy-950 font-semibold">{hero.trust}</span>
               <span className="text-line mx-2">·</span>
               <span>Helping businesses get found, get trusted and get chosen</span>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Dashboard mockup */}
-        <div className="relative mx-auto mt-12 max-w-5xl sm:mt-16 lg:mt-20">
-          <div
-            aria-hidden
-            className="hidden sm:block bg-gradient-brand absolute inset-x-6 sm:inset-x-10 top-8 sm:top-10 -bottom-8 sm:-bottom-10 -z-10 rounded-[30px] sm:rounded-[40px] opacity-15 sm:opacity-20 blur-2xl sm:blur-3xl"
-          />
-          <div>
-            <HeroDashboard />
-          </div>
-          <motion.div
-            style={{ y: cardAY }}
-            className="absolute top-24 -left-6 hidden lg:block xl:-left-16"
-          >
-            <div className="animate-float">
-              <FloatingAgentCard />
-            </div>
-          </motion.div>
-          <motion.div
-            style={{ y: cardBY }}
-            className="absolute -right-6 bottom-16 hidden lg:block xl:-right-14"
-          >
-            <div className="animate-float [animation-delay:-3s]">
-              <FloatingMetricCard />
             </div>
           </motion.div>
         </div>
