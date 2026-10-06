@@ -264,7 +264,7 @@ export default function AboutPage() {
                       {String(groupIndex + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <div className={`grid grid-cols-2 gap-3 sm:gap-4 ${group.cols}`}>
+                  <div className={`grid grid-cols-2 justify-center gap-3 sm:gap-4 ${group.cols}`}>
                     {members.map((member, index) => {
                       const initials = member.name
                         .split(" ")
@@ -287,8 +287,8 @@ export default function AboutPage() {
                                 {initials}
                               </span>
                             )}
-                            <div className="absolute inset-x-0 bottom-0 h-[43%] bg-gradient-to-t from-navy-950 via-navy-950/90 to-transparent" />
-                            <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                            <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-navy-950 via-navy-950/90 to-transparent" />
+                            <div className="absolute inset-x-0 bottom-0 flex flex-col items-center p-4 text-center text-white">
                               <h3 className="font-display !text-white text-base font-bold tracking-tight drop-shadow-sm sm:text-lg">
                                 {member.name}
                               </h3>
@@ -299,7 +299,7 @@ export default function AboutPage() {
                                   target="_blank"
                                   rel="noreferrer"
                                   aria-label={`LinkedIn profile of ${member.name}`}
-                                  className="mt-3 inline-flex translate-y-2 items-center gap-2 text-xs font-semibold text-white opacity-0 transition-[transform,opacity,color] duration-300 hover:text-orange-300 focus-visible:translate-y-0 focus-visible:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 sm:text-sm"
+                                  className="mt-3 inline-flex translate-y-2 items-center justify-center gap-2 text-xs font-semibold text-white opacity-0 transition-[transform,opacity,color] duration-300 hover:text-orange-300 focus-visible:translate-y-0 focus-visible:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 sm:text-sm"
                                 >
                                   <BrandIcon name="linkedin" className="size-4" />
                                   View LinkedIn
