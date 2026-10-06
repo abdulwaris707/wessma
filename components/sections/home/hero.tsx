@@ -7,7 +7,6 @@ import { ctas, hero } from "@/config/site";
 import { AnimatedGradientBadge } from "@/components/magicui/animated-gradient-text";
 import { WordRotate } from "@/components/magicui/word-rotate";
 import { GridPattern } from "@/components/magicui/grid-pattern";
-import { Spotlight } from "@/components/aceternity/spotlight";
 import { CTAButton } from "@/components/shared/cta-button";
 import { useFinePointer, useIsMobile } from "@/hooks/use-media";
 import { EASE } from "@/lib/motion";
@@ -65,9 +64,9 @@ export function Hero() {
       }}
       className="relative isolate overflow-hidden pt-16 pb-16 sm:pt-24 sm:pb-20 lg:pt-24 lg:pb-28"
     >
-      {/* Background patterns: simplify on mobile */}
+      {/* Background patterns: subtle grid and restrained accent glow with ample whitespace */}
       <GridPattern
-        className="[mask-image:radial-gradient(ellipse_70%_60%_at_50%_0%,black,transparent)] opacity-40 sm:opacity-100"
+        className="[mask-image:radial-gradient(ellipse_70%_50%_at_50%_20%,black,transparent)] opacity-25 sm:opacity-40"
         squares={[
           [4, 3],
           [9, 2],
@@ -78,27 +77,15 @@ export function Hero() {
         ]}
       />
       
-      {/* Heavy spotlight: hide on small mobile screens */}
-      <div className="hidden sm:block">
-        <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="#2563eb" />
-      </div>
-
+      {/* Subtle restrained dark-blue and orange accent glow, ample whitespace */}
       <div
         aria-hidden
-        className="hidden sm:block absolute -top-24 right-[-10%] -z-10 size-[36rem] rounded-full bg-orange-500/[0.12] blur-[120px]"
+        className="pointer-events-none absolute top-0 left-1/2 -z-10 h-96 w-full max-w-4xl -translate-x-1/2 bg-[radial-gradient(ellipse_60%_40%_at_50%_0%,rgba(37,99,235,0.06),transparent_70%)]"
       />
       <div
         aria-hidden
-        className="hidden sm:block bg-navy-600/[0.10] absolute top-40 left-[-12%] -z-10 size-[30rem] rounded-full blur-[120px]"
+        className="pointer-events-none absolute -top-12 right-1/4 -z-10 size-72 rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.05),transparent_65%)]"
       />
-
-      {fine && !isMobile && (
-        <motion.div
-          aria-hidden
-          className="pointer-events-none absolute -z-10 size-[520px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(249,115,22,0.10),transparent_60%)]"
-          style={{ left: gx, top: gy }}
-        />
-      )}
 
       <div className="container-page px-4 sm:px-6">
         <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
@@ -111,25 +98,22 @@ export function Hero() {
 
           <motion.h1
             {...item(1)}
-            className="text-display text-navy-950 mt-5 sm:mt-7 font-bold tracking-[-0.04em] sm:tracking-[-0.045em]"
+            className="text-display text-navy-950 mt-5 sm:mt-7 font-bold tracking-[-0.035em] sm:tracking-[-0.04em]"
           >
             {hero.titleStart}
             <br />
-            <WordRotate words={hero.rotatingWords} className="text-gradient-brand" />
-            <br /> {hero.titleEnd}{" "}
-            <em className="font-serif font-normal tracking-[-0.02em] text-orange-700">
-              {hero.titleAccent}
-            </em>{" "}
-            {hero.titleLast}
+            <span className="text-gradient-brand">
+              <WordRotate words={hero.rotatingWords} />
+            </span>
           </motion.h1>
 
-          <motion.p {...item(2)} className="text-lead text-body mt-4 sm:mt-6 max-w-[60ch]">
+          <motion.p {...item(2)} className="text-lead text-body mt-5 sm:mt-6 max-w-[62ch]">
             {hero.subtitle}
           </motion.p>
 
           <motion.div
             {...item(3)}
-            className="mt-7 sm:mt-9 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row"
+            className="mt-8 sm:mt-10 flex w-full flex-col items-center justify-center gap-3.5 sm:w-auto sm:flex-row"
           >
             <CTAButton href={ctas.primary.href} magnetic={!isMobile}>
               {ctas.primary.label}
@@ -141,22 +125,18 @@ export function Hero() {
 
           <motion.div
             {...item(4)}
-            className="mt-6 sm:mt-9 flex flex-col items-center gap-2 sm:flex-row sm:gap-4"
+            className="mt-6 sm:mt-8 flex flex-col items-center gap-2 sm:flex-row sm:gap-4"
           >
             <div className="text-body text-xs sm:text-sm">
               <span className="text-navy-950 font-semibold">{hero.trust}</span>
               <span className="text-line mx-2">·</span>
-              <span>Helping businesses get found, get trusted and get chosen</span>
+              <span>Web Development · Brand Strategy · Content · Paid Ads · Digital Strategy</span>
             </div>
           </motion.div>
         </div>
 
         {/* Dashboard mockup */}
         <div className="relative mx-auto mt-12 max-w-5xl sm:mt-16 lg:mt-20">
-          <div
-            aria-hidden
-            className="hidden sm:block bg-gradient-brand absolute inset-x-6 sm:inset-x-10 top-8 sm:top-10 -bottom-8 sm:-bottom-10 -z-10 rounded-[30px] sm:rounded-[40px] opacity-15 sm:opacity-20 blur-2xl sm:blur-3xl"
-          />
           <div>
             <HeroDashboard />
           </div>

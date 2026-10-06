@@ -6,40 +6,34 @@ import { BlurFade } from "@/components/magicui/blur-fade";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { CTAButton } from "@/components/shared/cta-button";
 import { Icon } from "@/components/shared/icon";
-import { cn } from "@/lib/utils";
 import {
   AdsVisual,
-  AutomationVisual,
-  CodeVisual,
+  ContentVisual,
   DesignVisual,
   LighthouseVisual,
-  PhoneVisual,
   SeoVisual,
   SocialVisual,
 } from "./bento-visuals";
 
-/** Magic UI Bento Grid of 8 core services, each with its own micro-interaction. */
+
+/** Bento Grid of 6 core services with bespoke micro-interactions. */
 const layout: Record<string, { span: string; visual: React.ReactNode }> = {
-  "software-development": { span: "lg:col-span-2", visual: <CodeVisual /> },
-  "ai-automation": { span: "lg:col-span-2 lg:row-span-2", visual: <AutomationVisual /> },
-  "website-development": { span: "", visual: <LighthouseVisual /> },
-  "mobile-app-development": { span: "", visual: <PhoneVisual /> },
-  seo: { span: "", visual: <SeoVisual /> },
-  "paid-ads": { span: "", visual: <AdsVisual /> },
-  "ui-ux-design": { span: "", visual: <DesignVisual /> },
-  "social-media": { span: "", visual: <SocialVisual /> },
+  "website-development": { span: "lg:col-span-2", visual: <LighthouseVisual /> },
+  "ui-ux-design": { span: "lg:col-span-2", visual: <DesignVisual /> },
+  "social-media": { span: "lg:col-span-2", visual: <SocialVisual /> },
+  "paid-ads": { span: "lg:col-span-2", visual: <AdsVisual /> },
+  seo: { span: "lg:col-span-2", visual: <SeoVisual /> },
+  "digital-marketing": { span: "lg:col-span-2", visual: <ContentVisual /> },
 };
 
 export function ServicesBento() {
   const order = [
-    "software-development",
-    "ai-automation",
     "website-development",
-    "mobile-app-development",
-    "seo",
-    "paid-ads",
     "ui-ux-design",
     "social-media",
+    "paid-ads",
+    "seo",
+    "digital-marketing",
   ];
   return (
     <section className="section-y relative bg-white" id="services">
@@ -62,23 +56,17 @@ export function ServicesBento() {
           </BlurFade>
         </div>
 
-        <div className="mt-14 grid auto-rows-[minmax(300px,auto)] grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid auto-rows-[minmax(300px,auto)] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {order
             .filter((s) => featuredServiceSlugs.includes(s))
             .map((slug, i) => {
               const s = getService(slug)!;
               const l = layout[slug];
-              const big = slug === "ai-automation";
               return (
                 <BlurFade
                   key={slug}
                   delay={0.04 * i}
-                  className={cn(
-                    "h-full",
-                    l.span,
-                    slug === "software-development" && "md:col-span-2",
-                    big && "md:col-span-2",
-                  )}
+                  className="h-full"
                 >
                   <MagicCard className="h-full rounded-3xl">
                     <Link
@@ -86,10 +74,7 @@ export function ServicesBento() {
                       className="group flex h-full flex-col overflow-hidden p-6 sm:p-7"
                     >
                       <div
-                        className={cn(
-                          "bg-surface-alt relative flex flex-1 items-center justify-center rounded-2xl p-5",
-                          big ? "min-h-64" : "min-h-40",
-                        )}
+                        className="bg-surface-alt relative flex flex-1 items-center justify-center rounded-2xl p-5 min-h-44"
                       >
                         <div
                           aria-hidden
@@ -102,9 +87,7 @@ export function ServicesBento() {
                           <Icon name={s.icon} className="size-4" />
                         </span>
                         <div className="min-w-0">
-                          <h3
-                            className={cn("font-bold tracking-tight", big ? "text-h3" : "text-lg")}
-                          >
+                          <h3 className="font-bold tracking-tight text-lg text-navy-950">
                             {s.title}
                           </h3>
                           {s.tagline && (

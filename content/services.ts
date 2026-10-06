@@ -42,25 +42,25 @@ export type Service = {
 export const services: Service[] = [
   {
     slug: "website-development",
-    title: "Website",
-    short: "The digital home of your business. Modern websites and stronger brands engineered to convert.",
+    title: "Web Design & Development",
+    short: "High-performance websites, bespoke web applications and conversion-focused digital platforms.",
     icon: "globe",
     group: "Build",
     letter: "W",
     tagline: "Modern websites. Stronger brands.",
     purpose:
-      "The website is the digital home of the business. It gives visitors a place to understand the brand, build confidence and take action.",
+      "The website is the digital headquarters of the business. It gives visitors a place to understand the brand, build confidence and convert into customers.",
     capabilitiesExplained: [
-      "Responsive development",
-      "UX/UI",
-      "Landing pages",
-      "Business websites",
-      "Conversion-focused layouts",
-      "Technical SEO foundations and performance",
+      "Responsive custom web development",
+      "UI/UX interface engineering",
+      "Conversion-optimized landing pages",
+      "Corporate & SaaS web platforms",
+      "Technical SEO foundations & Web Vitals",
+      "Headless CMS integration & speed optimization",
     ],
-    heroTitle: "Modern websites. Stronger brands.",
+    heroTitle: "High-performance websites. Engineered to scale.",
     heroText:
-      "The website is the digital home of the business. It gives visitors a place to understand the brand, build confidence and take action.",
+      "We design and build bespoke web experiences that elevate your brand credibility, load in milliseconds, and turn qualified traffic into measurable revenue.",
     problem: {
       title: "Your website should be your best salesperson.",
       points: [
@@ -287,13 +287,13 @@ export const services: Service[] = [
   },
   {
     slug: "ui-ux-design",
-    title: "UI/UX Design",
-    short: "Research-led product design and design systems that make complex software feel simple.",
+    title: "Brand Strategy & Creative",
+    short: "Distinct visual identities, strategic brand positioning, and UI/UX design systems that establish market authority.",
     icon: "pen-tool",
     group: "Build",
-    heroTitle: "Interfaces that feel obvious — because we did the hard thinking.",
+    heroTitle: "Brand identity and creative direction built to command attention.",
     heroText:
-      "User research, UX strategy, interface design and scalable design systems for SaaS, mobile and marketing sites.",
+      "We build cohesive brand systems, visual guidelines, UI/UX architecture, and creative assets that make your company instantly memorable and trustworthy.",
     problem: {
       title: "Great features die in confusing interfaces.",
       points: [
@@ -445,25 +445,25 @@ export const services: Service[] = [
   },
   {
     slug: "social-media",
-    title: "Social",
-    short: "Social media keeps the brand active, visible and connected with its audience.",
+    title: "Social Media Management",
+    short: "Strategic multi-platform management, high-performing creative, and community growth focused on engagement and pipeline.",
     icon: "share",
     group: "Grow",
     letter: "S",
-    tagline: "Build communities. Boost engagement.",
+    tagline: "Build communities. Drive qualified pipeline.",
     purpose:
-      "Social media keeps the brand active, visible and connected with its audience.",
+      "Social media keeps your brand top-of-mind, establishes category thought leadership, and drives targeted engagement directly into your sales funnel.",
     capabilitiesExplained: [
-      "Content strategy",
-      "Posts",
-      "Reels",
-      "Stories",
-      "Community content",
-      "Platform management and reporting",
+      "Audience intelligence & channel strategy",
+      "High-production carousels, reels & video storytelling",
+      "Executive personal branding & founder positioning",
+      "Active community management & social listening",
+      "Organic-to-inbound funnel engineering",
+      "Comprehensive attribution & engagement reporting",
     ],
-    heroTitle: "Build communities. Boost engagement.",
+    heroTitle: "Build authority. Drive measurable engagement.",
     heroText:
-      "Social media keeps the brand active, visible and connected with its audience.",
+      "We transform your social presence from generic posting into an active distribution channel that compounds audience trust, drives qualified leads, and accelerates brand equity.",
     problem: {
       title: "Posting consistently is hard. Posting well is harder.",
       points: [
@@ -526,14 +526,14 @@ export const services: Service[] = [
   },
   {
     slug: "seo",
-    title: "SEO",
-    short: "SEO helps people discover the business when they are actively searching for relevant products, services or information.",
+    title: "SEO & Organic Growth",
+    short: "Technical infrastructure, buyer-intent search optimization, and compounding organic authority.",
     icon: "search",
     group: "Grow",
     letter: "S",
-    tagline: "Higher visibility. More growth.",
+    tagline: "Higher visibility. Compounding demand.",
     purpose:
-      "SEO helps people discover the business when they are actively searching for relevant products, services or information.",
+      "SEO captures high-intent prospects when they are actively searching for your solutions, creating sustainable inbound pipeline without ongoing ad spend.",
     capabilitiesExplained: [
       "Technical SEO",
       "On-page SEO",
@@ -612,14 +612,14 @@ export const services: Service[] = [
   },
   {
     slug: "digital-marketing",
-    title: "Marketing",
-    short: "Marketing connects business objectives with audience needs, messaging, content and campaigns.",
+    title: "Content Strategy / Digital Consulting",
+    short: "Executive digital advisory, full-funnel content architecture, and strategic growth roadmaps.",
     icon: "trending-up",
     group: "Grow",
     letter: "M",
-    tagline: "Smart strategies. Bigger impact.",
+    tagline: "Strategic clarity. Sustainable acceleration.",
     purpose:
-      "Marketing connects business objectives with audience needs, messaging, content and campaigns.",
+      "Strategic consulting aligns high-converting editorial and video content with clear revenue milestones, customer journeys, and executive decision-making.",
     capabilitiesExplained: [
       "Strategy",
       "Positioning",
@@ -777,24 +777,25 @@ export const services: Service[] = [
   },
   {
     slug: "paid-ads",
-    title: "Ads",
-    short: "Paid advertising can accelerate reach when targeting, creative, landing pages and measurement work together.",
+    title: "Paid Ads & Performance Marketing",
+    short: "Full-funnel paid acquisition across Meta, Google & LinkedIn engineered for positive unit economics and measurable scale.",
     icon: "target",
     group: "Grow",
     letter: "A",
-    tagline: "Reach the right people. Get real results.",
+    tagline: "Precision targeting. Disciplined scale.",
     purpose:
-      "Paid advertising can accelerate reach when targeting, creative, landing pages and measurement work together.",
+      "Paid advertising accelerates qualified reach and sales when targeting, dynamic creative, landing-page architecture, and server-side tracking operate as one engine.",
     capabilitiesExplained: [
-      "Campaign setup",
-      "Audience targeting",
-      "Creative testing",
-      "Landing-page alignment",
-      "Conversion tracking and optimization",
+      "Multi-channel campaign architecture (Google, Meta, LinkedIn, TikTok)",
+      "High-intent audience segmentation & behavioral retargeting",
+      "Continuous creative testing sprints & video hooks",
+      "Landing page CRO alignment & lead qualification",
+      "Server-side Conversions API (CAPI) & offline lead imports",
+      "Weekly algorithmic optimization & ROAS/CAC management",
     ],
-    heroTitle: "Reach the right people. Get real results.",
+    heroTitle: "Precision targeting. Profitable acquisition.",
     heroText:
-      "Paid advertising can accelerate reach when targeting, creative, landing pages and measurement work together.",
+      "We build, test, and manage high-intent paid campaigns that turn your ad budget into scalable revenue, backed by strict unit economics, creative iteration, and server-side attribution.",
     problem: {
       title: "Ad budgets disappear. Results do not show up.",
       points: [
@@ -971,14 +972,13 @@ export const services: Service[] = [
 
 export const getService = (slug: string) => services.find((s) => s.slug === slug);
 
-/** The eight services highlighted on the home bento grid. */
+/** The six core services highlighted on the home bento grid and capabilities. */
 export const featuredServiceSlugs = [
-  "software-development",
   "website-development",
-  "ai-automation",
-  "mobile-app-development",
-  "seo",
-  "paid-ads",
   "ui-ux-design",
   "social-media",
+  "paid-ads",
+  "seo",
+  "digital-marketing",
 ];
+

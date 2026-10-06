@@ -317,3 +317,24 @@ export function SocialVisual() {
     </div>
   );
 }
+
+export function ContentVisual() {
+  return (
+    <div className="mx-auto flex h-32 w-full max-w-[240px] flex-col justify-center gap-2">
+      <div className="border-line flex items-center justify-between rounded-lg border bg-white px-3 py-2 text-[11px] shadow-[var(--shadow-soft)] transition-transform duration-500 group-hover:translate-x-1">
+        <span className="text-navy-950 font-semibold">Editorial Strategy</span>
+        <span className="rounded bg-orange-100 px-1.5 py-0.5 text-[10px] font-bold text-orange-700">Q3 Active</span>
+      </div>
+      <div className="border-line flex items-center justify-between rounded-lg border bg-white px-3 py-2 text-[11px] shadow-[var(--shadow-soft)] transition-transform duration-500 group-hover:translate-x-2">
+        <span className="text-navy-950 font-semibold">Organic Distribution</span>
+        <span className="rounded bg-emerald-100 px-1.5 py-0.5 text-[10px] font-bold text-emerald-700">+42% Reach</span>
+      </div>
+      <div className="border-line flex items-center justify-between rounded-lg border bg-white px-3 py-2 text-[11px] shadow-[var(--shadow-soft)] transition-transform duration-500 group-hover:translate-x-1">
+        <span className="text-navy-950 font-semibold">Brand Narrative</span>
+        <span className="text-muted-ink text-[10px]">Documented</span>
+      </div>
+    </div>
+  );
+}
+
+
