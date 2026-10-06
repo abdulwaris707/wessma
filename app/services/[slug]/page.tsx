@@ -87,7 +87,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
             <div className="border-line bg-surface-alt relative overflow-hidden rounded-[28px] border p-8 sm:p-10 shadow-[var(--shadow-soft)]">
               <div
                 aria-hidden
-                className="bg-navy-600/5 pointer-events-none absolute -top-24 -right-24 size-72 rounded-full blur-3xl"
+                className="hidden sm:block bg-navy-600/5 pointer-events-none absolute -top-24 -right-24 size-72 rounded-full blur-xl"
               />
               <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center">
                 <div className="lg:col-span-6">
@@ -162,7 +162,7 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
                 <BorderBeam size={260} duration={10} />
                 <div
                   aria-hidden
-                  className="absolute -top-24 -right-24 size-72 rounded-full bg-orange-500/25 blur-3xl"
+                  className="hidden sm:block absolute -top-24 -right-24 size-72 rounded-full bg-orange-500/20 blur-xl"
                 />
                 <span className="text-navy-950 relative inline-flex rounded-full bg-orange-500 px-3 py-1 text-xs font-semibold tracking-wider uppercase">
                   The Wessmaa way

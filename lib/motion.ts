@@ -8,11 +8,10 @@ export const DURATION = {
 } as const;
 
 export const fadeUp = {
-  hidden: { opacity: 0, y: 16, filter: "blur(6px)" },
+  hidden: { opacity: 0, y: 16 },
   show: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: DURATION.slow, ease: EASE },
   },
 };

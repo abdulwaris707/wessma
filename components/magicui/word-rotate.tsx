@@ -48,23 +48,15 @@ export function WordRotate({
           initial={
             reduce
               ? { opacity: 0 }
-              : isMobile
-                ? { opacity: 0, y: "40%" }
-                : { opacity: 0, y: "55%", filter: "blur(8px)" }
+              : { opacity: 0, y: isMobile ? "40%" : "55%" }
           }
-          animate={
-            isMobile
-              ? { opacity: 1, y: 0 }
-              : { opacity: 1, y: 0, filter: "blur(0px)" }
-          }
+          animate={{ opacity: 1, y: 0 }}
           exit={
             reduce
               ? { opacity: 0 }
-              : isMobile
-                ? { opacity: 0, y: "-40%" }
-                : { opacity: 0, y: "-55%", filter: "blur(8px)" }
+              : { opacity: 0, y: isMobile ? "-40%" : "-55%" }
           }
-          transition={{ duration: isMobile ? 0.3 : 0.5, ease: EASE }}
+          transition={{ duration: isMobile ? 0.3 : 0.45, ease: EASE }}
         >
           {words[index]}
         </motion.span>

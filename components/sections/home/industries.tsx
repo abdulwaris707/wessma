@@ -82,10 +82,10 @@ export function Industries() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={ind.id}
-                initial={{ opacity: 0, y: 12, filter: "blur(6px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                exit={{ opacity: 0, y: -8, filter: "blur(6px)" }}
-                transition={{ duration: 0.45, ease: EASE }}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.35, ease: EASE }}
                 className="border-line grid h-full grid-cols-1 gap-6 overflow-hidden rounded-[28px] border bg-white p-6 shadow-[var(--shadow-soft)] sm:p-8 md:grid-cols-2"
               >
                 <div className="flex flex-col">

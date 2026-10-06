@@ -382,7 +382,7 @@ export function QuoteEstimator() {
           <BorderBeam size={220} duration={9} colorFrom="#f97316" colorTo="#ffffff" />
           <div
             aria-hidden
-            className="absolute -top-16 -right-16 size-56 rounded-full bg-orange-500/25 blur-3xl"
+            className="hidden sm:block absolute -top-16 -right-16 size-56 rounded-full bg-orange-500/20 blur-xl"
           />
           <p className="eyebrow relative !text-orange-400">Live estimate</p>
           {est.high > 0 ? (

@@ -70,7 +70,7 @@ export function WhyWessmaa() {
         <div className="relative lg:col-span-6">
           <div
             aria-hidden
-            className="bg-gradient-brand absolute -inset-6 -z-10 rounded-[40px] opacity-[0.12] blur-3xl"
+            className="hidden sm:block bg-gradient-brand absolute -inset-6 -z-10 rounded-[40px] opacity-[0.10] blur-xl"
           />
           <div className="border-line relative overflow-hidden rounded-[28px] border bg-white p-2 shadow-[var(--shadow-float)]">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[22px]">

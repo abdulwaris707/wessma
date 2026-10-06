@@ -22,17 +22,11 @@ export function TextGenerateEffect({ words, className }: { words: string; classN
           initial={
             reduce
               ? false
-              : isMobile
-                ? { opacity: 0 }
-                : { opacity: 0, filter: "blur(8px)" }
+              : { opacity: 0 }
           }
-          whileInView={
-            isMobile
-              ? { opacity: 1 }
-              : { opacity: 1, filter: "blur(0px)" }
-          }
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: isMobile ? 0.35 : 0.5, delay: i * 0.04, ease: EASE }}
+          transition={{ duration: isMobile ? 0.35 : 0.45, delay: i * 0.04, ease: EASE }}
         >
           {w}&nbsp;
         </motion.span>

@@ -98,10 +98,10 @@ export function PricingTiers() {
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.p
                     key={`${t.name}-${mode}`}
-                    initial={{ opacity: 0, y: 10, filter: "blur(6px)" }}
-                    animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, y: -10, filter: "blur(6px)" }}
-                    transition={{ duration: 0.35, ease: EASE }}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3, ease: EASE }}
                     className={cn(
                       "font-display text-5xl leading-none font-bold tracking-[-0.05em]",
                       t.popular ? "text-white" : "text-navy-950",

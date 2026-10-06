@@ -109,7 +109,7 @@ export function MissionPillars() {
           <div className="border-navy-950 bg-navy-950 relative overflow-hidden rounded-[28px] border p-8 text-white sm:p-10 shadow-[var(--shadow-float)]">
             <div
               aria-hidden
-              className="absolute -top-24 -right-24 size-80 rounded-full bg-orange-500/20 blur-3xl"
+              className="hidden sm:block absolute -top-24 -right-24 size-80 rounded-full bg-orange-500/15 blur-xl"
             />
             <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-7">
@@ -143,7 +143,7 @@ export function MissionPillars() {
                 </div>
               </div>
 
-              <div className="border-line/20 rounded-2xl border bg-white/[0.06] p-6 lg:col-span-5 backdrop-blur-sm">
+              <div className="border-line/20 rounded-2xl border bg-white/[0.08] p-6 lg:col-span-5">
                 <p className="text-xs font-semibold tracking-wider text-orange-300 uppercase">
                   How WESSMAA Thinks
                 </p>

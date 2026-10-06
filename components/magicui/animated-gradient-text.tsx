@@ -15,7 +15,7 @@ export function AnimatedGradientBadge({
   return (
     <span
       className={cn(
-        "group text-navy-950 relative inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-1.5 text-sm font-medium shadow-[var(--shadow-soft)] backdrop-blur-sm",
+        "group text-navy-950 relative inline-flex items-center gap-2 rounded-full bg-white px-4 py-1.5 text-sm font-medium shadow-[var(--shadow-soft)] border border-line/60",
         className,
       )}
     >

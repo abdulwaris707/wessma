@@ -55,11 +55,11 @@ export function Acronym() {
                   <>
                     <div
                       aria-hidden
-                      className="absolute -top-20 -right-20 size-64 rounded-full bg-orange-500/30 blur-3xl"
+                      className="hidden sm:block absolute -top-20 -right-20 size-64 rounded-full bg-orange-500/20 blur-xl"
                     />
                     <div
                       aria-hidden
-                      className="bg-navy-600/40 absolute -bottom-24 -left-10 size-64 rounded-full blur-3xl"
+                      className="hidden sm:block bg-navy-600/30 absolute -bottom-24 -left-10 size-64 rounded-full blur-xl"
                     />
                   </>
                 )}

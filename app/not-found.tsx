@@ -67,7 +67,7 @@ export default function NotFound() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className="group border-line flex h-full flex-col rounded-2xl border bg-white/80 p-4 text-left backdrop-blur transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-orange-500/40 hover:shadow-[var(--shadow-lift)]"
+                className="group border-line flex h-full flex-col rounded-2xl border bg-white p-4 text-left shadow-[var(--shadow-soft)] transition-[border-color,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-orange-500/40 hover:shadow-[var(--shadow-lift)]"
               >
                 <span className="text-ink flex items-center justify-between font-semibold">
                   {l.label}{" "}

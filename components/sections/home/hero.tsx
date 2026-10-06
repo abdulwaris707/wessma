@@ -40,13 +40,11 @@ export function Hero() {
   const item = (i: number) => ({
     initial: reduce
       ? false
-      : isMobile
-        ? { opacity: 0, y: 10 }
-        : { opacity: 0, y: 18, filter: "blur(8px)" },
-    animate: { opacity: 1, y: 0, filter: "none" },
+      : { opacity: 0, y: isMobile ? 10 : 18 },
+    animate: { opacity: 1, y: 0 },
     transition: {
-      duration: isMobile ? 0.35 : 0.7,
-      delay: isMobile ? 0.05 + i * 0.04 : 0.1 + i * 0.08,
+      duration: isMobile ? 0.35 : 0.6,
+      delay: isMobile ? 0.05 + i * 0.04 : 0.08 + i * 0.06,
       ease: EASE,
     },
   });

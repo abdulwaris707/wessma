@@ -29,7 +29,7 @@ export function BlurFade({
   delay = 0,
   duration = 0.5,
   yOffset = 12,
-  blur = "4px",
+  blur: _blur = "4px",
   inViewMargin = "-40px",
   as = "div",
 }: BlurFadeProps) {
@@ -47,19 +47,13 @@ export function BlurFade({
 
   const variants: Variants = reduce
     ? {
-        hidden: { opacity: 1, y: 0, filter: "none" },
-        visible: { opacity: 1, y: 0, filter: "none" },
+        hidden: { opacity: 1, y: 0 },
+        visible: { opacity: 1, y: 0 },
       }
-    : isMobile
-      ? {
-          // On mobile, completely eliminate expensive filter: blur() to maximize FPS
-          hidden: { y: 6, opacity: 0 },
-          visible: { y: 0, opacity: 1 },
-        }
-      : {
-          hidden: { y: yOffset, opacity: 0, filter: `blur(${blur})` },
-          visible: { y: 0, opacity: 1, filter: "blur(0px)" },
-        };
+    : {
+        hidden: { y: isMobile ? 6 : yOffset, opacity: 0 },
+        visible: { y: 0, opacity: 1 },
+      };
 
   const MotionTag = motion[as] as typeof motion.div;
   return (
