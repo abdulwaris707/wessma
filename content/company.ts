@@ -170,7 +170,7 @@ export const team: TeamMember[] = [
     image: "/images/team/rabbiya-laeeque-portrait.png",
   },
   {
-    name: "Ahla Sajjad",
+    name: "Ahlaa Sajjad",
     role: "Social Media Manager",
     linkedin: "https://www.linkedin.com/in/ahla-sajjad-a60309a5",
     department: "marketing",

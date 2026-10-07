@@ -225,31 +225,26 @@ export default function AboutPage() {
                 department: "founders",
                 label: "Founders",
                 description: "Company direction, product and growth",
-                cols: "sm:grid-cols-3 lg:grid-cols-4",
               },
               {
                 department: "business",
                 label: "Business & operations",
                 description: "Client coordination and smooth delivery",
-                cols: "sm:grid-cols-3 lg:grid-cols-4",
               },
               {
                 department: "development",
                 label: "Development team",
                 description: "Engineering and technical delivery",
-                cols: "sm:grid-cols-3 lg:grid-cols-4",
               },
               {
                 department: "creative",
                 label: "Creative & media",
                 description: "Design, video and visual storytelling",
-                cols: "sm:grid-cols-3 lg:grid-cols-4",
               },
               {
                 department: "marketing",
                 label: "Marketing",
                 description: "Social presence and audience growth",
-                cols: "sm:grid-cols-3 lg:grid-cols-4",
               },
             ].map((group, groupIndex) => {
               const members = team.filter((member) => member.department === group.department);
@@ -264,7 +259,7 @@ export default function AboutPage() {
                       {String(groupIndex + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <div className={`grid grid-cols-2 justify-center gap-3 sm:gap-4 ${group.cols}`}>
+                  <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
                     {members.map((member, index) => {
                       const initials = member.name
                         .split(" ")
@@ -272,8 +267,12 @@ export default function AboutPage() {
                         .join("")
                         .slice(0, 2);
                       return (
-                        <BlurFade key={member.name} delay={0.04 * index}>
-                          <article className="group border-line relative aspect-[3/4] overflow-hidden rounded-2xl border bg-[#fafaf7] shadow-[var(--shadow-soft)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-[var(--shadow-lift)] focus-within:border-orange-500/40 focus-within:shadow-[var(--shadow-lift)]">
+                        <BlurFade
+                          key={member.name}
+                          delay={0.04 * index}
+                          className="w-[calc(50%-0.375rem)] sm:w-[calc(33.333%-0.75rem)] lg:w-[calc(25%-0.75rem)] max-w-[280px]"
+                        >
+                          <article className="group border-line relative aspect-[3/4] w-full overflow-hidden rounded-2xl border bg-[#fafaf7] shadow-[var(--shadow-soft)] transition-[transform,box-shadow,border-color] duration-500 hover:-translate-y-1 hover:border-orange-500/40 hover:shadow-[var(--shadow-lift)] focus-within:border-orange-500/40 focus-within:shadow-[var(--shadow-lift)]">
                             {member.image ? (
                               <Image
                                 src={member.image}
