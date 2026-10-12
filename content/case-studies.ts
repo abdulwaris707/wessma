@@ -43,7 +43,7 @@ export const caseStudies: CaseStudy[] = [
       "A curated academic platform where students can discover, share and download papers, assignments, study guides and university resources in one organised library.",
     industry: "EdTech",
     services: ["Custom Software & SaaS", "UI/UX Design"],
-    image: "/images/work/studyhouse.svg",
+    image: "/images/work/studyhouse-home.png",
     year: "Live platform",
     duration: "Ongoing",
     location: "Online",
@@ -87,7 +87,7 @@ export const caseStudies: CaseStudy[] = [
         { title: "Student-centred", text: "Search, dashboard and organisation are designed around student needs." },
       ],
       team: [
-        { name: "Ashan Mir", role: "Founder & Leader", text: "Leading strategic direction and platform architecture." },
+        { name: "Ashan Mir", role: "Founder & Leader", text: "Visionary behind StudyHouse, leading strategic direction and platform architecture." },
         { name: "M. Umair", role: "Co-Founder", text: "Driving operational growth, community outreach, and technical scalability." },
         { name: "Noor Almas", role: "Quality Assurance", text: "Supporting quality standards and release reliability." },
         { name: "Sania Sakeena", role: "Documentation", text: "Creating clear documentation and study guides." },
