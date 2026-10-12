@@ -24,9 +24,77 @@ export type CaseStudy = {
   tech: string[];
   testimonial: { quote: string; name: string; role: string; avatar: string };
   accent: "blue" | "orange";
+  liveUrl?: string;
+  platform?: {
+    features: { title: string; text: string }[];
+    about: string;
+    values: { title: string; text: string }[];
+    team: { name: string; role: string; text: string }[];
+    community: string;
+  };
 };
 
 export const caseStudies: CaseStudy[] = [
+  {
+    slug: "studyhouse",
+    client: "StudyHouse",
+    title: "StudyHouse",
+    summary:
+      "A curated academic platform where students can discover, share and download papers, assignments, study guides and university resources in one organised library.",
+    industry: "EdTech",
+    services: ["Custom Software & SaaS", "UI/UX Design"],
+    image: "/images/work/studyhouse.svg",
+    year: "Live platform",
+    duration: "Ongoing",
+    location: "Online",
+    headline: { value: "Open access", label: "academic resources, organised" },
+    results: [],
+    challenge:
+      "Academic resources are often scattered across unreliable sources, hard to organise, affected by broken links or placed behind unnecessary access barriers.",
+    challengePoints: [
+      "Materials can be difficult to find by department or course",
+      "Unreliable sources make quality harder to assess",
+      "Students need a clearer path to sharing useful material",
+    ],
+    solution:
+      "StudyHouse brings academic resources into a central, searchable library, with structured metadata and a contribution workflow that supports curator review before publication.",
+    solutionPoints: [
+      "Discoverable material organised around academic context",
+      "Student uploads with essential resource metadata",
+      "Curator review to support a more reliable library",
+    ],
+    process: [],
+    tech: [],
+    testimonial: { quote: "", name: "", role: "", avatar: "" },
+    accent: "blue",
+    liveUrl: "https://studyhouse.online",
+    platform: {
+      features: [
+        { title: "Academic Resource Library", text: "A curated collection of past papers, assignments, notes and study resources that students can explore by university department." },
+        { title: "Search and Discovery", text: "Searchable content organised with metadata such as department, course code, semester and title." },
+        { title: "Student Accounts and Dashboard", text: "Signed-in students can manage their activity, uploads and My Papers functionality." },
+        { title: "Resource Contribution Workflow", text: "Students can upload academic papers and resources with key academic metadata before submission." },
+        { title: "Curator Review and Moderation", text: "Submitted material is reviewed before publication to support quality control and a more reliable library." },
+        { title: "Resource Management", text: "Contributors can edit resource metadata or request deletion through their dashboard." },
+        { title: "Report Content", text: "Resource pages give users a direct way to flag duplicate, copyrighted or unsuitable material." },
+        { title: "Secure, Accessible Experience", text: "Students can browse, search and download free academic materials within a reviewed-content workflow." },
+      ],
+      about: "StudyHouse is built around the idea that quality academic resources should be easier to find and available to every student. By centralising verified study material into one organised, community-driven platform, it helps students access the past papers, guides, and academic information they need without unnecessary barriers.",
+      values: [
+        { title: "Quality-first", text: "Resources are reviewed before publishing." },
+        { title: "Open access", text: "Core study resources are free for students." },
+        { title: "Community-driven", text: "Students and contributors help grow the library." },
+        { title: "Student-centred", text: "Search, dashboard and organisation are designed around student needs." },
+      ],
+      team: [
+        { name: "Ashan Mir", role: "Founder & Leader", text: "Leading strategic direction and platform architecture." },
+        { name: "M. Umair", role: "Co-Founder", text: "Driving operational growth, community outreach, and technical scalability." },
+        { name: "Noor Almas", role: "Quality Assurance", text: "Supporting quality standards and release reliability." },
+        { name: "Sania Sakeena", role: "Documentation", text: "Creating clear documentation and study guides." },
+      ],
+      community: "StudyHouse is also supported by student contributors, moderators, and volunteers who help enrich and maintain the academic resource library.",
+    },
+  },
   {
     slug: "northwind-pay",
     client: "Northwind Pay",

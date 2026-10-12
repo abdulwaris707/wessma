@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, Check, Quote } from "lucide-react";
+import { ArrowRight, Check, ExternalLink, LibraryBig, Quote, ShieldCheck, UsersRound } from "lucide-react";
 import { caseStudies, getCaseStudy } from "@/content/case-studies";
 import { buildMetadata } from "@/lib/seo";
 import { siteConfig } from "@/config/site";
@@ -78,6 +78,11 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         title={study.title}
         subtitle={study.summary}
       >
+        {study.liveUrl && (
+          <a href={study.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-full bg-orange-500 px-5 text-sm font-semibold text-navy-950 shadow-[var(--shadow-glow-orange)] transition-colors hover:bg-orange-400">
+            Visit StudyHouse <ExternalLink className="size-4" aria-hidden />
+          </a>
+        )}
         <div className="flex flex-wrap justify-center gap-2">
           {study.services.map((s) => (
             <span
@@ -119,7 +124,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
       </section>
 
       {/* Results */}
-      <section className="bg-navy-950 py-20 text-white lg:py-24">
+      {study.results.length > 0 && <section className="bg-navy-950 py-20 text-white lg:py-24">
         <div className="container-page">
           <p className="eyebrow !text-orange-400">Results</p>
           <div className="mt-8 grid grid-cols-1 gap-10 sm:grid-cols-3">
@@ -137,7 +142,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* Challenge / Solution */}
       <section className="section-y bg-white">
@@ -178,8 +183,36 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
         </div>
       </section>
 
+      {study.platform && <>
+        <section className="section-y bg-surface-alt">
+          <div className="container-page">
+            <SectionHeading align="left" eyebrow="Core platform features" title={<>A library designed for <em>learning.</em></>} />
+            <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {study.platform.features.map((feature, i) => {
+                const Icon = i % 3 === 0 ? LibraryBig : i % 3 === 1 ? ShieldCheck : UsersRound;
+                return <BlurFade key={feature.title} delay={i * 0.04} className="border-line rounded-3xl border bg-white p-6">
+                  <Icon className="size-5 text-orange-500" aria-hidden />
+                  <h3 className="mt-5 text-lg font-bold">{feature.title}</h3>
+                  <p className="text-body mt-2 text-sm leading-relaxed">{feature.text}</p>
+                </BlurFade>;
+              })}
+            </div>
+          </div>
+        </section>
+        <section className="section-y bg-white">
+          <div className="container-page grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:items-start">
+            <div><p className="eyebrow">About the platform</p><h2 className="text-h2 mt-4">Study material, made easier to <em>find.</em></h2></div>
+            <div><p className="text-lead text-ink leading-relaxed">{study.platform.about}</p><div className="mt-10 grid gap-4 sm:grid-cols-2">{study.platform.values.map((value) => <div key={value.title} className="border-line rounded-2xl border bg-surface-alt p-5"><p className="font-semibold text-navy-950">{value.title}</p><p className="text-body mt-2 text-sm leading-relaxed">{value.text}</p></div>)}</div></div>
+          </div>
+        </section>
+        <section className="section-y bg-navy-950 text-white">
+          <div className="container-page"><SectionHeading align="left" eyebrow="The people behind it" title={<>Team Behind <em>StudyHouse.</em></>} /><div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{study.platform.team.map((member) => <BlurFade key={member.name} className="rounded-3xl border border-white/15 bg-white/5 p-6"><div className="grid size-12 place-items-center rounded-full bg-orange-500 font-display font-bold text-navy-950">{member.name.split(" ").map((part) => part[0]).join("")}</div><h3 className="mt-5 text-lg font-bold text-white">{member.name}</h3><p className="mt-1 text-sm font-semibold text-orange-400">{member.role}</p><p className="mt-3 text-sm leading-relaxed text-slate-300">{member.text}</p></BlurFade>)}</div><p className="mt-8 max-w-3xl text-slate-300">{study.platform.community}</p></div>
+        </section>
+        <section className="bg-white py-20"><div className="container-page"><div className="rounded-[32px] bg-orange-50 px-7 py-10 text-center sm:px-12"><p className="eyebrow">Explore the platform</p><h2 className="text-h2 mt-4">Find your next study resource.</h2><p className="text-body mx-auto mt-4 max-w-2xl">Explore StudyHouse’s academic resource library and community learning experience.</p><a href={study.liveUrl} target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-full bg-navy-950 px-5 text-sm font-semibold text-white transition-colors hover:bg-navy-800">Visit StudyHouse <ExternalLink className="size-4" aria-hidden /></a></div></div></section>
+      </>}
+
       {/* Process */}
-      <section className="section-y bg-surface-alt">
+      {study.process.length > 0 && <section className="section-y bg-surface-alt">
         <div className="container-page">
           <SectionHeading
             align="left"
@@ -218,10 +251,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* Gallery */}
-      <section className="section-y bg-white">
+      {!study.platform && <section className="section-y bg-white">
         <div className="container-page">
           <SectionHeading align="left" eyebrow="Gallery" title="Behind the build" />
           <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-3">
@@ -257,10 +290,10 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             ))}
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* Testimonial */}
-      <section className="bg-white pb-24">
+      {!study.platform && <section className="bg-white pb-24">
         <div className="container-page">
           <BlurFade>
             <figure className="border-line bg-surface-alt relative mx-auto max-w-4xl overflow-hidden rounded-[32px] border p-8 text-center sm:p-14">
@@ -285,7 +318,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ slug
             </figure>
           </BlurFade>
         </div>
-      </section>
+      </section>}
 
       {/* Next project */}
       <section className="border-line border-t bg-white">

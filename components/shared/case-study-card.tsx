@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ExternalLink } from "lucide-react";
 import type { CaseStudy } from "@/content/case-studies";
 import { Card3D } from "@/components/aceternity/card-3d";
 import { cn } from "@/lib/utils";
@@ -17,10 +17,8 @@ export function CaseStudyCard({
 }) {
   return (
     <Card3D max={4}>
-      <Link
-        href={`/work/${study.slug}`}
-        className="group border-line block overflow-hidden rounded-[28px] border bg-white p-2 shadow-[var(--shadow-soft)] transition-shadow duration-500 hover:shadow-[var(--shadow-float)]"
-      >
+      <div className="group border-line overflow-hidden rounded-[28px] border bg-white p-2 shadow-[var(--shadow-soft)] transition-shadow duration-500 hover:shadow-[var(--shadow-float)]">
+        <Link href={`/work/${study.slug}`} className="block">
         <div
           className={cn(
             "bg-surface-subtle relative overflow-hidden rounded-[22px]",
@@ -55,6 +53,7 @@ export function CaseStudyCard({
             <ArrowUpRight className="size-5" aria-hidden />
           </span>
         </div>
+        </Link>
         <div className="p-4 pb-5 sm:p-5">
           <p className="text-muted-ink text-sm font-medium">
             {study.client} · {study.services.slice(0, 2).join(" · ")}
@@ -67,8 +66,18 @@ export function CaseStudyCard({
           >
             {study.title}
           </h3>
+          {study.liveUrl && (
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Link href={`/work/${study.slug}`} className="text-navy-950 inline-flex min-h-10 items-center gap-1.5 rounded-full bg-orange-500 px-4 text-sm font-semibold transition-colors hover:bg-orange-400">
+                View Case Study <ArrowUpRight className="size-4" aria-hidden />
+              </Link>
+              <a href={study.liveUrl} target="_blank" rel="noopener noreferrer" className="border-line text-navy-950 inline-flex min-h-10 items-center gap-1.5 rounded-full border px-4 text-sm font-semibold transition-colors hover:border-orange-500 hover:text-orange-700">
+                Visit Live Website <ExternalLink className="size-4" aria-hidden />
+              </a>
+            </div>
+          )}
         </div>
-      </Link>
+      </div>
     </Card3D>
   );
 }

@@ -6,7 +6,9 @@ import { BlurFade } from "@/components/magicui/blur-fade";
 
 /** Three featured case studies: one large + two stacked. */
 export function FeaturedCaseStudies() {
-  const [a, b, c] = [caseStudies[0], caseStudies[2], caseStudies[4]];
+  // Keep the home showcase intentionally compact; StudyHouse is available on /work.
+  const featuredStudies = caseStudies.filter((study) => study.slug !== "studyhouse");
+  const [a, b, c] = [featuredStudies[0], featuredStudies[2], featuredStudies[4]];
   return (
     <section className="section-y relative bg-white">
       <div className="container-page">
