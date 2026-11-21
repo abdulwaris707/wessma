@@ -1,8 +1,46 @@
-node_modules
-.next
-out
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Next.js build & export outputs
+/.next/
+/out/
+build/
+dist/
+
+# Environment variables & Secret Keys (CRITICAL: NEVER COMMIT OR SHARE SECRETS)
+.env
 .env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production
+.env.production.local
+*.env
+*.env.local
+
+# Vercel & Deployment
+.vercel
+
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
+
+# Operating System & IDE
 .DS_Store
-.vercel
+Thumbs.db
+*.pem
+*.key
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.idea/
+.vscode/
+*.swp
+
+# Archives (prevent accidental commit of backup zip files)
+*.zip
+*.tar.gz
+*.rar
