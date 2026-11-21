@@ -1,156 +1,137 @@
-# Wessmaa — Marketing Website
+# WESSMAA — Official Production Source Code & Deployment Guide
 
-The marketing site for **Wessmaa**, a software and growth studio. The name stands for **W**ebsite · **E**diting · **S**ocial · **S**EO · **M**arketing · **A**utomation · **A**ds.
+Welcome to the official source code of the **WESSMAA Digital Growth Company** website (`https://wessmaa.com`).
 
-Built with Next.js 15 (App Router), React 19, TypeScript (strict), Tailwind CSS v4, shadcn/ui (Radix), Magic UI and Aceternity UI patterns, Motion, Lenis, react-hook-form + zod, and MDX.
+This project is built using modern production-grade technologies:
+- **Framework:** Next.js 15 (App Router with TypeScript)
+- **Styling & UI:** Tailwind CSS v4, Lucide Icons, Framer Motion, Lenis Smooth Scroll
+- **Database:** Neon Serverless PostgreSQL
+- **Admin Dashboard:** Built-in portal at `/admin` (Manage enquiries, quote requests, and job applicants)
+- **Email Service:** Built-in SMTP (Hostinger / Google Workspace) and Resend API support
+- **Hosting:** Ready for Vercel, Node.js VPS, or Docker container
+- **SEO & Security:** Pre-configured security headers (HSTS, CSP, X-Frame-Options), dynamic XML sitemap, robots.txt, and JSON-LD structured schemas
 
 ---
 
-## Quick start
+## ⚡ Quick Start: Run Locally in 3 Steps
 
+### Step 1: Install Dependencies
+Open terminal in this directory and run:
 ```bash
-# Node 20.18+ (or 22 LTS) recommended
 npm install
-cp .env.example .env.local   # optional; see "Environment variables"
-npm run dev                  # http://localhost:3000
 ```
 
-| Script                 | What it does                                          |
-| ---------------------- | ----------------------------------------------------- |
-| `npm run dev`          | Dev server with Turbopack                             |
-| `npm run build`        | Production build (SSG for every route)                |
-| `npm run start`        | Serve the production build                            |
-| `npm run build` | Production build for Vercel or another Node.js-capable host |
-| `npm run lint`         | ESLint (next/core-web-vitals + TypeScript)            |
-| `npm run typecheck`    | `tsc --noEmit`                                        |
-| `npm run format`       | Prettier (with the Tailwind class-sorting plugin)     |
+### Step 2: Configure Environment Variables
+Copy the template configuration file:
+```bash
+# On Windows (PowerShell):
+Copy-Item .env.example .env.local
 
----
-
-## Environment variables
-
-| Variable                     | Purpose                                                                                                                                                          |
-| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `NEXT_PUBLIC_SITE_URL`       | Canonical URL, used in metadata, the sitemap, OG tags and JSON-LD. Example: `https://wessmaa.com`                                                                |
-| `NEXT_PUBLIC_FORMS_ENDPOINT` | Where every form posts JSON (Formspree, Basin, Getform, or your own API route). Unset = **demo mode**: forms validate and show success without sending anything. |
-
-> **CV uploads:** the careers form validates the file (PDF/DOC/DOCX, 5 MB max) and sends its metadata. To store the file itself, point `NEXT_PUBLIC_FORMS_ENDPOINT` at a provider that accepts multipart uploads (for example Formspree or Basin), or add a route handler that uploads to S3 or Vercel Blob. The only file to change is `lib/forms.ts`.
-
----
-
-## Project structure
-
+# On Mac / Linux:
+cp .env.example .env.local
 ```
-app/                     Routes (App Router)
-  page.tsx               Home (16 sections)
-  services/ [slug]/      Services index + 12 detail pages (Service JSON-LD)
-  solutions/             Productised packages
-  work/ [slug]/          Filterable portfolio + 6 case studies
-  pricing/               Tiers, monthly/project toggle, comparison, FAQ
-  about/ careers/ [slug] Company, culture, jobs (JobPosting JSON-LD), application form
-  blog/ [slug]/          MDX blog: search, categories, pagination, TOC, progress bar
-  contact/ book/ quote/  Multi-step contact, Cal.com embed, live estimator
-  faq/                   Categorised, searchable FAQ (FAQPage JSON-LD)
-  privacy-policy/ terms/ cookie-policy/
-  not-found.tsx          Animated 404
-  sitemap.ts robots.ts manifest.ts
-components/
-  ui/                    shadcn/ui primitives (button, card, dialog, sheet, tabs, accordion, form, …)
-  magicui/               Blur fade, shimmer button, border beam, magic card, number ticker, marquee, …
-  aceternity/            Spotlight, background beams, tracing beam, container scroll, 3D card, …
-  sections/              Page sections (home/*, pricing, work grid, job board, FAQ, CTA)
-  forms/                 Contact, quote estimator, job application, shared fields
-  blog/                  Post card, index, TOC, reading progress, share buttons, MDX components
-  layout/                Navbar (mega menu + mobile sheet), footer, cookie consent, sticky mobile CTA
-  shared/                Logo, container, section heading, CTA button, icons, cards, JSON-LD
-  providers/             Lenis smooth scroll, page transitions, Motion config
-config/site.ts           ALL global copy and links: nav, CTAs, hero, stats, footer, contact, socials
-content/                 Services, case studies, team, testimonials, pricing, FAQ, jobs, legal, blog/*.mdx
-lib/                     SEO helpers, blog loader, forms, motion tokens, utils
-hooks/                   Media-query and reduced-motion hooks
-public/                  Logo, icons, OG image, fonts (Satoshi), images
+Open `.env.local` in your editor and enter your database and email credentials (see Section below).
+
+### Step 3: Start the Development Server
+```bash
+npm run dev
 ```
-
-### Editing content
-
-- **Copy, navigation, CTAs, contact details and social links:** `config/site.ts`
-- **Services:** `content/services.ts` (each entry generates `/services/<slug>`)
-- **Case studies:** `content/case-studies.ts`
-- **Team, testimonials, pricing, FAQ, jobs, values, timeline:** `content/company.ts`
-- **Estimator prices:** `content/estimator.ts`
-- **Legal pages:** `content/legal.ts`. Have a lawyer review them before launch.
-- **Blog posts:** add a `.mdx` file to `content/blog/` with this front-matter:
-
-```mdx
----
-title: "Post title"
-excerpt: "One-sentence summary."
-date: "2026-09-30"
-category: "Product"
-author: "abdul-waris" # key from lib/blog.ts → authors
-cover: "/images/blog/cover.webp"
-featured: false
----
-```
-
-`##` and `###` headings appear in the table of contents automatically. You can use `<Callout title="…">…</Callout>` inside posts.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ---
 
-## Design system
+## 🚀 How to Deploy to Vercel (Recommended)
 
-Tokens live in `app/globals.css` under `@theme`.
-
-- **Surfaces:** `#FFFFFF`, `#F8FAFC`, `#F1F5F9`
-- **Navy:** `#0A1F44`, `#1E3A8A`, `#2563EB`
-- **Orange:** `#F97316`, `#FF8A3D`, `#FFF1E6`
-- **Text:** body `#334155`, muted `#64748B`
-- **Borders:** `#E2E8F0`
-- **Brand gradient:** `linear-gradient(90deg, #1E3A8A, #F97316)`. Use it only for headline highlights and special buttons.
-- **Type:** Satoshi (display, self-hosted variable font), Inter (body) and Instrument Serif italic (accent words). All sizes use fluid `clamp()`.
-- **Motion:** 200–700 ms with easing `[0.22, 1, 0.36, 1]`. All motion respects `prefers-reduced-motion`.
-- **Accessibility:** skip link, orange focus rings, 44px minimum touch targets, and WCAG AA contrast.
+1. Push this folder to your company's **GitHub**, **GitLab**, or **Bitbucket** account.
+2. Go to [Vercel](https://vercel.com) and log in with your company account.
+3. Click **Add New...** > **Project** and select your repository.
+4. Add the required Environment Variables in Vercel Project Settings (see below).
+5. Click **Deploy**.
 
 ---
 
-## SEO
+## 🌐 How to Connect Your Hostinger Domain to Vercel
 
-- Per-page metadata comes from `buildMetadata()` in `lib/seo.ts` and covers canonical URLs, Open Graph and Twitter cards.
-- JSON-LD:
-  - Organization (every page)
-  - BreadcrumbList (inner pages)
-  - Service (service pages)
-  - Article (blog posts and case studies)
-  - FAQPage (FAQ sections)
-  - JobPosting (job pages)
-- `sitemap.xml`, `robots.txt` and the web manifest are generated at build time.
+1. In your **Vercel Project**:
+   - Go to **Settings** > **Domains**.
+   - Enter your domain (e.g. `wessmaa.com`) and click **Add**.
+2. In your **Hostinger hPanel**:
+   - Go to **Domains** > Click **Manage** next to `wessmaa.com`.
+   - Click **DNS / Nameservers** in the left menu.
+   - In the **Manage DNS records** table, set these two records:
+     - **Record 1 (A Record):**
+       - Type: `A` | Name: `@` | Points to: `76.76.21.21` | TTL: `300`
+     - **Record 2 (CNAME Record):**
+       - Type: `CNAME` | Name: `www` | Points to: `cname.vercel-dns.com` | TTL: `300`
+3. Save changes. Within 5–30 minutes, Vercel will issue a free SSL (HTTPS) certificate and your site will be live!
 
 ---
 
-## Deploying to Vercel
+## 📧 How to Connect Your Official Hostinger Email
 
-1. Push this folder to a GitHub, GitLab or Bitbucket repository:
-   ```bash
-   git init && git add -A && git commit -m "Wessmaa website"
-   git remote add origin git@github.com:<you>/wessmaa-website.git
-   git push -u origin main
+When clients fill out the contact form or candidates submit job applications, the website automatically sends notification emails.
+
+To use your Hostinger business email (e.g. `info@wessmaa.com`):
+1. In Hostinger hPanel > **Emails** > **Email Accounts**, create your mailbox (e.g. `info@wessmaa.com`).
+2. Add these variables to your Vercel Project Settings (or local `.env.local`):
+   ```env
+   EMAIL_FROM=Wessmaa <info@wessmaa.com>
+   ADMIN_EMAIL=info@wessmaa.com
+   SMTP_HOST=smtp.hostinger.com
+   SMTP_PORT=465
+   SMTP_USER=info@wessmaa.com
+   SMTP_PASSWORD=your-hostinger-mailbox-password
    ```
-2. In Vercel, click **Add New → Project** and import the repository. Vercel detects Next.js automatically; keep the default build command (`next build`) and output settings.
-3. Under **Settings → Environment Variables**, add `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_FORMS_ENDPOINT` and `NEXT_PUBLIC_BOOKING_URL`.
-4. Click **Deploy**. Then add your domain under **Settings → Domains** and point DNS to Vercel (an `A` record to `76.76.21.21`, or a `CNAME` to `cname.vercel-dns.com`).
-5. Submit `https://<your-domain>/sitemap.xml` in Google Search Console.
 
-To deploy from the CLI instead: `npm i -g vercel && vercel && vercel --prod`.
-
-**Other hosts (Netlify, Cloudflare Pages, S3):** run `npm run build:static` and upload the `/out` folder.
+*(If you use Google Workspace instead, use `SMTP_HOST=smtp.gmail.com`, `SMTP_PORT=587`, and a 16-character Google App Password).*
 
 ---
 
-## Launch checklist
+## 🗄️ Database Setup (Neon PostgreSQL)
 
-- [ ] Replace the phone number, address and social links in `config/site.ts`
-- [ ] Set `NEXT_PUBLIC_FORMS_ENDPOINT` and send a test through every form
-- [ ] Connect your Cal.com event and set `NEXT_PUBLIC_BOOKING_URL`
-- [ ] Replace the sample case studies, team photos and testimonials with real ones
-- [ ] Have the legal pages reviewed
-- [ ] Add analytics (for example Vercel Analytics or Plausible), loaded only after cookie consent
+The website uses Neon Serverless PostgreSQL to store enquiries and job applications.
+1. Create a free project at [console.neon.tech](https://console.neon.tech).
+2. Copy the connection string (`postgresql://...`).
+3. Run the database migration script once to create tables:
+   ```bash
+   DATABASE_URL="your-neon-connection-string" node scripts/migrate.mjs
+   ```
+4. Set `DATABASE_URL` in Vercel Environment Variables.
+
+---
+
+## 🔐 Admin Dashboard Access
+
+- **Dashboard URL:** `https://yourdomain.com/admin`
+- **Login URL:** `https://yourdomain.com/admin/login`
+- **Default Login:**
+  - Email: `admin@wessmaa.com` (or your configured `ADMIN_EMAIL`)
+  - Password: `admin123456`
+
+### To change the Admin Password:
+Run this command in your terminal:
+```bash
+node scripts/hash-password.mjs "YourNewPasswordHere"
+```
+Copy the generated hash (`scrypt:...`) and set it as `ADMIN_PASSWORD_HASH` in Vercel Environment Variables.
+
+---
+
+## ✏️ How to Edit Website Content
+
+- **Company Phone, Email, Office Address, Socials, Header & Footer:** `config/site.ts`
+- **12 Services (Descriptions, Deliverables, FAQs):** `content/services.ts`
+- **Case Studies & Portfolio:** `content/case-studies.ts`
+- **Team Members, Values, Milestones & Jobs:** `content/company.ts`
+- **Privacy Policy, Terms, Cookies:** `content/legal.ts`
+- **Logos & Images:** `public/images/` and `public/logo-mark.png`
+
+---
+
+## 🧪 Testing & Verification
+
+Run the built-in test suite:
+```bash
+npm test        # Runs unit validation & security tests
+npm run typecheck # Verifies TypeScript type safety
+```
