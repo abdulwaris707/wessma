@@ -1,137 +1,69 @@
-# WESSMAA — Official Production Source Code & Deployment Guide
+# WESSMAA — Digital Growth Platform
 
-Welcome to the official source code of the **WESSMAA Digital Growth Company** website (`https://wessmaa.com`).
+Official web platform for **WESSMAA Digital Growth Company** (`https://wessmaa.com`). 
+The company combines technology, creative content, social media, SEO, marketing, advertising, and business automation into a single growth stack.
 
-This project is built using modern production-grade technologies:
-- **Framework:** Next.js 15 (App Router with TypeScript)
-- **Styling & UI:** Tailwind CSS v4, Lucide Icons, Framer Motion, Lenis Smooth Scroll
-- **Database:** Neon Serverless PostgreSQL
-- **Admin Dashboard:** Built-in portal at `/admin` (Manage enquiries, quote requests, and job applicants)
-- **Email Service:** Built-in SMTP (Hostinger / Google Workspace) and Resend API support
-- **Hosting:** Ready for Vercel, Node.js VPS, or Docker container
-- **SEO & Security:** Pre-configured security headers (HSTS, CSP, X-Frame-Options), dynamic XML sitemap, robots.txt, and JSON-LD structured schemas
+> For setup instructions, hosting on Vercel, connecting the Hostinger domain, and email configuration, see **[HANDOVER_GUIDE.md](./HANDOVER_GUIDE.md)**.
 
 ---
 
-## ⚡ Quick Start: Run Locally in 3 Steps
+## 🌟 Platform Highlights
 
-### Step 1: Install Dependencies
-Open terminal in this directory and run:
-```bash
-npm install
+- **Modern Web Architecture:** Built with Next.js 15 (App Router), React 19, TypeScript (strict mode), and Tailwind CSS v4.
+- **Enterprise Design & Polish:** Aceternity UI, Magic UI, Radix UI primitives, Lucide icons, Framer Motion animations, and Lenis smooth scrolling.
+- **Full SEO Optimization:** Dynamic OpenGraph & Twitter image generation, Googlebot rich snippet directives, automated XML sitemap (`/sitemap.xml`), robots.txt, and Schema.org JSON-LD structured data.
+- **Security Pre-configured:** Strict-Transport-Security (HSTS), X-Frame-Options, X-Content-Type-Options, Referrer-Policy, and Permissions-Policy headers.
+- **Admin Management Portal:** Dedicated dashboard at `/admin` for reviewing quote requests, client enquiries, and job applications.
+- **Automated Communication:** Built-in email dispatch via Hostinger SMTP, Google Workspace, or Resend Cloud API with automatic database delivery logging.
+
+---
+
+## 🛠️ Tech Stack & Libraries
+
+| Category | Technology |
+|---|---|
+| **Core Framework** | Next.js 15 (App Router), React 19, TypeScript 5 |
+| **Styling & Theme** | Tailwind CSS v4, PostCSS |
+| **UI Components** | shadcn/ui (Radix Primitives), Magic UI, Aceternity UI |
+| **Animation & Motion** | Framer Motion, Lenis Smooth Scrolling |
+| **Database** | Neon Serverless PostgreSQL (`@neondatabase/serverless`) |
+| **Form Handling** | `react-hook-form`, `zod` schema validation, Honeypot bot protection |
+| **Icons & Media** | Lucide React, Self-hosted Satoshi variable fonts |
+| **Email Service** | Nodemailer (SMTP) & Resend API |
+
+---
+
+## 📁 Repository Structure
+
+```
+wessmaa/
+├── app/                  # Next.js App Router (Pages, layouts, API routes, sitemap, robots)
+│   ├── about/            # About page, leadership, company values & timeline
+│   ├── admin/            # Secure admin dashboard & login portal
+│   ├── api/              # Backend endpoints (contact, careers, admin API)
+│   ├── careers/          # Career portal & dynamic job openings [slug]
+│   ├── contact/          # Multi-step contact enquiry form
+│   ├── quote/            # Interactive project cost & timeline estimator
+│   ├── services/         # 12 Digital growth services & dynamic detail pages [slug]
+│   ├── solutions/        # Productised digital packages & ROI frameworks
+│   └── work/             # Filterable portfolio & 6 in-depth case studies [slug]
+├── components/           # Reusable UI primitives, cards, sections, and form controls
+├── config/               # Global site configuration, navigation, and company metadata
+├── content/              # Core business copy (services, team, jobs, testimonials, legal)
+├── lib/                  # Database client, authentication, SEO builders, email dispatcher
+├── public/               # Static assets (brand logos, OG sharing images, web fonts)
+├── scripts/              # Migration utilities, password hasher, and automated test suite
+├── HANDOVER_GUIDE.md     # Complete owner & developer operations guide
+└── package.json          # Project scripts and dependencies
 ```
 
-### Step 2: Configure Environment Variables
-Copy the template configuration file:
+---
+
+## 🧪 Verification & Quality Control
+
+The project includes an automated test suite verifying form validations, anti-bot protection, authentication security, and database models:
+
 ```bash
-# On Windows (PowerShell):
-Copy-Item .env.example .env.local
-
-# On Mac / Linux:
-cp .env.example .env.local
-```
-Open `.env.local` in your editor and enter your database and email credentials (see Section below).
-
-### Step 3: Start the Development Server
-```bash
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
----
-
-## 🚀 How to Deploy to Vercel (Recommended)
-
-1. Push this folder to your company's **GitHub**, **GitLab**, or **Bitbucket** account.
-2. Go to [Vercel](https://vercel.com) and log in with your company account.
-3. Click **Add New...** > **Project** and select your repository.
-4. Add the required Environment Variables in Vercel Project Settings (see below).
-5. Click **Deploy**.
-
----
-
-## 🌐 How to Connect Your Hostinger Domain to Vercel
-
-1. In your **Vercel Project**:
-   - Go to **Settings** > **Domains**.
-   - Enter your domain (e.g. `wessmaa.com`) and click **Add**.
-2. In your **Hostinger hPanel**:
-   - Go to **Domains** > Click **Manage** next to `wessmaa.com`.
-   - Click **DNS / Nameservers** in the left menu.
-   - In the **Manage DNS records** table, set these two records:
-     - **Record 1 (A Record):**
-       - Type: `A` | Name: `@` | Points to: `76.76.21.21` | TTL: `300`
-     - **Record 2 (CNAME Record):**
-       - Type: `CNAME` | Name: `www` | Points to: `cname.vercel-dns.com` | TTL: `300`
-3. Save changes. Within 5–30 minutes, Vercel will issue a free SSL (HTTPS) certificate and your site will be live!
-
----
-
-## 📧 How to Connect Your Official Hostinger Email
-
-When clients fill out the contact form or candidates submit job applications, the website automatically sends notification emails.
-
-To use your Hostinger business email (e.g. `info@wessmaa.com`):
-1. In Hostinger hPanel > **Emails** > **Email Accounts**, create your mailbox (e.g. `info@wessmaa.com`).
-2. Add these variables to your Vercel Project Settings (or local `.env.local`):
-   ```env
-   EMAIL_FROM=Wessmaa <info@wessmaa.com>
-   ADMIN_EMAIL=info@wessmaa.com
-   SMTP_HOST=smtp.hostinger.com
-   SMTP_PORT=465
-   SMTP_USER=info@wessmaa.com
-   SMTP_PASSWORD=your-hostinger-mailbox-password
-   ```
-
-*(If you use Google Workspace instead, use `SMTP_HOST=smtp.gmail.com`, `SMTP_PORT=587`, and a 16-character Google App Password).*
-
----
-
-## 🗄️ Database Setup (Neon PostgreSQL)
-
-The website uses Neon Serverless PostgreSQL to store enquiries and job applications.
-1. Create a free project at [console.neon.tech](https://console.neon.tech).
-2. Copy the connection string (`postgresql://...`).
-3. Run the database migration script once to create tables:
-   ```bash
-   DATABASE_URL="your-neon-connection-string" node scripts/migrate.mjs
-   ```
-4. Set `DATABASE_URL` in Vercel Environment Variables.
-
----
-
-## 🔐 Admin Dashboard Access
-
-- **Dashboard URL:** `https://yourdomain.com/admin`
-- **Login URL:** `https://yourdomain.com/admin/login`
-- **Default Login:**
-  - Email: `admin@wessmaa.com` (or your configured `ADMIN_EMAIL`)
-  - Password: `admin123456`
-
-### To change the Admin Password:
-Run this command in your terminal:
-```bash
-node scripts/hash-password.mjs "YourNewPasswordHere"
-```
-Copy the generated hash (`scrypt:...`) and set it as `ADMIN_PASSWORD_HASH` in Vercel Environment Variables.
-
----
-
-## ✏️ How to Edit Website Content
-
-- **Company Phone, Email, Office Address, Socials, Header & Footer:** `config/site.ts`
-- **12 Services (Descriptions, Deliverables, FAQs):** `content/services.ts`
-- **Case Studies & Portfolio:** `content/case-studies.ts`
-- **Team Members, Values, Milestones & Jobs:** `content/company.ts`
-- **Privacy Policy, Terms, Cookies:** `content/legal.ts`
-- **Logos & Images:** `public/images/` and `public/logo-mark.png`
-
----
-
-## 🧪 Testing & Verification
-
-Run the built-in test suite:
-```bash
-npm test        # Runs unit validation & security tests
-npm run typecheck # Verifies TypeScript type safety
+npm test          # Run unit validation and security tests
+npm run typecheck # Run strict TypeScript check (0 errors)
 ```
