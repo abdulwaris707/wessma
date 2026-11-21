@@ -22,6 +22,17 @@ export function buildMetadata({
     title: fullTitle,
     description,
     alternates: { canonical: path },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
     openGraph: {
       type,
       url: path,
@@ -54,6 +65,20 @@ export const organizationJsonLd = {
   },
   sameAs: siteConfig.social.map((s) => s.href),
   areaServed: "Worldwide",
+};
+
+export const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: siteConfig.url,
+  description: siteConfig.description,
+  publisher: {
+    "@type": "Organization",
+    name: siteConfig.name,
+    url: siteConfig.url,
+    logo: `${siteConfig.url}/icon-512.png`,
+  },
 };
 
 export function faqJsonLd(items: { q: string; a: string }[]) {

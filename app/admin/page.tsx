@@ -1,8 +1,18 @@
+import type { Metadata } from "next";
 import { requireAdmin, getAdminSession } from "@/lib/auth";
 import { getDashboardData } from "@/lib/db";
 import { AdminDashboard } from "@/components/admin/dashboard";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Admin Dashboard — WESSMAA",
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+  },
+};
 
 export default async function AdminPage() {
   await requireAdmin();

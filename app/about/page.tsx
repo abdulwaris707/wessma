@@ -286,8 +286,8 @@ export default function AboutPage() {
                                 {initials}
                               </span>
                             )}
-                            <div className="absolute inset-x-0 bottom-0 h-[45%] bg-gradient-to-t from-navy-950 via-navy-950/90 to-transparent" />
-                            <div className="absolute inset-x-0 bottom-0 flex flex-col items-center p-4 text-center text-white">
+                            <div className="absolute inset-x-0 bottom-0 h-[52%] bg-gradient-to-t from-navy-950 via-navy-950/90 to-transparent md:h-[45%]" />
+                            <div className="absolute inset-x-0 bottom-0 flex flex-col items-center p-3 text-center text-white sm:p-4">
                               <h3 className="font-display !text-white text-base font-bold tracking-tight drop-shadow-sm sm:text-lg">
                                 {member.name}
                               </h3>
@@ -298,7 +298,7 @@ export default function AboutPage() {
                                   target="_blank"
                                   rel="noreferrer"
                                   aria-label={`LinkedIn profile of ${member.name}`}
-                                  className="mt-3 inline-flex translate-y-2 items-center justify-center gap-2 text-xs font-semibold text-white opacity-0 transition-[transform,opacity,color] duration-300 hover:text-orange-300 focus-visible:translate-y-0 focus-visible:opacity-100 group-hover:translate-y-0 group-hover:opacity-100 sm:text-sm"
+                                  className="mt-2.5 inline-flex items-center justify-center gap-1.5 text-xs font-semibold text-white opacity-100 transition-[transform,opacity,color] duration-300 hover:text-orange-300 focus-visible:translate-y-0 focus-visible:opacity-100 sm:text-sm md:mt-3 md:translate-y-2 md:gap-2 md:opacity-0 md:focus-visible:translate-y-0 md:focus-visible:opacity-100 md:group-hover:translate-y-0 md:group-hover:opacity-100"
                                 >
                                   <BrandIcon name="linkedin" className="size-4" />
                                   View LinkedIn

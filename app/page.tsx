@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import dynamic from "next/dynamic";
+import { buildMetadata } from "@/lib/seo";
 import { Hero } from "@/components/sections/home/hero";
 import { MissionPillars } from "@/components/sections/home/mission-pillars";
 import { ServicesBento } from "@/components/sections/home/services-bento";
@@ -24,6 +26,13 @@ const TechStack = dynamic(
     ),
   },
 );
+
+export const metadata: Metadata = buildMetadata({
+  title: "WESSMAA — Digital Growth Company | Web, SEO, Marketing & Automation",
+  description:
+    "WESSMAA helps businesses drive traffic, build trust, and increase conversions through modern web development, SEO, content editing, social media, and automation.",
+  path: "/",
+});
 
 export default function HomePage() {
   return (

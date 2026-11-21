@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
-import { buildMetadata, organizationJsonLd } from "@/lib/seo";
+import { buildMetadata, organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 import { PublicChrome, PublicFooter } from "@/components/layout/public-chrome";
 import { MotionProvider, PageTransition } from "@/components/providers/page-transition";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -74,6 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </style>
         </noscript>
         <JsonLd data={organizationJsonLd} />
+        <JsonLd data={websiteJsonLd} />
       </body>
     </html>
   );
